@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getAmount } from './transactionrow';
-import { useToken } from './contexts/tokenContext';
+import { useToken } from '../contexts/tokenContext';
 
 const TransactionDetails = () => {
   const { hash } = useParams();
@@ -48,7 +48,7 @@ const TransactionDetails = () => {
         {transaction && (
           <>
             <p><strong>Hash:</strong> {transaction.hash}</p>
-            <p><strong>Time:</strong> {convertTimestamp(transaction.time)}</p>
+            <p><strong>Time:</strong> {convertTimestamp(transaction.timestamp)}</p>
             <p><strong>From:</strong> {transaction.from}</p>
             <p><strong>To:</strong> {transaction.to}</p>
             <p><strong>Type:</strong> {transaction.type}</p>

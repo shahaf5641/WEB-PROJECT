@@ -7,8 +7,8 @@ import Contact from './comps/contact';
 import Dashboard from './comps/dashboard';
 import Explore from './comps/explore';
 import Blocks from './comps/blocks';
-import Transactions from './comps/transactions';
-import TransactionDetails from './comps/transactionDetails';
+import Transactions from './comps/transactions/transactions';
+import TransactionDetails from './comps/transactions/transactionDetails';
 import Layout from './Layout/layout';
 import { TokenProvider } from './comps/contexts/tokenContext';
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import TransactionTable from './transactionTable';
-import Pagination from './pagination';
+import Pagination from '../pagination';
 
 export default function Transactions() {
   const [transactions, setTransactions] = useState([]);
