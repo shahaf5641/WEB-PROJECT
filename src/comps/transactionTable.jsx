@@ -1,6 +1,6 @@
 // src/comps/TransactionTable.jsx
 import React from 'react';
-import TransactionRow from './transcationrow';
+import TransactionRow from './transactionrow';
 
 const TransactionTable = ({ transactions, tokenAddressToName }) => {
   return (

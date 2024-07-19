@@ -1,7 +1,7 @@
 // src/comps/transactionDetails.jsx
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getAmount } from './transcationrow';
+import { getAmount } from './transactionrow';
 import { useToken } from './contexts/tokenContext';
 
 const TransactionDetails = () => {
