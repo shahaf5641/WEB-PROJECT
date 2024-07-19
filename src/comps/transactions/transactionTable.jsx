@@ -10,9 +10,9 @@ const TransactionTable = ({ transactions, tokenAddressToName }) => {
           <tr className="w-full bg-gray-100">
             <th className="py-2 px-12 border-b">Time</th>
             <th className="py-2 px-12 border-b">Amount</th>
-            <th className="py-2 px-4 border-b">Sender Profile</th>
-            <th className="py-2 px-4 border-b">Recipient Profile</th>
-            <th className="py-2 px-4 border-b">Transaction Details</th>
+            <th className="py-2 px-4 border-b">Sender</th>
+            <th className="py-2 px-4 border-b">Recipient</th>
+            <th className="py-2 px-4 border-b">Hash</th>
           </tr>
         </thead>
         <tbody>

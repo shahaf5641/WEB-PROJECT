@@ -11,6 +11,7 @@ import Transactions from './comps/transactions/transactions';
 import TransactionDetails from './comps/transactions/transactionDetails';
 import Layout from './Layout/layout';
 import { TokenProvider } from './comps/contexts/tokenContext';
+import TokenDetails from './comps/tokenDetails';
 
 export default function AppRouter() {
   const tokenAddressToName = {
@@ -31,6 +32,7 @@ export default function AppRouter() {
             <Route path="/blocks" element={<Blocks />} />
             <Route path="/transactions" element={<Transactions />} />
             <Route path="/transaction/:hash" element={<TransactionDetails />} />
+            <Route path="/token/:address" element={<TokenDetails />} /> 
           </Routes>
         </Layout>
       </TokenProvider>

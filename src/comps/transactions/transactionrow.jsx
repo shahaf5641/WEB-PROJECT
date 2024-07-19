@@ -1,3 +1,4 @@
+// src/comps/transactionRow.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -22,18 +23,12 @@ const TransactionRow = ({ tx, tokenAddressToName }) => {
     <tr className="even:bg-gray-50 hover:bg-gray-100">
       <td className="py-2 px-4 border-b">{convertTimestamp(tx.timestamp)}</td>
       <td className="py-2 px-4 border-b">
-        {tx.type === 'token' ? (
-          <a
-            href={`https://blockexplorer.morethanwallet.com/token/${tx.tokenAddress}`}
-            className="text-blue-500 hover:underline"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {getAmount(tx, tokenAddressToName)}
-          </a>
-        ) : (
-          getAmount(tx, tokenAddressToName)
-        )}
+        <Link
+          to={`/token/${tx.tokenAddress}`}
+          className="text-blue-500 hover:underline"
+        >
+          {getAmount(tx, tokenAddressToName)}
+        </Link>
       </td>
       <td className="py-2 px-4 border-b">{tx.from}</td>
       <td className="py-2 px-4 border-b">{tx.to}</td>
