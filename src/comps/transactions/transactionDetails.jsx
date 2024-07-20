@@ -52,7 +52,7 @@ const TransactionDetails = () => {
             <p><strong>From:</strong> {transaction.from}</p>
             <p><strong>To:</strong> {transaction.to}</p>
             <p><strong>Type:</strong> {transaction.type}</p>
-            <p><strong>Amount:</strong> {getAmount(transaction, tokenAddressToName, true)}</p> {/* onlyValue is true */}
+            <p><strong>Amount:</strong> {getAmount(transaction, tokenAddressToName)}</p> 
             <p><strong>Symbol:</strong> {tokenAddressToName[transaction.tokenAddress] || 'ETH'}</p>
             <p><strong>Gas Limit:</strong> {transaction.gasLimit}</p>
             <p><strong>Gas Price:</strong> {transaction.gasPrice}</p>

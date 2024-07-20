@@ -10,7 +10,6 @@ export default function Contact() {
  
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission
     console.log('First Name:', firstName);
     console.log('Last Name:', lastName);
     console.log('Email:', email);
@@ -19,7 +18,7 @@ export default function Contact() {
   };
  
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+    <div className="flex justify-center items-center ">
       <div className="bg-white p-16 rounded-lg shadow-md w-full max-w-4xl">
         <h1 className="text-4xl font-bold mb-8">Get in Touch</h1>
         {!showThankYou && (

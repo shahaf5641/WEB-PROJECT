@@ -7,14 +7,14 @@ const convertTimestamp = (timestamp) => {
   return date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
 };
 
-export const getAmount = (tx, tokenAddressToName, onlyValue = false) => {
+export const getAmount = (tx, tokenAddressToName) => {
   if (tx.type === 'eth') {
-    return onlyValue ? tx.value : `${tx.value} wETH`;
+    return `${tx.value} wETH`;
   } else if (tx.type === 'token') {
     const symbol = tokenAddressToName[tx.tokenAddress] || 'Token';
-    return onlyValue ? tx.tokenAmount : `${tx.tokenAmount} ${symbol}`;
+    return `${tx.tokenAmount} ${symbol}`;
   } else {
-    return 'Unknown';
+    return 'contract';
   }
 };
 
@@ -23,12 +23,16 @@ const TransactionRow = ({ tx, tokenAddressToName }) => {
     <tr className="even:bg-gray-50 hover:bg-gray-100">
       <td className="py-2 px-4 border-b">{convertTimestamp(tx.timestamp)}</td>
       <td className="py-2 px-4 border-b">
-        <Link
-          to={`/token/${tx.tokenAddress}`}
-          className="text-blue-500 hover:underline"
-        >
-          {getAmount(tx, tokenAddressToName)}
-        </Link>
+        {tx.type === 'token' ? (
+          <Link
+            to={`/token/${tx.tokenAddress}`}
+            className="text-blue-500 hover:underline"
+          >
+            {getAmount(tx, tokenAddressToName)}
+          </Link>
+        ) : (
+          getAmount(tx, tokenAddressToName)
+        )}
       </td>
       <td className="py-2 px-4 border-b">{tx.from}</td>
       <td className="py-2 px-4 border-b">{tx.to}</td>
