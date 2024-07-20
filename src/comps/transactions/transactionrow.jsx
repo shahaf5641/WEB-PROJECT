@@ -1,13 +1,14 @@
 // src/comps/transactionRow.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { tokenAddressToName } from '../contexts/tokenContext';
 
 const convertTimestamp = (timestamp) => {
   const date = new Date(timestamp * 1000);
   return date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
 };
 
-export const getAmount = (tx, tokenAddressToName) => {
+export const getAmount = (tx) => {
   if (tx.type === 'eth') {
     return `${tx.value} wETH`;
   } else if (tx.type === 'token') {
@@ -18,7 +19,7 @@ export const getAmount = (tx, tokenAddressToName) => {
   }
 };
 
-const TransactionRow = ({ tx, tokenAddressToName }) => {
+const TransactionRow = ({ tx }) => {
   return (
     <tr className="even:bg-gray-50 hover:bg-gray-100">
       <td className="py-2 px-4 border-b">{convertTimestamp(tx.timestamp)}</td>
@@ -28,10 +29,10 @@ const TransactionRow = ({ tx, tokenAddressToName }) => {
             to={`/token/${tx.tokenAddress}`}
             className="text-blue-500 hover:underline"
           >
-            {getAmount(tx, tokenAddressToName)}
+            {getAmount(tx)}
           </Link>
         ) : (
-          getAmount(tx, tokenAddressToName)
+          getAmount(tx)
         )}
       </td>
       <td className="py-2 px-4 border-b">

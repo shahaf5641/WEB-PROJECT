@@ -1,12 +1,14 @@
-// src/comps/transactionDetails.jsx
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { useToken, tokenAddressToName } from '../contexts/tokenContext';
 import { getAmount } from './transactionrow';
-import { useToken } from '../contexts/tokenContext';
+
+
+
 
 const TransactionDetails = () => {
   const { hash } = useParams();
-  const tokenAddressToName = useToken();
+  const tokenSymbol = useToken();
   const [transaction, setTransaction] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -52,7 +54,7 @@ const TransactionDetails = () => {
             <p><strong>From:</strong> {transaction.from}</p>
             <p><strong>To:</strong> {transaction.to}</p>
             <p><strong>Type:</strong> {transaction.type}</p>
-            <p><strong>Amount:</strong> {getAmount(transaction, tokenAddressToName)}</p> 
+            <p><strong>Amount:</strong> {getAmount(transaction)}</p>
             <p><strong>Symbol:</strong> {tokenAddressToName[transaction.tokenAddress] || 'ETH'}</p>
             <p><strong>Gas Limit:</strong> {transaction.gasLimit}</p>
             <p><strong>Gas Price:</strong> {transaction.gasPrice}</p>

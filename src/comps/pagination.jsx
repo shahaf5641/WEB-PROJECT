@@ -1,4 +1,3 @@
-// src/comps/Pagination.jsx
 import React from 'react';
 
 const Pagination = ({ currentPage, totalPages, handlePreviousPage, handleNextPage }) => {

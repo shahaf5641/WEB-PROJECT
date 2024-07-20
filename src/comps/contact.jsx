@@ -7,7 +7,7 @@ export default function Contact() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [showThankYou, setShowThankYou] = useState(false);
- 
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('First Name:', firstName);
@@ -16,9 +16,9 @@ export default function Contact() {
     console.log('Message:', message);
     setShowThankYou(true);
   };
- 
+
   return (
-    <div className="flex justify-center items-center ">
+    <div className="flex justify-center items-center">
       <div className="bg-white p-16 rounded-lg shadow-md w-full max-w-4xl">
         <h1 className="text-4xl font-bold mb-8">Get in Touch</h1>
         {!showThankYou && (
