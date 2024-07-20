@@ -29,7 +29,6 @@ const TokenDetails = () => {
         const data = await response.json();
         setTransactions(data.data);
         setTotalPages(Math.ceil(data.amount / 10));
-        console.log(address)
 
         const tokenSymbol = tokenAddressToName[address] || 'wETH';
         const tokenDetail = tokenDetailsMap[tokenSymbol] || { symbol: tokenSymbol };

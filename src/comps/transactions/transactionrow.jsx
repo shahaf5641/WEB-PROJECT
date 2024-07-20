@@ -34,8 +34,22 @@ const TransactionRow = ({ tx, tokenAddressToName }) => {
           getAmount(tx, tokenAddressToName)
         )}
       </td>
-      <td className="py-2 px-4 border-b">{tx.from}</td>
-      <td className="py-2 px-4 border-b">{tx.to}</td>
+      <td className="py-2 px-4 border-b">
+        <Link
+          to={`/account/${tx.from}`}
+          className="text-blue-500 hover:underline"
+        >
+          {tx.from}
+        </Link>
+      </td>
+      <td className="py-2 px-4 border-b">
+        <Link
+          to={`/account/${tx.to}`}
+          className="text-blue-500 hover:underline"
+        >
+          {tx.to}
+        </Link>
+      </td>
       <td className="py-2 px-4 border-b">
         <Link
           to={`/transaction/${tx.hash}`}

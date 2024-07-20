@@ -4,7 +4,7 @@ import teamImage from '../assets/team.png';
  
 export default function About() {
   return (
-    <div className="bg-gray-100 py-8">
+    <div className="py-2">
       <div className="bg-white p-8 rounded-lg shadow-lg">
         <div className="mb-6 w-full overflow-hidden">
           <img src={teamImage} alt="Team" className="w-screen" />

@@ -12,9 +12,14 @@ export default function Transactions() {
 
   const tokenDetails = useToken();
 
+
+  //ETH address = 0x625828a26f5B362E5ff682252870659E53645B45
   const tokenAddressToName = {
     '0x6319276ac7962A04696064261e082f8c48dF9376': 'wUSD',
     '0xA014A5E978B9A542b2065Ba4a29D68De9b3431D1': 'wBTC',
+    '0x6F7389872A6C15C4B7234Fa23C4D6df8fA378587': 'wADA',
+    '0x0cc5bb418771573C04187828C2ef491A6f51b909': 'wBNB',
+    
   };
 
   useEffect(() => {
