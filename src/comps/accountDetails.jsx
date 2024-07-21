@@ -31,6 +31,10 @@ const AccountDetails = () => {
     fetchTransactions(currentPage);
   }, [address, currentPage]);
 
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [address]);
+
   const handlePreviousPage = () => {
     setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
   };

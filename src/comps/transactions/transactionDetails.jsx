@@ -3,12 +3,8 @@ import { useParams } from 'react-router-dom';
 import { useToken, tokenAddressToName } from '../contexts/tokenContext';
 import { getAmount } from './transactionrow';
 
-
-
-
 const TransactionDetails = () => {
   const { hash } = useParams();
-  const tokenSymbol = useToken();
   const [transaction, setTransaction] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
