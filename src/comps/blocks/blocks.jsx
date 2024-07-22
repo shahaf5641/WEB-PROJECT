@@ -1,21 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import TransactionTable from './transactionTable';
+import BlocksTable from './blocksTable';
 import Pagination from '../pagination';
-import { tokenAddressToName } from '../contexts/tokenContext';
 
-const Transactions = () => {
-  const [transactions, setTransactions] = useState([]);
+const Blocks = () => {
+  const [blocks, setBlocks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
   useEffect(() => {
-    const fetchTransactions = async (page) => {
+    const fetchBlocks = async (page) => {
       try {
-        const response = await fetch(`https://explorer.mtw-testnet.com/transactions/?page=${page}&limit=10`);
+        const response = await fetch(`https://explorer.mtw-testnet.com/blocks/?page=${page}&limit=10`);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const data = await response.json();
-        setTransactions(data.data);
+        setBlocks(data.data);
         setTotalPages(Math.ceil(data.amount / 10));
       } catch (err) {
         setError(err.message);
@@ -24,7 +26,7 @@ const Transactions = () => {
       }
     };
 
-    fetchTransactions(currentPage);
+    fetchBlocks(currentPage);
   }, [currentPage]);
 
   const handlePreviousPage = () => {
@@ -40,8 +42,8 @@ const Transactions = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-semibold mb-4">Transactions</h1>
-      <TransactionTable transactions={transactions} tokenAddressToName={tokenAddressToName} />
+      <h1 className="text-2xl font-semibold mb-4">MTW Blocks</h1>
+      <BlocksTable blocks={blocks} />
       <Pagination
         currentPage={currentPage}
         totalPages={totalPages}
@@ -52,4 +54,4 @@ const Transactions = () => {
   );
 };
 
-export default Transactions;
+export default Blocks;

@@ -3,12 +3,12 @@ import TransactionRow from './transactionrow';
 
 const TransactionTable = ({ transactions, tokenAddressToName }) => {
   return (
-    <div className="flex justify-center">
+    <div>
       <table className="min-w-full bg-white border border-gray-200">
         <thead>
-          <tr className="w-full bg-gray-100">
-            <th className="py-2 px-12 border-b">Time</th>
-            <th className="py-2 px-12 border-b">Amount</th>
+          <tr className="bg-gray-100">
+            <th className="py-2 px-4 border-b">Time</th>
+            <th className="py-2 px-4 border-b">Amount</th>
             <th className="py-2 px-4 border-b">Sender Profile</th>
             <th className="py-2 px-4 border-b">Recipient Profile</th>
             <th className="py-2 px-4 border-b">Transaction Details</th>

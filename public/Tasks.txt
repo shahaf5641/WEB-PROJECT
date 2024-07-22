@@ -6,3 +6,4 @@
 6. Block Details
 7. למצוא לוגו
 8. רספונסיביות
+9. להוסיף סה"כ BLOCK,TRANSACTIONS

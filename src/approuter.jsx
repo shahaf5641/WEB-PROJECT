@@ -6,19 +6,17 @@ import About from './comps/about';
 import Contact from './comps/contact';
 import Dashboard from './comps/dashboard';
 import Explore from './comps/explore';
-import Blocks from './comps/blocks';
+import Blocks from './comps//blocks/blocks';
 import Transactions from './comps/transactions/transactions';
 import TransactionDetails from './comps/transactions/transactionDetails';
 import Layout from './Layout/layout';
 import { TokenProvider } from './comps/contexts/tokenContext';
 import TokenDetails from './comps/tokenDetails';
 import AccountDetails from './comps/accountDetails';
+import BlockDetails from './comps/blocks/blockDetails';
+import {tokenAddressToName} from './comps/contexts/tokenContext'
 
 export default function AppRouter() {
-  const tokenAddressToName = {
-    '0x6319276ac7962A04696064261e082f8c48dF9376': 'USD',
-    '0xA014A5E978B9A542b2065Ba4a29D68De9b3431D1': 'BTC'
-  };
 
   return (
     <Router>
@@ -31,6 +29,7 @@ export default function AppRouter() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/explore" element={<Explore />} />
             <Route path="/blocks" element={<Blocks />} />
+            <Route path="/block/:blockNumber" element={<BlockDetails />} />
             <Route path="/transactions" element={<Transactions />} />
             <Route path="/transaction/:hash" element={<TransactionDetails />} />
             <Route path="/token/:address" element={<TokenDetails />} /> 
