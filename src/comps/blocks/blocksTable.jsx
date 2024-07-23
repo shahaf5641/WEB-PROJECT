@@ -3,7 +3,8 @@ import BlockRow from './blockRow';
 
 const BlocksTable = ({ blocks }) => {
   return (
-    <div className="flex justify-center overflow-x-auto">
+    
+    <div className="flex justify-center">
       <table className="min-w-full bg-white border border-gray-200">
         <thead>
           <tr className="w-full bg-gray-100">
