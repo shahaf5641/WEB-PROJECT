@@ -9,6 +9,7 @@ const Transactions = () => {
   const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [totalTransactions, setTotalTransactions] = useState(0);
 
   useEffect(() => {
     const fetchTransactions = async (page) => {
@@ -17,6 +18,7 @@ const Transactions = () => {
         const data = await response.json();
         setTransactions(data.data);
         setTotalPages(Math.ceil(data.amount / 10));
+        setTotalTransactions(data.amount);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -40,7 +42,10 @@ const Transactions = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-semibold mb-4">Transactions</h1>
+      <div className='flex justify-between'>
+        <h1 className="text-2xl font-semibold mb-4">Transactions</h1>
+        <h1 className="text-2xl font-semibold mb-4">Amount: {totalTransactions}</h1>
+      </div>
       <TransactionTable transactions={transactions} tokenAddressToName={tokenAddressToName} />
       <Pagination
         currentPage={currentPage}

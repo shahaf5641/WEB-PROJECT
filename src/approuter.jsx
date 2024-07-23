@@ -3,7 +3,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './comps/home';
 import About from './comps/about';
-import Contact from './comps/contact';
+import Contact from './comps/contact/contact';
 import Dashboard from './comps/dashboard';
 import Explore from './comps/explore';
 import Blocks from './comps//blocks/blocks';
@@ -15,6 +15,7 @@ import TokenDetails from './comps/tokenDetails';
 import AccountDetails from './comps/accountDetails';
 import BlockDetails from './comps/blocks/blockDetails';
 import {tokenAddressToName} from './comps/contexts/tokenContext'
+import ThankYou from './comps/contact/thankYou'
 
 export default function AppRouter() {
 
@@ -26,6 +27,7 @@ export default function AppRouter() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/thankYou" element={<ThankYou />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/explore" element={<Explore />} />
             <Route path="/blocks" element={<Blocks />} />

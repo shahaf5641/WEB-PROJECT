@@ -1,5 +1,7 @@
- 
+
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
  
 export default function Contact() {
   const [firstName, setFirstName] = useState('');
@@ -18,7 +20,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center py-12">
       <div className="bg-white p-16 rounded-lg shadow-md w-full max-w-4xl">
         <h1 className="text-4xl font-bold mb-8">Get in Touch</h1>
         {!showThankYou && (
@@ -93,12 +95,13 @@ export default function Contact() {
                 required
               />
             </div>
-            <button
-              type="submit"
-              className="w-full py-3 px-4 bg-slate-600 text-white font-semibold rounded-md shadow hover:bg-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 text-lg"
-            >
-              Send
-            </button>
+            <Link
+            to="/thankYou"
+            className="w-full py-3 px-4 bg-slate-600 text-white font-semibold rounded-md shadow hover:bg-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 text-lg"
+            onClick={handleSubmit}
+          >
+            Send
+          </Link>
           </form>
         )}
       </div>

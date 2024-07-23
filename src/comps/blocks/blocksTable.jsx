@@ -7,10 +7,10 @@ const BlocksTable = ({ blocks }) => {
       <table className="min-w-full bg-white border border-gray-200">
         <thead>
           <tr className="w-full bg-gray-100">
-            <th className="py-2 px-4 border-b">Time</th>
-            <th className="py-2 px-4 border-b">Height</th>
+            <th className="py-2 px-[100px] border-b">Time</th>
+            <th className="py-2 px-10 border-b">Block Number</th>
             <th className="py-2 px-4 border-b">Transactions</th>
-            <th className="py-2 px-4 border-b">Hash</th>
+            <th className="py-2 px-4 border-b">Block Details</th>
           </tr>
         </thead>
         <tbody>

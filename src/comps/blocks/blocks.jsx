@@ -8,6 +8,7 @@ const Blocks = () => {
   const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [totalBlocks, setTotalBlocks] = useState(0);
 
   useEffect(() => {
     const fetchBlocks = async (page) => {
@@ -19,6 +20,7 @@ const Blocks = () => {
         const data = await response.json();
         setBlocks(data.data);
         setTotalPages(Math.ceil(data.amount / 10));
+        setTotalBlocks(data.amount)
       } catch (err) {
         setError(err.message);
       } finally {
@@ -42,7 +44,10 @@ const Blocks = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-semibold mb-4">MTW Blocks</h1>
+      <div className='flex justify-between'>
+        <h1 className="text-2xl font-semibold mb-4">Blocks</h1>
+        <h1 className="text-2xl font-semibold mb-4">Amount:{totalBlocks}</h1>
+      </div>
       <BlocksTable blocks={blocks} />
       <Pagination
         currentPage={currentPage}

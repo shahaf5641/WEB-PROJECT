@@ -55,7 +55,7 @@ const TokenDetails = () => {
   const tokenInfo = tokenSymbol[tokenSymbolString] || {};
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto">
       <h1 className="text-2xl font-semibold mb-4">Token Details</h1>
       <div className="bg-white shadow-md rounded p-4 mb-4">
         <p><strong>Address:</strong> {address}</p>
