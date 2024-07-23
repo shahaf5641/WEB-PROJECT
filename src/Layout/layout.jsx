@@ -8,7 +8,7 @@ export default function Layout({ children }) {
     <div className='flex flex-col min-h-screen'>
       <VantaBackground/>
         <Header/>
-        <main className='flex-grow flex flex-col text-center items-center'>
+        <main className='flex-grow flex flex-col text-center items-center w-full overflow-hidden'>
           {children}
         </main>
         <Footer/>

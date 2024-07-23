@@ -22,7 +22,7 @@ export const getAmount = (tx) => {
 const TransactionRow = ({ tx }) => {
   return (
     <tr className="even:bg-gray-50 hover:bg-gray-100">
-      <td className="py-2 px-4 border-b">{convertTimestamp(tx.timestamp)}</td>
+      <td className="py-2 px-14 border-b">{convertTimestamp(tx.timestamp)}</td>
       <td className="py-2 px-4 border-b">
         {tx.type === 'token' ? (
           <Link

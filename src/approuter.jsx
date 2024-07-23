@@ -15,7 +15,7 @@ import TokenDetails from './comps/tokenDetails';
 import AccountDetails from './comps/accountDetails';
 import BlockDetails from './comps/blocks/blockDetails';
 import {tokenAddressToName} from './comps/contexts/tokenContext'
-import ThankYou from './comps/contact/thankYou'
+import ThankYouMessage from './comps/contact/thankYouMessage';
 
 export default function AppRouter() {
 
@@ -27,7 +27,7 @@ export default function AppRouter() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/thankYou" element={<ThankYou />} />
+            <Route path="/message" element={<ThankYouMessage />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/explore" element={<Explore />} />
             <Route path="/blocks" element={<Blocks />} />

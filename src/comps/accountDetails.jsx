@@ -47,7 +47,7 @@ const AccountDetails = () => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="mx-auto p-4">
       <h1 className="text-2xl font-semibold mb-4">Account Details</h1>
       <div className="bg-white shadow-md rounded p-4 mb-4">
         <p><strong>Account Address:</strong> {address}</p>

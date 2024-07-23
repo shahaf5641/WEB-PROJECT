@@ -55,7 +55,7 @@ const TokenDetails = () => {
   const tokenInfo = tokenSymbol[tokenSymbolString] || {};
 
   return (
-    <div className="container mx-auto">
+    <div className=" mx-auto">
       <h1 className="text-2xl font-semibold mb-4">Token Details</h1>
       <div className="bg-white shadow-md rounded p-4 mb-4">
         <p><strong>Address:</strong> {address}</p>
@@ -70,7 +70,7 @@ const TokenDetails = () => {
           <p><strong>Coingecko:</strong> <a href={tokenInfo.coingecko} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">{tokenInfo.coingecko}</a></p>
         )}
       </div>
-      <h2 className="text-xl font-semibold mb-4">Transactions</h2>
+      <h1 className="text-xl font-semibold mb-4">Transactions</h1>
       <TransactionTable transactions={transactions} tokenAddressToName={tokenAddressToName} />
       <Pagination
         currentPage={currentPage}

@@ -43,10 +43,10 @@ const Blocks = () => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="mx-auto w-full p-12">
       <div className='flex justify-between'>
         <h1 className="text-2xl font-semibold mb-4">Blocks</h1>
-        <h1 className="text-2xl font-semibold mb-4">Amount:{totalBlocks}</h1>
+        <h1 className="text-2xl font-semibold mb-4">Amount: {totalBlocks.toLocaleString()}</h1>
       </div>
       <BlocksTable blocks={blocks} />
       <Pagination
