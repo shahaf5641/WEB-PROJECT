@@ -15,12 +15,10 @@ export default function Header() {
           </Link>
           <HamburgerMenu />
         </div>
-        <div className="hidden md:flex justify-between space-x-10">
           <NavLink to="/dashboard">Dashboard</NavLink>
           <NavLink to="/transactions">Transactions</NavLink>
           <NavLink to="/blocks">Blocks</NavLink>
           <NavLink to="/explore">Explore</NavLink>
-        </div>
       </div>
     </header>
   );
