@@ -1,24 +1,26 @@
 import React from 'react';
-import NavLink from '../comps/navlink';
-import logolight from '../assets/logolight.png';
-import logodark from '../assets/logodark.png';
 import { Link } from 'react-router-dom';
+import NavLink from '../comps/navlink';
+import HamburgerMenu from './HamburgerMenu';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
 
 export default function Header() {
   return (
     <header className="bg-slate-600 text-black p-4 text-lg nav">
-      <div className="mx-auto items-center">
-        <nav className="flex justify-between">
+      <div className="mx-auto flex justify-between items-center w-full">
+        <div className="flex items-center space-x-4">
           <Link to="/">
-            <img src={logodark} alt="Logo" className="h-8 w-auto rounded-2xl" />
+            <FontAwesomeIcon icon={faHome} className="h-8 w-8 text-white" />
           </Link>
-          <NavLink to="/about">About</NavLink>
-          <NavLink to="/contact">Contact</NavLink>
+          <HamburgerMenu />
+        </div>
+        <div className="hidden md:flex justify-between space-x-10">
           <NavLink to="/dashboard">Dashboard</NavLink>
-          <NavLink to="/explore">Explore</NavLink>
-          <NavLink to="/blocks">Blocks</NavLink>
           <NavLink to="/transactions">Transactions</NavLink>
-        </nav>
+          <NavLink to="/blocks">Blocks</NavLink>
+          <NavLink to="/explore">Explore</NavLink>
+        </div>
       </div>
     </header>
   );
