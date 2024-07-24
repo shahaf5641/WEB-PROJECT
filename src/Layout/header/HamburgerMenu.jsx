@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import NavLink from '../comps/navlink';
+import NavLink from './navlink';
 
 export default function HamburgerMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,12 +16,12 @@ export default function HamburgerMenu() {
         </svg>
       </button>
       {isOpen && (
-        <div className="absolute top-8 rounded-lg bg-slate-200">
+        <div className="absolute top-8 w-[140px] bg-gray-400 rounded-xl shadow-lg z-10 text-xl p-2">
           <div className="flex flex-col">
-            <NavLink to="/dashboard" onClick={toggleMenu} >Dashboard</NavLink>
-            <NavLink to="/transactions" onClick={toggleMenu} >Transactions</NavLink>
-            <NavLink to="/blocks" onClick={toggleMenu}>Blocks</NavLink>
-            <NavLink to="/explore" onClick={toggleMenu} >Explore</NavLink>
+            <NavLink to="/dashboard" className='p-4' onClick={toggleMenu}>Dashboard</NavLink>
+            <NavLink to="/transactions" className='p-4' onClick={toggleMenu}>Transactions</NavLink>
+            <NavLink to="/blocks" className='p-4' onClick={toggleMenu}>Blocks</NavLink>
+            <NavLink to="/explore" className='p-4' onClick={toggleMenu}>Explore</NavLink>
           </div>
         </div>
       )}
