@@ -1,4 +1,3 @@
-// src/comps/transactionRow.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { tokenAddressToName } from '../contexts/tokenContext';
@@ -21,9 +20,9 @@ export const getAmount = (tx) => {
 
 const TransactionRow = ({ tx }) => {
   return (
-    <tr className="even:bg-gray-50 hover:bg-gray-100">
-      <td className="py-2 px-14 border-b">{convertTimestamp(tx.timestamp)}</td>
-      <td className="py-2 px-4 border-b">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 p-4 border-b rounded-xl">
+      <div className="truncate">{convertTimestamp(tx.timestamp)}</div>
+      <div className="hidden md:block truncate">
         {tx.type === 'token' ? (
           <Link
             to={`/token/${tx.tokenAddress}`}
@@ -34,32 +33,32 @@ const TransactionRow = ({ tx }) => {
         ) : (
           getAmount(tx)
         )}
-      </td>
-      <td className="py-2 px-4 border-b">
+      </div>
+      <div className="hidden lg:block truncate">
         <Link
           to={`/account/${tx.from}`}
           className="text-blue-500 hover:underline"
         >
           {tx.from}
         </Link>
-      </td>
-      <td className="py-2 px-4 border-b">
+      </div>
+      <div className="hidden lg:block truncate">
         <Link
           to={`/account/${tx.to}`}
           className="text-blue-500 hover:underline"
         >
           {tx.to}
         </Link>
-      </td>
-      <td className="py-2 px-4 border-b">
+      </div>
+      <div className="truncate">
         <Link
           to={`/transaction/${tx.hash}`}
           className="text-blue-500 hover:underline"
         >
           {tx.hash}
         </Link>
-      </td>
-    </tr>
+      </div>
+    </div>
   );
 };
 

@@ -3,23 +3,19 @@ import TransactionRow from './transactionrow';
 
 const TransactionTable = ({ transactions, tokenAddressToName }) => {
   return (
-    <div className="flex justify-center">
-      <table className="w-full bg-white border border-gray-200">
-        <thead>
-          <tr className="w-full bg-gray-700">
-            <th className="py-2 px-2 border-b">Time</th>
-            <th className="py-2 px-10 border-b">Amount</th>
-            <th className="py-2 px-4 border-b">Sender Profile</th>
-            <th className="py-2 px-4 border-b">Recipient Profile</th>
-            <th className="py-2 px-4 border-b">Transaction Details</th>
-          </tr>
-        </thead>
-        <tbody>
-          {transactions.map((tx, index) => (
-            <TransactionRow key={index} tx={tx} tokenAddressToName={tokenAddressToName} />
-          ))}
-        </tbody>
-      </table>
+    <div className="w-full bg-white rounded-xl shadow-md">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 bg-gray-700 text-white p-4 rounded-md">
+        <div>Time</div>
+        <div className="hidden md:block">Amount</div>
+        <div className="hidden lg:block">Sender Profile</div>
+        <div className="hidden lg:block">Recipient Profile</div>
+        <div>Transaction Details</div>
+      </div>
+      <div>
+        {transactions.map((tx, index) => (
+          <TransactionRow key={index} tx={tx} tokenAddressToName={tokenAddressToName} />
+        ))}
+      </div>
     </div>
   );
 };

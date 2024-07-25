@@ -41,10 +41,10 @@ const Transactions = () => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className="mx-auto w-full p-12">
-      <div className='flex justify-between'>
-        <h1 className="text-2xl font-semibold mb-4">Transactions</h1>
-        <h1 className="text-2xl font-semibold mb-4">Amount: {totalTransactions.toLocaleString()}</h1>
+    <div className="container mx-auto p-4 rounded-xl">
+      <div className='flex flex-wrap justify-between items-center mb-4'>
+        <h1 className="text-2xl font-semibold">Transactions</h1>
+        <h1 className="text-2xl font-semibold">Amount: {totalTransactions.toLocaleString()}</h1>
       </div>
       <TransactionTable transactions={transactions} tokenAddressToName={tokenAddressToName} />
       <Pagination

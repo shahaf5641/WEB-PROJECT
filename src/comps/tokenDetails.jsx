@@ -17,7 +17,7 @@ const TokenDetails = () => {
   useEffect(() => {
     const fetchTransactions = async (page) => {
       try {
-        const response = await fetch(`https://explorer.mtw-testnet.com/transactions?token=${address}&page=${page}&limit=10`);
+        const response = await fetch(`https://explorer.mtw-testnet.com/transactions?token=${address}&page=${page}&limit=5`);
         const data = await response.json();
         setTransactions(data.data);
         setTotalPages(Math.ceil(data.amount / 10));
@@ -55,7 +55,7 @@ const TokenDetails = () => {
   const tokenInfo = tokenSymbol[tokenSymbolString] || {};
 
   return (
-    <div className=" mx-auto">
+    <div className="container mx-auto">
       <h1 className="text-2xl font-semibold mb-4">Token Details</h1>
       <div className="bg-white shadow-md rounded p-4 mb-4">
         <p><strong>Address:</strong> {address}</p>

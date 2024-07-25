@@ -17,7 +17,7 @@ const AccountDetails = () => {
   useEffect(() => {
     const fetchTransactions = async (page) => {
       try {
-        const response = await fetch(`https://explorer.mtw-testnet.com/transactions?address=${address}&page=${page}&limit=10`);
+        const response = await fetch(`https://explorer.mtw-testnet.com/transactions?address=${address}&page=${page}&limit=5`);
         const data = await response.json();
         setTransactions(data.data);
         setTotalPages(Math.ceil(data.amount / 10));
