@@ -47,12 +47,12 @@ const AccountDetails = () => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className="mx-auto p-4">
+    <div className="container mx-auto">
       <h1 className="text-2xl font-semibold mb-4">Account Details</h1>
-      <div className="bg-white shadow-md rounded p-4 mb-4">
+      <div className="bg-gray-100 shadow-md rounded p-4 mb-4">
         <p><strong>Account Address:</strong> {address}</p>
         <h2 className="text-xl font-semibold mb-4">Balances</h2>
-        <table className="min-w-full bg-white border border-gray-300 mb-4">
+        <table className="min-w-full border border-gray-300 mb-4">
           <thead>
             <tr>
               <th className="py-2 px-4 border-b">Symbol</th>

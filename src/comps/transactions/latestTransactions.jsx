@@ -30,8 +30,8 @@ const LatestTransactions = () => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className="mx-auto w-full px-8">
-      <h2 className="text-xl font-semibold mb-4">Latest Transactions</h2>
+    <div className="container mx-auto p-1 rounded-xl">
+      <h2 className="text-xl font-semibold mb-1">Latest Transactions</h2>
       <TransactionTable transactions={transactions} tokenAddressToName={tokenAddressToName} />
       <p className="text-right"><a href="/transactions" className="text-blue-500 hover:underline">View all transactions</a></p>
     </div>

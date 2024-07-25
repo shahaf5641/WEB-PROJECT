@@ -3,22 +3,18 @@ import BlockRow from './blockRow';
 
 const BlocksTable = ({ blocks }) => {
   return (
-    <div className="flex justify-center">
-      <table className="w-full bg-white border border-gray-200">
-        <thead>
-          <tr className="w-full bg-gray-700">
-            <th className="py-2 border-b">Time</th>
-            <th className="py-2 px-4 border-b">Block Number</th>
-            <th className="py-2 px-4 border-b">Transactions</th>
-            <th className="py-2 px-4 border-b">Block Details</th>
-          </tr>
-        </thead>
-        <tbody>
-          {blocks.map((block, index) => (
-            <BlockRow key={index} block={block} />
-          ))}
-        </tbody>
-      </table>
+    <div className="w-full bg-white rounded-lg shadow-md">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 bg-gray-700 text-white p-4 rounded-md">
+        <div>Time</div>
+        <div className="hidden md:block">Transactions</div>
+        <div className="hidden lg:block">Block Number</div>
+        <div>Block Details</div>
+      </div>
+      <div>
+        {blocks.map((block, index) => (
+          <BlockRow key={index} block={block} />
+        ))}
+      </div>
     </div>
   );
 };

@@ -1,19 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { convertTimestamp } from '../transactions/transactionrow';
 
 const BlockRow = ({ block }) => {
+  const formatTimestamp = (timestamp) => {
+    const date = new Date(timestamp * 1000);
+    return date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
+  };
+
   return (
-    <tr className="even:bg-gray-50 hover:bg-gray-100">
-      <td className="py-2 border-b">{convertTimestamp(block.timestamp)}</td>
-      <td className="py-2 px- border-b">{block.number}</td>
-      <td className="py-2 px-4 border-b">{block.transactions}</td>
-      <td className="py-2 px-4 border-b">
-        <Link to={`/block/${block.hash}`} className="text-blue-500 hover:underline">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 border-b rounded-xl">
+      <div className="truncate">{formatTimestamp(block.timestamp)}</div>
+      <div className="hidden md:block truncate">{block.transactions}</div>
+      <div className="hidden lg:block truncate">{block.number}</div>
+      <div className="truncate">
+        <Link
+          to={`/block/${block.hash}`}
+          className="text-blue-500 hover:underline"
+        >
           {block.hash}
         </Link>
-      </td>
-    </tr>
+      </div>
+    </div>
   );
 };
 

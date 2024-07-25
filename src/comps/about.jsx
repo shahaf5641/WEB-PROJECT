@@ -3,7 +3,7 @@ import teamImage from '../assets/team.png';
 
 export default function About() {
   return (
-    <div className="container py-10">
+    <div className="container mx-auto py-10">
       <div className="bg-white p-8 rounded-lg shadow-lg">
         <div className="mb-6 overflow-hidden">
           <img src={teamImage} alt="Team" className="w-full max-w-4xl mx-auto" />
