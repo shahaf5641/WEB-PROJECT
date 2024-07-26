@@ -17,6 +17,7 @@ const VantaBackground = () => {
       //darkmode
       // color: 0x1e3454,
       // backgroundColor: 0x10310,
+      //lightmode
       color: 0xcbd9e8,
       backgroundColor: 0x8caccf,
       points: 16.00,
