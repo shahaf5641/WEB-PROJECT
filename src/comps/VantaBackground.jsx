@@ -19,7 +19,7 @@ const VantaBackground = () => {
       // backgroundColor: 0x10310,
       //lightmode
       color: 0xcbd9e8,
-      backgroundColor: 0x8caccf,
+      backgroundColor: 0x76a3d4,
       points: 16.00,
       maxDistance: 23.00,
       spacing: 19.00

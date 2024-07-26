@@ -11,7 +11,7 @@ export default function Header() {
       <div className="mx-auto flex justify-between items-center w-full">
         <div className="flex items-center space-x-4">
           <Link to="/">
-            <FontAwesomeIcon icon={faHome} className="h-8 w-8 text-white" />
+            <FontAwesomeIcon icon={faHome} className="h-8 w-8 text-white transform transition-transform duration-300 hover:scale-110" />
           </Link>
           <HamburgerMenu />
         </div>
