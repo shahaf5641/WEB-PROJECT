@@ -41,15 +41,15 @@ export default function Explore() {
   }, [symbol]);
  
   return (
-    <div className="flex flex-col items-center gap-5 p-5 w-full">
-      <h1 className="text-3xl font-bold mb-5">Explore Page</h1>
-      <div className="mb-5">
-        <label htmlFor="symbol" className="mr-2 text-lg">Select Symbol:</label>
+    <div className="flex flex-col items-center gap-5 p-5 w-full min-h-screen">
+      <h1 className="text-5xl font-bold text-white">Explore Page</h1>
+      <div className="mb-5 flex items-center space-x-3">
+        <label htmlFor="symbol" className="text-xl text-gray-700 font-medium">Select Symbol:</label>
         <select
           id="symbol"
           value={symbol}
           onChange={(e) => setSymbol(e.target.value)}
-          className="border rounded p-2 text-lg"
+          className="border-2 border-gray-300 rounded-lg p-2 text-lg bg-white shadow-md focus:outline-none focus:border-blue-500 transition-colors duration-300 ease-in-out"
         >
           <option value="BTC">BTC</option>
           <option value="ETH">ETH</option>
@@ -60,11 +60,11 @@ export default function Explore() {
           <option value="SHIB">SHIB</option>
         </select>
       </div>
-      <div className="flex flex-col md:flex-row items-start gap-2 w-full">
-        <div className="flex-1 md:w-1/2">
+      <div className="flex flex-col md:flex-row items-start gap-5 w-full">
+        <div className="flex-1 md:w-1/2 bg-white rounded-lg shadow-lg p-5 h-full">
           <TickerWidget data={data} symbol={symbol} />
         </div>
-        <div className="flex-1 md:w-1/2">
+        <div className="flex-1 md:w-1/2 bg-white rounded-lg shadow-lg p-5 h-full">
           <ChartWidget data={data} symbol={symbol} />
         </div>
       </div>
