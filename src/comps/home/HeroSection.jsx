@@ -5,7 +5,13 @@ import logodark from '../../assets/logodark.png';
 export default function HeroSection() {
   return (
     <div className="text-center mb-12">
-      <img src={logodark} alt="Site Logo" className="mx-auto w-60 h-60 mb-6 rounded-full" />
+      <div className="relative mx-auto w-52 h-52 mb-6 rounded-full overflow-hidden">
+        <img 
+          src={logodark} 
+          alt="Site Logo" 
+          className="w-full h-full object-cover transform scale-125" 
+        />
+      </div>
       <h1 className="text-6xl font-bold text-white">Welcome to Better Wallet</h1>
       <p className="text-2xl mt-4 text-gray-200">Your gateway to cryptocurrency insights and the latest trends</p>
       <Link to="/dashboard">
