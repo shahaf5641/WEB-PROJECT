@@ -1,7 +1,8 @@
+// src/components/blocks/BlockDetails.jsx
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { convertTimestamp } from '../transactions/transactionrow';
-
+import LoadingAnimation from '../LoadingAnimation';
 
 const BlockDetails = () => {
   const { blockNumber } = useParams();
@@ -28,7 +29,7 @@ const BlockDetails = () => {
     fetchBlockDetails();
   }, [blockNumber]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <LoadingAnimation />;
   if (error) return <p>Error: {error}</p>;
 
   return (

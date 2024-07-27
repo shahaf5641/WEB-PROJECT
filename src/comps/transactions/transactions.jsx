@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import TransactionTable from './transactionTable';
 import Pagination from '../pagination';
 import { tokenAddressToName } from '../contexts/tokenContext';
+import LoadingAnimation from '../LoadingAnimation';
 
 const Transactions = () => {
   const [transactions, setTransactions] = useState([]);
@@ -37,7 +38,7 @@ const Transactions = () => {
     setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages));
   };
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <LoadingAnimation />;
   if (error) return <p>Error: {error}</p>;
 
   return (

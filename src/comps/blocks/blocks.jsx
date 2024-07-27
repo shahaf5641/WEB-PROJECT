@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import BlocksTable from './blocksTable';
 import Pagination from '../pagination';
+import LoadingAnimation from '../LoadingAnimation';
 
 const Blocks = () => {
   const [blocks, setBlocks] = useState([]);
@@ -36,7 +37,7 @@ const Blocks = () => {
     setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages));
   };
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <LoadingAnimation />;
   if (error) return <p>Error: {error}</p>;
 
   return (

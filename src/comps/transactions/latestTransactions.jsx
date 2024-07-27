@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import TransactionTable from './transactionTable';
 import { tokenAddressToName } from '../contexts/tokenContext';
+import LoadingAnimation from '../LoadingAnimation';
 
 const LatestTransactions = () => {
   const [transactions, setTransactions] = useState([]);
@@ -26,7 +27,7 @@ const LatestTransactions = () => {
     fetchTransactions();
   }, []);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <LoadingAnimation />;
   if (error) return <p>Error: {error}</p>;
 
   return (

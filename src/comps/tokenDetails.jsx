@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import TransactionTable from './transactions/transactionTable';
 import Pagination from './pagination';
 import { useToken, tokenAddressToName } from './contexts/tokenContext';
+import LoadingAnimation from './LoadingAnimation';
 
 const TokenDetails = () => {
   const { address } = useParams();
@@ -48,7 +49,7 @@ const TokenDetails = () => {
     return symbol.startsWith('w') ? symbol.substring(1) : symbol;
   };
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <LoadingAnimation />;
   if (error) return <p>Error: {error}</p>;
 
   const tokenSymbolString = transactionDetails.symbol ? removeLeadingW(transactionDetails.symbol) : '';

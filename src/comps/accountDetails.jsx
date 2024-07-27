@@ -3,7 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Pagination from './pagination';
 import TransactionTable from './transactions/transactionTable';
-import { useToken, tokenAddressToName } from './contexts/tokenContext';
+import { tokenAddressToName } from './contexts/tokenContext';
+import LoadingAnimation from './LoadingAnimation';
 
 
 const AccountDetails = () => {
@@ -43,7 +44,7 @@ const AccountDetails = () => {
     setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages));
   };
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <LoadingAnimation />;
   if (error) return <p>Error: {error}</p>;
 
   return (

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import BlocksTable from './blocksTable';
+import LoadingAnimation from '../LoadingAnimation';
 
 const LatestBlocks = () => {
   const [blocks, setBlocks] = useState([]);
@@ -25,7 +26,7 @@ const LatestBlocks = () => {
     fetchBlocks();
   }, []);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <LoadingAnimation />;
   if (error) return <p>Error: {error}</p>;
 
   return (

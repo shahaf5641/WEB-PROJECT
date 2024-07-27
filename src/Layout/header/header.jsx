@@ -24,6 +24,14 @@ export default function Header() {
       } else {
         navigate(`/notfound/${searchQuery}`);
       }
+      setSearchQuery('');  // Clear
+    }
+  };
+
+  const closeMenu = () => {
+    const hamburgerMenuButton = document.querySelector('.hamburger-menu-button');
+    if (hamburgerMenuButton) {
+      hamburgerMenuButton.click();
     }
   };
 
@@ -31,10 +39,12 @@ export default function Header() {
     <header className="bg-slate-600 text-black p-4 text-lg nav">
       <div className="mx-auto flex justify-between items-center w-full">
         <div className="flex items-center space-x-4">
-          <Link to="/">
+          <Link to="/" onClick={closeMenu}>
             <FontAwesomeIcon icon={faHome} className="h-8 w-8 text-white transform transition-transform duration-200 hover:scale-110" />
           </Link>
-          <HamburgerMenu />
+          <div className="hamburger-menu-button">
+            <HamburgerMenu />
+          </div>
         </div>
         <NavLink to="/dashboard">Dashboard</NavLink>
         <NavLink to="/transactions">Transactions</NavLink>

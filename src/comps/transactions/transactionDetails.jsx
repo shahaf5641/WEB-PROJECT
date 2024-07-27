@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useToken, tokenAddressToName } from '../contexts/tokenContext';
 import { getAmount } from './transactionrow';
+import LoadingAnimation from '../LoadingAnimation';
 
 const TransactionDetails = () => {
   const { hash } = useParams();
@@ -36,7 +37,7 @@ const TransactionDetails = () => {
     return date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
   };
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <LoadingAnimation />;
   if (error) return <p>Error: {error}</p>;
 
   return (
