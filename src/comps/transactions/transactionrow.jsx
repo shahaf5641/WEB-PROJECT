@@ -36,7 +36,7 @@ const TransactionRow = ({ tx }) => {
       </div>
       <div className="hidden lg:block truncate">
         <Link
-          to={`/account/${tx.from}`}
+          to={`/address/${tx.from}`}
           className="text-blue-500 hover:underline"
         >
           {tx.from}
@@ -44,7 +44,7 @@ const TransactionRow = ({ tx }) => {
       </div>
       <div className="hidden lg:block truncate">
         <Link
-          to={`/account/${tx.to}`}
+          to={`/address/${tx.to}`}
           className="text-blue-500 hover:underline"
         >
           {tx.to}

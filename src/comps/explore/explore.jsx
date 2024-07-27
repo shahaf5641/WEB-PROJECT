@@ -16,7 +16,6 @@ export default function Explore() {
     socket.onmessage = (e) => {
       try {
         const receivedData = JSON.parse(e.data);
-        console.log('Received data:', receivedData); // Debugging line
         const symbolData = receivedData[symbol];
         if (symbolData) {
           setData({
@@ -41,7 +40,7 @@ export default function Explore() {
   }, [symbol]);
  
   return (
-    <div className="flex flex-col items-center gap-5 p-5 w-full min-h-screen">
+    <div className="flex flex-col items-center gap-5 p-5">
       <h1 className="text-5xl font-bold text-white">Explore Page</h1>
       <div className="mb-5 flex items-center space-x-3">
         <label htmlFor="symbol" className="text-xl text-gray-700 font-medium">Select Symbol:</label>

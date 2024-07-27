@@ -5,8 +5,8 @@ import Home from './comps/home/home';
 import About from './comps/about';
 import Contact from './comps/contact/contact';
 import Dashboard from './comps/dashboard';
-import Explore from './comps/explore';
-import Blocks from './comps//blocks/blocks';
+import Explore from './comps/explore/explore';
+import Blocks from './comps/blocks/blocks';
 import Transactions from './comps/transactions/transactions';
 import TransactionDetails from './comps/transactions/transactionDetails';
 import Layout from './Layout/layout';
@@ -14,12 +14,11 @@ import { TokenProvider } from './comps/contexts/tokenContext';
 import TokenDetails from './comps/tokenDetails';
 import AccountDetails from './comps/accountDetails';
 import BlockDetails from './comps/blocks/blockDetails';
-import {tokenAddressToName} from './comps/contexts/tokenContext'
+import { tokenAddressToName } from './comps/contexts/tokenContext';
 import ThankYouMessage from './comps/contact/thankYouMessage';
-
+import NotFound from './Layout/header/NotFound';
 
 export default function AppRouter() {
-
   return (
     <Router>
       <TokenProvider value={tokenAddressToName}>
@@ -36,7 +35,8 @@ export default function AppRouter() {
             <Route path="/transactions" element={<Transactions />} />
             <Route path="/transaction/:hash" element={<TransactionDetails />} />
             <Route path="/token/:address" element={<TokenDetails />} /> 
-            <Route path="/account/:address" element={<AccountDetails />} />
+            <Route path="/address/:address" element={<AccountDetails />} />
+            <Route path="/notfound/:searchQuery" element={<NotFound />} />
           </Routes>
         </Layout>
       </TokenProvider>
