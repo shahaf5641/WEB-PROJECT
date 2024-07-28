@@ -59,7 +59,7 @@ export default function Explore() {
           <option value="SHIB">SHIB</option>
         </select>
       </div>
-      <div className="flex flex-col md:flex-row items-start gap-5 w-full">
+      <div className="container flex flex-col md:flex-row items-start gap-5 w-full">
         <div className="flex-1 md:w-1/2 bg-white rounded-lg shadow-lg p-5 h-full">
           <TickerWidget data={data} symbol={symbol} />
         </div>
