@@ -33,7 +33,12 @@ const LatestBlocks = () => {
     <div className="container mx-auto p-1 rounded-xl">
       <h2 className="text-xl font-semibold mb-1">Latest Blocks</h2>
       <BlocksTable blocks={blocks} />
-      <p className="text-right"><a href="/blocks" className="text-blue-500 hover:underline">View all blocks</a></p>
+      <p className="text-right"><p className="text-right">
+        <Link to="/transactions" className="text-blue-500 hover:underline">
+          View all blocks
+        </Link>
+      </p>
+      </p>
     </div>
   );
 };
