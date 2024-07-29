@@ -8,7 +8,7 @@ export default function Footer() {
           <Link to="/about" className="font-semibold text-xl text-blue-600 transform transition-transform duration-300 hover:scale-110">About</Link>
           <Link to="/contact" className="font-semibold text-xl text-blue-600 transform transition-transform duration-300 hover:scale-110 ">Contact us</Link>
       </div>
-      <p className="text-center text-gray-700 mt-2 text-xl">All rights reserved to BLABLABLA © 2024</p>
+      <p className="text-center text-gray-700 mt-2 text-xl">All rights reserved to Better Wallet © 2024</p>
     </footer>
   );
 }

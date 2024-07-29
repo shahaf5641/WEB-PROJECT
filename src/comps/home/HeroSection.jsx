@@ -1,13 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useDarkMode } from '../../comps/contexts/DarkModeContext';
 import logodark from '../../assets/logodark.png';
+import logolight from '../../assets/logolight.png';
+import { Link } from 'react-router-dom';
 
 export default function HeroSection() {
+  const { darkMode } = useDarkMode();
+
   return (
     <div className="text-center mb-12">
-      <div className="relative mx-auto w-52 h-52 mb-6 rounded-full overflow-hidden shadow-yellow-100 shadow-md transition-transform transform hover:scale-105 flex flex-col items-center text-center">
+      <div 
+        className={`relative mx-auto w-52 h-52 mb-6 rounded-full overflow-hidden ${darkMode ? 'shadow-gray-400' : 'shadow-yellow-100'} shadow-md transition-transform transform hover:scale-105 flex flex-col items-center text-center`}
+      >
         <img 
-          src={logodark} 
+          src={darkMode ? logolight : logodark} 
           alt="Site Logo" 
           className="w-full h-full object-cover transform scale-125" 
         />
