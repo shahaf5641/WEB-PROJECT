@@ -12,8 +12,8 @@ export default function CryptoCard({ imgSrc, title, description }) {
         </div>
         <div className="absolute inset-0 w-full h-full bg-coral border-2 border-coral rounded-xl shadow-xl transform rotate-y-180 backface-hidden">
           <div className="flex flex-col items-center justify-center h-full p-4 text-white">
-            <h3 className="text-2xl font-bold py-2">{title}</h3>
-            <p className="text-xl font-semibold">{description}</p>
+            <h3 className="text-3xl font-bold py-2">{title}</h3>
+            <p className="text-2xl font-semibold">{description}</p>
           </div>
         </div>
       </div>
