@@ -28,7 +28,7 @@ const VantaBackground = () => {
     };
   }, [darkMode]);
 
-  return <div ref={vantaRef} style={{ width: '100%', height: '100%', maxHeight: '3000px', position: 'fixed', top: 0, left: 0, zIndex: -1 }} />;
+  return <div ref={vantaRef} style={{ width: '100%', height: '100%', maxHeight: '2000px', position: 'fixed', top: 0, left: 0, zIndex: -1 }} />;
 };
 
 export default VantaBackground;
