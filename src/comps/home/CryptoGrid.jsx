@@ -47,7 +47,7 @@ export default function CryptoGrid() {
           key={index}
           className={`col-span-1 ${index === cryptoData.length - 1 ? 'md:col-start-2' : ''}`}
         >
-          <div className="h-full flex">
+          <div className="flex justify-center">
             <CryptoCard
               imgSrc={crypto.imgSrc}
               title={crypto.title}
