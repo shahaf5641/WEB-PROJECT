@@ -10,7 +10,7 @@ export default function HeroSection() {
   return (
     <div className="text-center mb-12">
       <div 
-        className={`relative mx-auto w-52 h-52 mb-6 rounded-full overflow-hidden ${darkMode ? 'shadow-gray-400' : 'shadow-yellow-100'} shadow-md transition-transform transform hover:scale-105 flex flex-col items-center text-center`}
+        className={`relative mx-auto w-64 h-64 mb-6 rounded-full overflow-hidden ${darkMode ? 'shadow-gray-400' : 'shadow-yellow-100'} shadow-md transition-transform transform hover:scale-105 flex flex-col items-center text-center`}
       >
         <img 
           src={darkMode ? logolight : logodark} 

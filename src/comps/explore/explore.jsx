@@ -55,8 +55,6 @@ export default function Explore() {
           <option value="BNB">BNB</option>
           <option value="DOGE">DOGE</option>
           <option value="ADA">ADA</option>
-          <option value="LINK">LINK</option>
-          <option value="SHIB">SHIB</option>
         </select>
       </div>
       <div className="container flex flex-col md:flex-row items-start gap-5 w-full">
