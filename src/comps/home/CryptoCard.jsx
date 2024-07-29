@@ -6,7 +6,7 @@ export default function CryptoCard({ imgSrc, title, description }) {
 
   return (
     <div className="group perspective">
-      <div className="relative w-96 h-64 duration-700 transform-style preserve-3d group-hover:rotate-y-180">
+      <div className="relative w-80 h-64 duration-700 transform-style preserve-3d group-hover:rotate-y-180">
         <div className={`absolute inset-0 w-full h-full ${darkMode ? 'bg-gray-500' : 'bg-white'} border-2 border-coral rounded-xl shadow-xl backface-hidden`}>
           <div className="flex flex-col items-center justify-center h-full p-4">
             <img src={imgSrc} alt={`${title} Logo`} className="w-20 h-20 mb-4" />

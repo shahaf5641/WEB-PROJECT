@@ -41,11 +41,11 @@ const cryptoData = [
 
 export default function CryptoGrid() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8 mb-12">
       {cryptoData.map((crypto, index) => (
         <div
           key={index}
-          className={`col-span-1 ${index === cryptoData.length - 1 ? 'md:col-start-2' : ''}`}
+          className="col-span-1"
         >
           <div className="flex justify-center">
             <CryptoCard
@@ -59,4 +59,3 @@ export default function CryptoGrid() {
     </div>
   );
 }
-  
