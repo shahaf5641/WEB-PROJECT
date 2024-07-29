@@ -17,7 +17,7 @@ export default function Layout({ children }) {
         <main className='flex-grow flex flex-col text-center'>
           {children}
         </main>
-        <Footer className='relative' />
+        <Footer/>
       </div>
     </DarkModeProvider>
   );
