@@ -18,14 +18,23 @@ const TokenDetails = () => {
   useEffect(() => {
     const fetchTransactions = async (page) => {
       try {
-        const response = await fetch(`https://explorer.mtw-testnet.com/transactions?token=${address}&page=${page}&limit=5`);
-        const data = await response.json();
-        setTransactions(data.data);
-        setTotalPages(Math.ceil(data.amount / 10));
-
         const tokenDetail = tokenSymbol[address] || { symbol: tokenAddressToName[address] };
         if (tokenDetail) {
           setTransactionDetails(tokenDetail);
+        }
+
+        if (tokenDetail.symbol === 'wETH') {
+          // Fetch all transactions for ETH
+          const ethResponse = await fetch(`https://explorer.mtw-testnet.com/transactions/?page=${page}&limit=10`);
+          const ethData = await ethResponse.json();
+          setTransactions(ethData.data);
+          setTotalPages(Math.ceil(ethData.amount / 10));
+        } else {
+          // Fetch transactions for other tokens with pagination
+          const response = await fetch(`https://explorer.mtw-testnet.com/transactions?token=${address}&page=${page}&limit=10`);
+          const data = await response.json();
+          setTransactions(data.data);
+          setTotalPages(Math.ceil(data.amount / 10));
         }
       } catch (err) {
         setError(err.message);
@@ -61,7 +70,7 @@ const TokenDetails = () => {
       <div className="bg-white shadow-md rounded p-4 mb-4">
         <p><strong>Address:</strong> {address}</p>
         <p><strong>Symbol:</strong> {transactionDetails.symbol || 'N/A'}</p>
-        <p><strong>Name:</strong> {tokenInfo.name || 'US Dollar'}</p>
+        <p><strong>Name:</strong> {tokenInfo.name || 'N/A'}</p>
         {tokenInfo.image && <img src={tokenInfo.image} alt={`${tokenInfo.name} logo`} className="w-20 h-20" />}
         {tokenInfo.website && (
           <p><strong>Website:</strong> <a href={tokenInfo.website} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">{tokenInfo.website}</a></p>
@@ -73,12 +82,13 @@ const TokenDetails = () => {
       </div>
       <h1 className="text-xl font-semibold mb-4">Transactions</h1>
       <TransactionTable transactions={transactions} tokenAddressToName={tokenAddressToName} />
-      <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        handlePreviousPage={handlePreviousPage}
-        handleNextPage={handleNextPage}
-      />
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          handlePreviousPage={handlePreviousPage}
+          handleNextPage={handleNextPage}
+        />
+
     </div>
   );
 };
