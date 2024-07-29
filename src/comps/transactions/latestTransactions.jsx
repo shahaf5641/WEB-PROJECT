@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import TransactionTable from './transactionTable';
 import { tokenAddressToName } from '../contexts/tokenContext';
 import LoadingAnimation from '../LoadingAnimation';
+import { Link } from 'react-router-dom';
+
 
 const LatestTransactions = () => {
   const [transactions, setTransactions] = useState([]);

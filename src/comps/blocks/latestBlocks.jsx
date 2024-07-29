@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import BlocksTable from './blocksTable';
 import LoadingAnimation from '../LoadingAnimation';
+import { Link } from 'react-router-dom';
 
 const LatestBlocks = () => {
   const [blocks, setBlocks] = useState([]);
