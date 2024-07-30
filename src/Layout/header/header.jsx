@@ -24,7 +24,7 @@ export default function Header() {
       } else {
         navigate(`/notfound/${searchQuery}`);
       }
-      setSearchQuery('');  // Clear
+      setSearchQuery('');
     }
   };
 
@@ -36,7 +36,7 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-slate-600 text-black p-4 text-lg nav">
+    <header className="text-black p-4 text-lg nav bg-opacity-90 border-b border-gray-100 shadow-2xl backdrop-blur-[2px]">
       <div className="mx-auto flex justify-between items-center w-full">
         <div className="flex items-center space-x-4">
           <Link to="/" onClick={closeMenu}>
@@ -54,7 +54,7 @@ export default function Header() {
           <input
             type="text"
             placeholder="Account Address/Transaction/Block Hash"
-            className="pl-4 pr-10 py-2 rounded-full w-96 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="pl-4 pr-10 py-2 rounded-full w-96 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-700"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />

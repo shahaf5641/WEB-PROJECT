@@ -1,14 +1,25 @@
-import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useDarkMode } from '../../comps/contexts/DarkModeContext';
 
 export default function NavLink({ to, children }) {
   const location = useLocation();
   const isActive = location.pathname === to;
+  const { darkMode } = useDarkMode();
 
   return (
-    <Link to={to} className={`hidden md:flex font-semibold relative group focus:outline-none py-1 hover:text-white transition-colors duration-300 ${isActive ? 'text-white' : ''}`}>
-      <span className={`absolute bottom-0 left-0 h-0.5 bg-white group-hover:w-full transition-all duration-300 ${isActive ? 'w-full' : 'w-0'}`}></span>
-      {children}
+    <Link 
+      to={to} 
+      className={`hidden md:flex font-bold relative group focus:outline-none py-1 transition duration-500 text-[21px] 
+        ${isActive ? (darkMode ? 'text-indigo-500' : 'text-gray-200') : (darkMode ? 'text-white' : 'text-black')}
+        ${darkMode ? 'dark:hover:text-indigo-500' : 'hover:text-gray-200'}
+      `}
+    >
+      <span 
+        className={`absolute bottom-0 left-0 h-0.5 ${darkMode ? 'bg-indigo-500' : 'bg-gray-200'} transition-all duration-700 ${isActive ? 'w-full' : 'w-0'} group-hover:w-full`}
+      ></span>
+      <span className={`transition-transform transform ${isActive ? 'scale-110' : ''} group-hover:scale-110`}>
+        {children}
+      </span>
     </Link>
   );
 }
