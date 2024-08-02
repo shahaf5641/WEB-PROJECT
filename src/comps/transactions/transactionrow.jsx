@@ -11,7 +11,7 @@ export const getAmount = (tx) => {
   if (tx.type === 'eth') {
     return `${tx.value} wETH`;
   } else if (tx.type === 'token') {
-    const symbol = tokenAddressToName[tx.tokenAddress] || 'Token';
+    const symbol = tokenAddressToName[tx.tokenAddress] || 'Unknown Token';
     return `${tx.tokenAmount} ${symbol}`;
   } else {
     return 'contract';
@@ -19,19 +19,29 @@ export const getAmount = (tx) => {
 };
 
 const TransactionRow = ({ tx }) => {
+  const amount = getAmount(tx);
+  const isWETH = amount.includes('wETH');
+
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 p-4 border-b rounded-xl">
       <div className="truncate">{convertTimestamp(tx.timestamp)}</div>
       <div className="hidden md:block truncate">
-        {tx.type === 'token' ? (
+        {isWETH ? (
+          <Link
+            to={`/token/0x57f1887a8BF19b14fC0dF6Fd9B2acc9Af147eA85`}
+            className="text-blue-500 hover:underline"
+          >
+            {amount}
+          </Link>
+        ) : tx.type === 'token' ? (
           <Link
             to={`/token/${tx.tokenAddress}`}
             className="text-blue-500 hover:underline"
           >
-            {getAmount(tx)}
+            {amount}
           </Link>
         ) : (
-          getAmount(tx)
+          amount
         )}
       </div>
       <div className="hidden lg:block truncate">

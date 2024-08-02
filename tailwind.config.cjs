@@ -4,6 +4,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        'xs': '350px', // Custom breakpoint for 350px
+      },
       transform: {
         'preserve-3d': 'preserve-3d',
         'rotate-y-180': 'rotateY(180deg)',

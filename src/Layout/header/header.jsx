@@ -36,7 +36,7 @@ export default function Header() {
   };
 
   return (
-    <header className="text-black p-4 text-lg nav bg-opacity-90 border-b border-gray-100 shadow-2xl backdrop-blur-[2px]">
+    <header className="text-black p-4 text-lg nav bg-opacity-90 border-b border-gray-100 shadow-2xl backdrop-blur-[2px] mb-32 sm:mb-0 xs:mb-12">
       <div className="mx-auto flex justify-between items-center w-full">
         <div className="flex items-center space-x-4">
           <Link to="/" onClick={closeMenu}>

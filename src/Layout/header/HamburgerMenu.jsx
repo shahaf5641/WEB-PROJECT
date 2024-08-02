@@ -40,12 +40,12 @@ const HamburgerMenu = () => {
         />
       </div>
       {isOpen && (
-        <div className="absolute top-10 w-40 bg-gray-400 rounded-xl shadow-lg z-50 text-lg px-1 left-1">
-          <div className="flex flex-col">
-            <Link to="/dashboard" onClick={closeMenu} className="font-semibold text-xl text-black transform transition-transform duration-300 hover:scale-110 p-2">Dashboard</Link>
-            <Link to="/transactions" onClick={closeMenu} className="font-semibold text-xl text-black transform transition-transform duration-300 hover:scale-110 p-2">Transactions</Link>
-            <Link to="/blocks" onClick={closeMenu} className="font-semibold text-xl text-black transform transition-transform duration-300 hover:scale-110 p-2">Blocks</Link>
-            <Link to="/explore" onClick={closeMenu} className="font-semibold text-xl text-black transform transition-transform duration-300 hover:scale-110 p-2">Explore</Link>
+        <div className="absolute top-11 w-30 bg-gray-400 rounded-xl shadow-lg z-50 px-1 left-1">
+          <div className="flex flex-col font-semibold text-md text-black p-1">
+            <Link to="/dashboard" onClick={closeMenu} className="p-[2px] transform transition-transform duration-300 hover:scale-110">Dashboard</Link>
+            <Link to="/transactions" onClick={closeMenu} className="p-[2px] transform transition-transform duration-300 hover:scale-110">Transactions</Link>
+            <Link to="/blocks" onClick={closeMenu} className="p-[2px] transform transition-transform duration-300 hover:scale-110">Blocks</Link>
+            <Link to="/explore" onClick={closeMenu} className="p-[2px] transform transition-transform duration-300 hover:scale-110">Explore</Link>
           </div>
         </div>
       )}
