@@ -1,16 +1,16 @@
 import React from 'react';
 
-const TextArea = ({ id, label, value, onChange, required }) => {
+const TextArea = ({ id, label, value, onChange, required, darkMode }) => {
   return (
-    <div className="mb-8">
-      <label htmlFor={id} className="block text-gray-700 text-lg">
+    <div className="w-full mb-6">
+      <label htmlFor={id} className={`block ${darkMode ? 'text-gray-200' : 'text-gray-700'} text-lg`}>
         {label}
         {required && <span className="text-red-500">*</span>}
       </label>
       <textarea
         id={id}
-        placeholder={`Enter your ${label.toLowerCase()}...`}
-        className="mt-1 block w-full px-4 py-3 h-40 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-lg"
+        placeholder="Enter your message"
+        className={`mt-1 rounded-2xl transition ease-in-out duration-300 cursor-pointer w-full block px-4 py-3 ${darkMode ? 'bg-gray-500 text-white focus:border-indigo-700' : 'bg-white text-black focus:border-gray-400'} border border-gray-300 rounded-md shadow-sm focus:outline-none text-lg`}
         value={value}
         onChange={onChange}
         required={required}

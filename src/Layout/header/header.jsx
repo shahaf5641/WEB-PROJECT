@@ -4,10 +4,12 @@ import NavLink from './navlink';
 import HamburgerMenu from './HamburgerMenu';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { useDarkMode } from '../../comps/contexts/DarkModeContext';
 
 export default function Header() {
   const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
+  const { darkMode } = useDarkMode();
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -54,7 +56,7 @@ export default function Header() {
           <input
             type="text"
             placeholder="Account Address/Transaction/Block Hash"
-            className="pl-4 pr-10 py-2 rounded-full w-96 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-700"
+            className={`px-4 py-2 text-[17px] rounded-full w-96 transition ease-in-out duration-300 border ${darkMode ? 'bg-gray-500 placeholder-gray-300 text-white border-gray-500 focus:ring-indigo-900' : 'border-gray-300 focus:ring-gray-600 text-black'} focus:outline-none focus:ring-2`}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
