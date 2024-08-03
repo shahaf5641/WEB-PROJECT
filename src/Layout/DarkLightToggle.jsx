@@ -5,7 +5,7 @@ export default function DarkLightToggle() {
   const { toggleDarkMode } = useDarkMode();
 
   return (
-    <div className="flex justify-end p-2">
+    <div className="flex justify-end p-2 m-3">
       <label className="inline-flex items-center relative hover:cursor-pointer">
         <input className="peer hidden" id="toggle" type="checkbox" onChange={toggleDarkMode} />
         <div className="relative w-[110px] h-[50px] bg-white peer-checked:bg-gray-500 rounded-full after:absolute after:content-[''] after:w-[40px] after:h-[40px] after:bg-gradient-to-r from-blue-500 to-gray-200 peer-checked:after:from-zinc-900 peer-checked:after:to-zinc-900 after:rounded-full after:top-[5px] after:left-[5px] active:after:w-[50px] peer-checked:after:left-[105px] peer-checked:after:translate-x-[-100%] shadow-sm duration-300 after:duration-300 after:shadow-md"></div>

@@ -3,21 +3,23 @@ import BlocksTable from './blocksTable';
 import Pagination from '../pagination';
 import LoadingAnimation from '../LoadingAnimation';
 import SmallLoadingAnimation from '../SmallLoadingAnimation';
+import { useDarkMode } from '../../comps/contexts/DarkModeContext';
 
 const Blocks = () => {
   const [blocks, setBlocks] = useState([]);
-  const [loading, setLoading] = useState(true); // Initial loading state
-  const [paginationLoading, setPaginationLoading] = useState(false); // Pagination loading state
+  const [loading, setLoading] = useState(true);
+  const [paginationLoading, setPaginationLoading] = useState(false);
   const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [totalBlocks, setTotalBlocks] = useState(0);
+  const { darkMode } = useDarkMode();
 
   const fetchBlocks = async (page, isInitialLoad = false) => {
     if (isInitialLoad) {
-      setLoading(true); // Show full-screen loading animation
+      setLoading(true);
     } else {
-      setPaginationLoading(true); // Show small loading animation
+      setPaginationLoading(true);
     }
 
     try {
@@ -30,20 +32,20 @@ const Blocks = () => {
       setError(err.message);
     } finally {
       if (isInitialLoad) {
-        setLoading(false); // Hide full-screen loading animation
+        setLoading(false);
       } else {
-        setPaginationLoading(false); // Hide small loading animation
+        setPaginationLoading(false);
       }
     }
   };
 
   useEffect(() => {
-    fetchBlocks(currentPage, true); // Initial load
+    fetchBlocks(currentPage, true);
   }, []);
 
   useEffect(() => {
-    if (currentPage !== 1) {
-      fetchBlocks(currentPage); // Fetch blocks on page change
+    if (!loading) {
+      fetchBlocks(currentPage);
     }
   }, [currentPage]);
 
@@ -55,27 +57,23 @@ const Blocks = () => {
     setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages));
   };
 
+  if (loading) return <LoadingAnimation />;
+  if (error) return <p>Error: {error}</p>;
+
   return (
-    <div className="container mx-auto p-4 rounded-xl relative">
-      {loading && <LoadingAnimation />}
+    <div className="container mx-auto p-4 rounded-xl relative backdrop-blur-md">
       {paginationLoading && <SmallLoadingAnimation />}
-      <div className='flex flex-wrap justify-between items-center mb-4'>
-        <h1 className="text-2xl font-semibold mb-4">Blocks</h1>
-        <h1 className="text-2xl font-semibold mb-4">Total Blocks: {totalBlocks.toLocaleString()}</h1>
+      <div className={`flex flex-wrap justify-between items-center mb-2 ${darkMode ? 'text-gray-100' : 'text-black'}`}>
+        <h1 className="text-4xl font-semibold underline">Blocks</h1>
+        <h1 className="text-3xl font-semibold">Total: {totalBlocks.toLocaleString()}</h1>
       </div>
-      {error ? (
-        <p>Error: {error}</p>
-      ) : (
-        <>
-          <BlocksTable blocks={blocks} />
-          <Pagination
-            currentPage={currentPage}
-            totalPages={totalPages}
-            handlePreviousPage={handlePreviousPage}
-            handleNextPage={handleNextPage}
-          />
-        </>
-      )}
+      <BlocksTable blocks={blocks} />
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        handlePreviousPage={handlePreviousPage}
+        handleNextPage={handleNextPage}
+      />
     </div>
   );
 };

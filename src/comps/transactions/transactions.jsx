@@ -3,6 +3,7 @@ import TransactionTable from './transactionTable';
 import Pagination from '../pagination';
 import { tokenAddressToName } from '../contexts/tokenContext';
 import LoadingAnimation from '../LoadingAnimation';
+import { useDarkMode } from '../../comps/contexts/DarkModeContext';
 
 const Transactions = () => {
   const [transactions, setTransactions] = useState([]);
@@ -11,6 +12,7 @@ const Transactions = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [totalTransactions, setTotalTransactions] = useState(0);
+  const { darkMode } = useDarkMode();
 
   useEffect(() => {
     const fetchTransactions = async (page) => {
@@ -42,10 +44,10 @@ const Transactions = () => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className="container mx-auto p-4 rounded-xl">
-      <div className='flex flex-wrap justify-between items-center mb-4'>
-        <h1 className="text-2xl font-semibold">Transactions</h1>
-        <h1 className="text-2xl font-semibold">Amount: {totalTransactions.toLocaleString()}</h1>
+    <div className="container mx-auto rounded-xl backdrop-blur-md">
+      <div className={`flex flex-wrap justify-between items-center mb-2 ${darkMode ? 'text-gray-100' : 'text-black'}`}>
+        <h1 className="text-4xl font-bold underline">Transactions</h1>
+        <h1 className="text-3xl font-bold">Total: {totalTransactions.toLocaleString()}</h1>
       </div>
       <TransactionTable transactions={transactions} tokenAddressToName={tokenAddressToName} />
       <Pagination
