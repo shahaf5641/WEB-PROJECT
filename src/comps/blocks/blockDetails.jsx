@@ -3,12 +3,14 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { convertTimestamp } from '../transactions/transactionrow';
 import LoadingAnimation from '../animations/LoadingAnimation';
+import { useDarkMode } from '../contexts/DarkModeContext';
 
 const BlockDetails = () => {
   const { blockNumber } = useParams();
   const [blockDetails, setBlockDetails] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { darkMode } = useDarkMode();
 
   useEffect(() => {
     const fetchBlockDetails = async () => {
@@ -33,16 +35,16 @@ const BlockDetails = () => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-semibold mb-4">Block Details</h1>
-      <div className="bg-white shadow-md rounded p-4 mb-4">
-        <p><strong>Number:</strong> {blockDetails.number}</p>
-        <p><strong>Hash:</strong> {blockDetails.hash}</p>
-        <p><strong>Parent Hash:</strong> {blockDetails.parentHash}</p>
-        <p><strong>Time:</strong> {convertTimestamp(blockDetails.timestamp)}</p>
-        <p><strong>Gas Limit:</strong> {blockDetails.gasLimit}</p>
-        <p><strong>Gas Used:</strong> {blockDetails.gasUsed}</p>
-        <p><strong>Transactions:</strong> {blockDetails.transactions}</p>
+    <div className={`container mx-auto backdrop-blur-md p-4 ${darkMode ? 'text-gray-100' : 'text-gray-950'}`}>
+      <h1 className="text-4xl font-bold mb-4 underline">Block Details</h1>
+      <div className="shadow-xl rounded-2xl p-6 mb-4 border-2 backdrop-blur-md text-2xl font-base text-left">
+        <p className="mb-4 sm:text-wrap break-words"><strong>Number:</strong> {blockDetails.number}</p>
+        <p className="mb-4"><strong>Hash:</strong> {blockDetails.hash}</p>
+        <p className="mb-4"><strong>Parent Hash:</strong> {blockDetails.parentHash}</p>
+        <p className="mb-4"><strong>Time:</strong> {convertTimestamp(blockDetails.timestamp)}</p>
+        <p className="mb-4"><strong>Gas Limit:</strong> {blockDetails.gasLimit}</p>
+        <p className="mb-4"><strong>Gas Used:</strong> {blockDetails.gasUsed}</p>
+        <p className="mb-4"><strong>Transactions:</strong> {blockDetails.transactions}</p>
       </div>
     </div>
   );

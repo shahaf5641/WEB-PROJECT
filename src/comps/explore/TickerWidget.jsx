@@ -1,4 +1,5 @@
 import React from 'react';
+
  
 const logoLinks = {
   BTC: 'https://cryptologos.cc/logos/bitcoin-btc-logo.png',
@@ -14,7 +15,7 @@ export default function TickerWidget({ data, symbol }) {
   const { price, change } = data;
  
   return (
-    <div className="bg-white p-6 rounded-lg shadow-lg text-center h-full flex flex-col justify-between" style={{ height: '400px' }}>
+    <div className="p-6 rounded-lg text-center h-full flex flex-col justify-between" style={{ height: '400px' }}>
       <h2 className="text-2xl font-semibold mb-4">Real Time Ticker ({symbol})</h2>
       <div className="flex flex-col items-center">
         <span className="text-5xl font-bold">{price.toFixed(2)}</span>

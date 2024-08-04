@@ -17,12 +17,14 @@ import BlockDetails from './comps/blocks/blockDetails';
 import { tokenAddressToName } from './comps/contexts/tokenContext';
 import ThankYouMessage from './comps/contact/thankYouMessage';
 import NotFound from './Layout/header/NotFound';
+import ScrollToTop from './ScrollToTop'; // Import the ScrollToTop component
 
 export default function AppRouter() {
   return (
     <Router>
       <TokenProvider value={tokenAddressToName}>
         <Layout>
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -34,7 +36,7 @@ export default function AppRouter() {
             <Route path="/block/:blockNumber" element={<BlockDetails />} />
             <Route path="/transactions" element={<Transactions />} />
             <Route path="/transaction/:hash" element={<TransactionDetails />} />
-            <Route path="/token/:address" element={<TokenDetails />} /> 
+            <Route path="/token/:address" element={<TokenDetails />} />
             <Route path="/address/:address" element={<AccountDetails />} />
             <Route path="/notfound/:searchQuery" element={<NotFound />} />
           </Routes>

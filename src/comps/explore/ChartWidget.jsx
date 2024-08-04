@@ -104,7 +104,7 @@ export default function ChartWidget({ data, symbol }) {
   }, [data]);
  
   return (
-    <div className="bg-white p-6 rounded-lg shadow-lg" style={{ height: '400px' }}>
+    <div className="p-6 rounded-lg" style={{ height: '400px' }}>
       <h2 className="text-2xl font-semibold mb-4">Real Time Chart ({symbol})</h2>
       <canvas ref={chartRef}></canvas>
     </div>
