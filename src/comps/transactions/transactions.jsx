@@ -44,7 +44,7 @@ const Transactions = () => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className="container mx-auto rounded-full backdrop-blur-md p-4">
+    <div className="container mx-auto rounded-xl backdrop-blur-md mb-4 p-4">
       <div className={`flex flex-wrap justify-between items-center mb-2 ${darkMode ? 'text-gray-100' : 'text-black'}`}>
         <h1 className="text-4xl font-bold underline">Transactions</h1>
         <h1 className="text-3xl font-bold">Total: {totalTransactions.toLocaleString()}</h1>

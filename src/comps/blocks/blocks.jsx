@@ -61,7 +61,7 @@ const Blocks = () => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className="container mx-auto rounded-full backdrop-blur-md p-4">
+    <div className="container mx-auto rounded-xl backdrop-blur-md mb-4 p-4">
       {paginationLoading && <SmallLoadingAnimation />}
       <div className={`flex flex-wrap justify-between items-center mb-2 ${darkMode ? 'text-gray-100' : 'text-black'}`}>
         <h1 className="text-4xl font-semibold underline">Blocks</h1>
