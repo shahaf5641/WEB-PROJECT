@@ -1,7 +1,7 @@
 import React from 'react';
-import LatestBlocks from '../comps/blocks/latestBlocks';
-import LatestTransactions from '../comps/transactions/latestTransactions';
-import { useDarkMode } from '../comps/contexts/DarkModeContext';
+import LatestBlocks from './latestBlocks';
+import LatestTransactions from './latestTransactions';
+import { useDarkMode } from '../contexts/DarkModeContext';
 
 
 const Dashboard = () => {

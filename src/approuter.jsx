@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './comps/home/home';
 import About from './comps/about';
 import Contact from './comps/contact/contact';
-import Dashboard from './comps/dashboard';
+import Dashboard from './comps/dashboard/dashboard';
 import Explore from './comps/explore/explore';
 import Blocks from './comps/blocks/blocks';
 import Transactions from './comps/transactions/transactions';
