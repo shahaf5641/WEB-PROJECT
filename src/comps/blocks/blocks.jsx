@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import BlocksTable from './blocksTable';
 import Pagination from '../pagination';
-import LoadingAnimation from '../LoadingAnimation';
-import SmallLoadingAnimation from '../SmallLoadingAnimation';
+import LoadingAnimation from '../animations/LoadingAnimation';
+import SmallLoadingAnimation from '../animations/SmallLoadingAnimation';
 import { useDarkMode } from '../../comps/contexts/DarkModeContext';
 
 const Blocks = () => {

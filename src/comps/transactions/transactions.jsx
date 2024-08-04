@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import TransactionTable from './transactionTable';
 import Pagination from '../pagination';
 import { tokenAddressToName } from '../contexts/tokenContext';
-import LoadingAnimation from '../LoadingAnimation';
+import LoadingAnimation from '../animations/LoadingAnimation';
 import { useDarkMode } from '../../comps/contexts/DarkModeContext';
 
 const Transactions = () => {

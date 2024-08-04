@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import Pagination from './pagination';
 import TransactionTable from './transactions/transactionTable';
 import { tokenAddressToName } from './contexts/tokenContext';
-import LoadingAnimation from './LoadingAnimation';
+import LoadingAnimation from './animations/LoadingAnimation';
 
 
 const AccountDetails = () => {

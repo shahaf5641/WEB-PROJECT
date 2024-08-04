@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useToken, tokenAddressToName } from '../contexts/tokenContext';
 import { getAmount } from './transactionrow';
-import LoadingAnimation from '../LoadingAnimation';
+import LoadingAnimation from '../animations/LoadingAnimation';
 
 const TransactionDetails = () => {
   const { hash } = useParams();

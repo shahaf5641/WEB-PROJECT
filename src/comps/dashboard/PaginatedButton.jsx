@@ -17,7 +17,7 @@ const PaginatedButton = ({ link, buttonText, onClick }) => {
           onClick={onClick}
         >
           <div
-            className={`rounded-full h-10 w-1/6 flex items-center justify-center absolute left-1 top-[4px] group-hover:w-[310px] z-10 duration-700 ${darkMode ? 'bg-indigo-600' : 'bg-gray-400'}`}
+            className={`rounded-full h-10 w-1/6 flex items-center justify-center absolute left-1 top-[4px] group-hover:w-[280px] z-10 duration-700 ${darkMode ? 'bg-indigo-600' : 'bg-gray-400'}`}
           >
             <FaArrowRight className="text-black" size={24} />
           </div>

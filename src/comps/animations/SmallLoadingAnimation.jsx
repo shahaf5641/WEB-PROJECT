@@ -1,6 +1,6 @@
 import React from 'react';
 import Lottie from 'lottie-react';
-import animationData from '../assets/SmallLoadingAnimation.json';
+import animationData from '../../assets/SmallLoadingAnimation.json';
 
 const SmallLoadingAnimation = () => {
   return (

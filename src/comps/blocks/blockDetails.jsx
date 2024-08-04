@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { convertTimestamp } from '../transactions/transactionrow';
-import LoadingAnimation from '../LoadingAnimation';
+import LoadingAnimation from '../animations/LoadingAnimation';
 
 const BlockDetails = () => {
   const { blockNumber } = useParams();

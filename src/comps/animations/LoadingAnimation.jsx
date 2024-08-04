@@ -1,7 +1,7 @@
 // src/components/LoadingAnimation.jsx
 import React from 'react';
 import Lottie from 'lottie-react';
-import animationData from '../assets/loadingAnimationBlack.json';
+import animationData from '../../assets/loadingAnimationBlack.json';
 
 const LoadingAnimation = () => {
   return (

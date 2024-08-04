@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import LoadingAnimation from '../LoadingAnimation';
+import LoadingAnimation from '../animations/LoadingAnimation';
 import { useDarkMode } from '../contexts/DarkModeContext';
 import PaginatedButton from './PaginatedButton';
 

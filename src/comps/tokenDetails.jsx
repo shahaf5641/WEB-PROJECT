@@ -3,7 +3,10 @@ import { useParams } from 'react-router-dom';
 import TransactionTable from './transactions/transactionTable';
 import Pagination from './pagination';
 import { useToken, tokenAddressToName } from './contexts/tokenContext';
-import LoadingAnimation from './LoadingAnimation';
+import LoadingAnimation from './animations/LoadingAnimation';
+import { useDarkMode } from '../comps/contexts/DarkModeContext';
+
+
 
 const TokenDetails = () => {
   const { address } = useParams();
@@ -14,6 +17,8 @@ const TokenDetails = () => {
   const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const { darkMode } = useDarkMode();
+
 
   useEffect(() => {
     const fetchTransactions = async (page) => {
@@ -65,9 +70,9 @@ const TokenDetails = () => {
   const tokenInfo = tokenSymbol[tokenSymbolString] || {};
 
   return (
-    <div className="container mx-auto">
-      <h1 className="text-2xl font-semibold mb-4">Token Details</h1>
-      <div className="bg-white shadow-md rounded p-4 mb-4">
+    <div className="container mx-auto backdrop-blur-md p-4">
+      <h1 className="text-4xl font-bold mb-4 underline">Token Details</h1>
+      <div className="shadow-xl rounded-2xl p-4 mb-4 border-2 backdrop-blur-md text-xl font-base">
         <p><strong>Address:</strong> {address}</p>
         <p><strong>Symbol:</strong> {transactionDetails.symbol || 'N/A'}</p>
         <p><strong>Name:</strong> {tokenInfo.name || 'N/A'}</p>
@@ -80,7 +85,7 @@ const TokenDetails = () => {
           <p><strong>Coingecko:</strong> <a href={tokenInfo.coingecko} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">{tokenInfo.coingecko}</a></p>
         )}
       </div>
-      <h1 className="text-xl font-semibold mb-4">Transactions</h1>
+      <h1 className="text-2xl text-left font-semibold mb-3 mt-10">Transactions</h1>
       <TransactionTable transactions={transactions} tokenAddressToName={tokenAddressToName} />
         <Pagination
           currentPage={currentPage}
