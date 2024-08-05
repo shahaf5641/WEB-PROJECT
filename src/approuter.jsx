@@ -1,4 +1,3 @@
-// src/AppRouter.jsx
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './comps/home/home';
@@ -17,7 +16,7 @@ import BlockDetails from './comps/blocks/blockDetails';
 import { tokenAddressToName } from './comps/contexts/tokenContext';
 import ThankYouMessage from './comps/contact/thankYouMessage';
 import NotFound from './Layout/header/NotFound';
-import ScrollToTop from './ScrollToTop'; // Import the ScrollToTop component
+import ScrollToTop from './ScrollToTop';
 
 export default function AppRouter() {
   return (
