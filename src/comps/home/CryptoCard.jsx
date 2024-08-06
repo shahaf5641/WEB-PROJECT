@@ -27,9 +27,26 @@ export default function CryptoCard({ imgSrc, title, description, address }) {
             <p className="text-xl font-semibold">{description}</p>
             <button 
               onClick={handleMoreDetails}
-              className="mt-4 px-4 py-2 bg-blue-600 text-white text-lg font-semibold rounded-full transition-transform duration-500 ease-in-out active:scale-95 hover:bg-indigo-600"
+              className={`mt-4 group/button relative inline-flex items-center justify-center overflow-hidden rounded-full px-4 py-2 text-lg font-semibold tracking-wider transition-all duration-300 ease-in-out hover:gap-2 hover:translate-x-3 ${darkMode ? 'text-gray-200 bg-indigo-600' : ' text-gray-900 bg-blue-500'}`}
             >
               More Details
+              <svg
+                className="w-5 h-5 ml-2"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5"
+                  strokeLinejoin="round"
+                  strokeLinecap="round"
+                ></path>
+              </svg>
+              <div className="absolute inset-0 flex h-full w-full justify-center [transform:skew(-13deg)_translateX(-100%)] group-hover/button:duration-1000 group-hover/button:[transform:skew(-13deg)_translateX(100%)]">
+                <div className="relative h-full w-10 bg-white/30"></div>
+              </div>
             </button>
           </div>
         </div>

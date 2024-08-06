@@ -11,7 +11,7 @@ export default function About() {
     elements.forEach((el, index) => {
       setTimeout(() => {
         el.classList.add('opacity-100');
-      }, index * 500); // Stagger the transition delay for each element
+      }, index * 120); // Stagger the transition delay for each element
     });
   }, []);
 
@@ -38,7 +38,7 @@ export default function About() {
           </p>
 
           <h2 
-            className={`text-2xl font-bold mb-3 ${darkMode ? 'bg-slate-600 text-white' : 'bg-slate-200 text-slate-800'} p-2 rounded transition-opacity duration-300 ease-in-out fade-in opacity-0`}
+            className={`text-2xl font-bold mb-3 ${darkMode ? 'bg-slate-600 text-white' : 'bg-slate-200 text-slate-800'} p-2 rounded transition-opacity duration-100 ease-in-out fade-in opacity-0`}
           >
             Our Mission
           </h2>
