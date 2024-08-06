@@ -11,7 +11,9 @@ export const DarkModeProvider = ({ children }) => {
 
   return (
     <DarkModeContext.Provider value={{ darkMode, toggleDarkMode }}>
-      {children}
+      <div style={{ maxHeight: '2200px', overflowY: 'auto' }}>
+        {children}
+      </div>
     </DarkModeContext.Provider>
   );
 };
