@@ -13,10 +13,10 @@ export default function CryptoCard({ imgSrc, title, description, address }) {
   return (
     <div className="group perspective">
       <div className="relative xs:w-80 xs:h-80 w-60 h-60 duration-700 transform-style preserve-3d group-hover:rotate-y-180">
-        <div className={`absolute inset-0 w-full h-full ${darkMode ? 'bg-gray-500' : 'bg-white'} border-2 border-coral rounded-xl shadow-xl backface-hidden`}>
+        <div className={`absolute inset-0 w-full h-full ${darkMode ? 'bg-slate-800' : 'bg-white'} border-2 border-coral rounded-xl shadow-xl backface-hidden`}>
           <div className="flex flex-col items-center justify-center h-full p-4">
             <img src={imgSrc} alt={`${title} Logo`} className="xs:w-20 xs:h-20 w-14 h-14 mb-4" />
-            <h3 className={`text-3xl font-bold ${darkMode ? 'text-indigo-700' : 'text-blue-800'}`}>{title}</h3>
+            <h3 className={`text-3xl font-bold ${darkMode ? 'text-indigo-600' : 'text-blue-800'}`}>{title}</h3>
           </div>
         </div>
         
