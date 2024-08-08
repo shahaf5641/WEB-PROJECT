@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react';
 import teamImage from '../assets/team.png';
-import { useDarkMode } from '../comps/contexts/DarkModeContext'; // Import the useDarkMode hook
+import { useDarkMode } from '../comps/contexts/DarkModeContext';
 
 export default function About() {
-  const { darkMode } = useDarkMode(); // Get darkMode value from context
+  const { darkMode } = useDarkMode();
 
   useEffect(() => {
-    // Apply opacity-100 after component mounts to trigger the transition
+
     const elements = document.querySelectorAll('.fade-in');
     elements.forEach((el, index) => {
       setTimeout(() => {
         el.classList.add('opacity-100');
-      }, index * 120); // Stagger the transition delay for each element
+      }, index * 120);
     });
   }, []);
 

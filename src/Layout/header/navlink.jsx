@@ -9,7 +9,7 @@ export default function NavLink({ to, children }) {
   return (
     <Link 
       to={to} 
-      className={`hidden md:flex font-bold relative group focus:outline-none py-1 transition duration-500 text-[21px] 
+      className={`hidden md:flex font-bold relative group focus:outline-none py-1 transition duration-500 text-[17px] lg:text-[21px] 
         ${isActive ? (darkMode ? 'text-indigo-500' : 'text-gray-200') : (darkMode ? 'text-white' : 'text-black')}
         ${darkMode ? 'dark:hover:text-indigo-500' : 'hover:text-gray-200'}
       `}

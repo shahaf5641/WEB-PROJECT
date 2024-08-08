@@ -1,11 +1,11 @@
 module.exports = {
   content: [
-    './src/**/*.{js,jsx,ts,tsx}', // Adjust this path to match your project's structure
+    './src/**/*.{js,jsx,ts,tsx}',
   ],
   theme: {
     extend: {
       screens: {
-        'xs': '350px', // Custom breakpoint for 350px
+        'xs': '350px',
       },
       transform: {
         'preserve-3d': 'preserve-3d',

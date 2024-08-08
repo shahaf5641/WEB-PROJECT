@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import NavLink from './navlink';
 import HamburgerMenu from './HamburgerMenu';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { useDarkMode } from '../../comps/contexts/DarkModeContext';
 
 export default function Header() {
@@ -38,8 +38,8 @@ export default function Header() {
   };
 
   return (
-    <header className="text-black p-4 text-lg nav bg-opacity-90 border-b border-gray-100 shadow-2xl backdrop-blur-[2px] mb-32 sm:mb-0 xs:mb-12">
-      <div className="mx-auto flex justify-between items-center w-full">
+    <header className="p-4 text-lg nav bg-opacity-90 border-b border-gray-100 shadow-2xl backdrop-blur-[2px] mb-32 sm:mb-0 xs:mb-12">
+      <div className="mx-auto sm:flex justify-between items-center w-full">
         <div className="flex items-center space-x-4">
           <Link to="/" onClick={closeMenu}>
             <FontAwesomeIcon icon={faHome} className="h-8 w-8 text-white transform transition-transform duration-200 hover:scale-110" />
@@ -52,17 +52,27 @@ export default function Header() {
         <NavLink to="/transactions">Transactions</NavLink>
         <NavLink to="/blocks">Blocks</NavLink>
         <NavLink to="/explore">Explore</NavLink>
-        <form onSubmit={handleSearch} className="relative flex items-center ml-4">
-          <input
-            type="text"
-            placeholder="Account Address/Transaction/Block Hash"
-            className={`px-4 py-2 text-[17px] rounded-full w-96 transition ease-in-out duration-300 border ${darkMode ? 'bg-gray-500 placeholder-gray-300 text-white border-gray-500 focus:ring-indigo-900' : 'border-gray-300 focus:ring-gray-600 text-black'} focus:outline-none focus:ring-2`}
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-          <button type="submit" className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600">
-            <FontAwesomeIcon icon={faSearch} />
-          </button>
+        <form onSubmit={handleSearch} className="relative flex items-center sm:ml-4 sm:mt-0 mt-4 px-2 w-full sm:w-96">
+          <div className="relative w-full">
+            <input
+              required
+              placeholder="Account/Transaction/Block Hash"
+              className={`block w-full p-3 text-lg border-2 rounded-full focus:outline-none transition ease-in-out duration-500 ${darkMode ? 'bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-indigo-500 focus:border-indigo-500' : 'border-gray-300 text-black focus:ring-blue-500 focus:border-blue-500'}`}
+              id="default-search"
+              type="search"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <button
+              type="submit"
+              className={`items-center justify-center flex border-2 shadow-lg ${darkMode ? 'border-indigo-500 hover:bg-indigo-500 hover:text-black text-white shadow-indigo-800' : 'border-blue-500 hover:bg-blue-500 hover:text-white shadow-blue-300'} duration-300 cursor-pointer active:scale-95 absolute end-2.5 bottom-1/2 translate-y-1/2 p-2 text-sm font-medium rounded-full focus:ring-4 focus:outline-none`}
+              >
+              <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className="w-4 h-4">
+                <path d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" strokeWidth="2" strokeLinejoin="round" strokeLinecap="round" stroke="currentColor"></path>
+              </svg>
+              <span className="sr-only">Search</span>
+            </button>
+          </div>
         </form>
       </div>
     </header>
