@@ -49,11 +49,11 @@ const AccountDetails = () => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className={`container mx-auto backdrop-blur-md p-4 ${darkMode ? 'text-gray-100' : 'text-gray-950'}`}>
+    <div className="container mx-auto backdrop-blur-md p-4">
       <h1 className="text-4xl font-bold mb-4 underline">Account Details</h1>
       <div className="shadow-xl rounded-2xl p-6 mb-4 border-2 backdrop-blur-md text-2xl font-base text-left">
         <p className="mb-4 sm:text-wrap break-words"><strong>Account Address:</strong> {address}</p>
-        <h2 className="text-3xl font-semibold mb-4">Balances</h2>
+        {/* <h2 className="text-3xl font-semibold mb-4">Balances</h2>
         <table className="min-w-full border border-gray-300 mb-4">
           <thead>
             <tr>
@@ -62,8 +62,7 @@ const AccountDetails = () => {
               <th className="py-2 px-4 border-b">Token Address</th>
             </tr>
           </thead>
-          {/* Add table body here */}
-        </table>
+        </table> */}
         <h2 className="text-2xl text-left font-semibold mb-3 mt-10">Transactions</h2>
         <TransactionTable transactions={transactions} tokenAddressToName={tokenAddressToName} />
         <Pagination

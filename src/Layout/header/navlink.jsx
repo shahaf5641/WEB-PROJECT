@@ -9,13 +9,13 @@ export default function NavLink({ to, children }) {
   return (
     <Link 
       to={to} 
-      className={`hidden md:flex font-bold relative group focus:outline-none py-1 transition duration-500 text-[17px] lg:text-[21px] 
-        ${isActive ? (darkMode ? 'text-indigo-500' : 'text-blue-700') : (darkMode ? 'text-gray-200' : 'text-gray-200')}
-        ${darkMode ? 'dark:hover:text-indigo-500' : 'hover:text-blue-700'}
+      className={`hidden md:flex font-bold relative group focus:outline-none py-1 transition duration-500 text-[17px] lg:text-[21px]
+        ${isActive ? (darkMode ? 'text-indigo-500' : 'text-gray-700') : (darkMode ? 'text-gray-100' : 'text-gray-100')}
+        ${darkMode ? 'hover:text-indigo-500' : 'hover:text-gray-700'}
       `}
     >
       <span 
-        className={`absolute bottom-0 left-0 h-0.5 ${darkMode ? 'bg-indigo-500' : 'bg-blue-700'} transition-all duration-700 ${isActive ? 'w-full' : 'w-0'} group-hover:w-full`}
+        className={`absolute bottom-0 left-0 h-0.5 ${darkMode ? 'bg-indigo-500' : 'bg-gray-700'} transition-all duration-700 ${isActive ? 'w-full' : 'w-0'} group-hover:w-full`}
       ></span>
       <span className={`transition-transform transform ${isActive ? 'scale-110' : ''} group-hover:scale-110`}>
         {children}
