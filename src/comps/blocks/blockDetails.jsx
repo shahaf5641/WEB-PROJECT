@@ -1,7 +1,7 @@
 // src/components/blocks/BlockDetails.jsx
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { convertTimestamp } from '../transactions/transactionrow';
+import { convertTimestamp } from '../contexts/tokenContext';
 import LoadingAnimation from '../animations/LoadingAnimation';
 import { useDarkMode } from '../contexts/DarkModeContext';
 

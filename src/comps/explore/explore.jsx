@@ -43,7 +43,7 @@ export default function Explore() {
   }, [symbol]);
 
   return (
-    <div className={`flex flex-col items-center gap-3 backdrop-blur-md py-4 ${darkMode ? 'text-gray-100' : 'text-gray-950'}`}>
+    <div className="flex flex-col items-center gap-3 backdrop-blur-md py-4">
       <h1 className="text-5xl font-bold mb-2 underline">Explore</h1>
       <div className="mb-5 flex items-center space-x-3">
         <label htmlFor="coin" className={`text-2xl font-semibold`}>Select Coin:</label>
@@ -51,7 +51,7 @@ export default function Explore() {
           id="coin"
           value={symbol}
           onChange={(e) => setSymbol(e.target.value)}
-          className={`border-2 rounded-lg p-2 text-lg shadow-md focus:outline-none transition-colors duration-300 ease-in-out ${darkMode ? 'bg-gray-700 text-gray-100 border-indigo-500 focus:border-indigo-500' : 'bg-white text-gray-900 border-gray-300 focus:border-blue-500'}`}>
+          className={`border-2 rounded-lg p-2 text-lg shadow-md focus:outline-none transition-colors duration-300 ease-in-out ${darkMode ? 'bg-gray-700 border-indigo-500 focus:border-indigo-500' : 'bg-white border-gray-300 focus:border-blue-500'}`}>
           <option value="ETH">ETH</option>
           <option value="BTC">BTC</option>
           <option value="BNB">BNB</option>
@@ -60,10 +60,10 @@ export default function Explore() {
         </select>
       </div>
       <div className="container flex flex-col md:flex-row items-start gap-12">
-      <div className={`flex-1 md:w-1/2 rounded-2xl shadow-lg p-5 h-full border-2 ${darkMode ? 'bg-gray-800 text-gray-100 border-white' : 'bg-gray-200 text-gray-900 border-black'}`}>
+      <div className={`flex-1 md:w-1/2 rounded-2xl shadow-lg p-5 h-full border-2 ${darkMode ? 'bg-gray-800 border-white' : 'bg-gray-200 border-black'}`}>
           <TickerWidget data={data} symbol={symbol} />
         </div>
-        <div className={`flex-1 md:w-1/2 rounded-2xl shadow-lg p-5 h-full border-2 ${darkMode ? 'bg-gray-800 text-gray-100 border-white' : 'bg-gray-200 text-gray-900 border-black'}`}>
+        <div className={`flex-1 md:w-1/2 rounded-2xl shadow-lg p-5 h-full border-2 ${darkMode ? 'bg-gray-800 border-white' : 'bg-gray-200 border-black'}`}>
           <ChartWidget data={data} symbol={symbol} />
         </div>
       </div>

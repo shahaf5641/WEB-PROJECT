@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { useToken, tokenAddressToName } from '../contexts/tokenContext';
-import { getAmount } from './transactionrow';
+import { useParams } from 'react-router-dom';
+import { tokenAddressToName } from '../contexts/tokenContext';
+import { getAmount, convertTimestamp } from '../contexts/tokenContext';
 import LoadingAnimation from '../animations/LoadingAnimation';
 import { useDarkMode } from '../contexts/DarkModeContext';
 
@@ -30,12 +30,6 @@ const TransactionDetails = () => {
 
     fetchTransactionDetails();
   }, [hash]);
-
-  const convertTimestamp = (timestamp) => {
-    if (!timestamp) return 'Invalid Date';
-    const date = new Date(timestamp * 1000);
-    return date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
-  };
 
   if (loading) return <LoadingAnimation />;
   if (error) return <p>Error: {error}</p>;

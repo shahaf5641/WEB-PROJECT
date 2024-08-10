@@ -63,7 +63,7 @@ const Blocks = () => {
   return (
     <div className="container mx-auto rounded-xl backdrop-blur-md mb-4 p-4">
       {paginationLoading && <SmallLoadingAnimation />}
-      <div className={`flex flex-wrap justify-between items-center mb-2 ${darkMode ? 'text-gray-100' : 'text-black'}`}>
+      <div className="flex flex-wrap justify-between items-center mb-2">
         <h1 className="text-4xl font-semibold underline">Blocks</h1>
         <h1 className="text-3xl font-semibold">Total: {totalBlocks.toLocaleString()}</h1>
       </div>

@@ -34,7 +34,7 @@ const LatestItems = ({ fetchUrl, TableComponent, title, link, buttonText }) => {
 
   return (
     <div className="container mx-auto p-2 rounded-xl backdrop-blur-md">
-      <h2 className={`text-2xl font-semibold mb-4 text-left underline px-4 ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>{title}</h2>
+      <h2 className="text-2xl font-semibold mb-4 text-left underline px-4">{title}</h2>
       <TableComponent items={items} />
       <PaginatedButton
         link={link}

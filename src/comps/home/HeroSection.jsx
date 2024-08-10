@@ -2,6 +2,7 @@ import React from 'react';
 import { useDarkMode } from '../../comps/contexts/DarkModeContext';
 import logodark from '../../assets/logodark.png';
 import logolight from '../../assets/logolight.png';
+
 import { Link } from 'react-router-dom';
 
 export default function HeroSection() {
@@ -13,7 +14,7 @@ export default function HeroSection() {
         className={`relative mx-auto w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 mb-6 rounded-full overflow-hidden ${darkMode ? 'shadow-gray-400' : 'shadow-yellow-100'} shadow-md transition-transform transform hover:scale-105 flex flex-col items-center text-center`}
       >
         <img 
-          src={darkMode ? logolight : logodark} 
+          src={darkMode ? logodark : logolight} 
           alt="Site Logo" 
           className="w-full h-full object-cover transform scale-125" 
         />

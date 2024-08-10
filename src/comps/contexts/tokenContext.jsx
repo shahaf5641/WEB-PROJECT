@@ -15,6 +15,22 @@ export const useToken = () => {
   return useContext(TokenContext);
 };
 
+export const getAmount = (tx) => {
+  if (tx.type === 'eth') {
+    return `${tx.value} wETH`;
+  } else if (tx.type === 'token') {
+    const symbol = tokenAddressToName[tx.tokenAddress] || 'Unknown Token';
+    return `${tx.tokenAmount} ${symbol}`;
+  } else {
+    return 'contract';
+  }
+};
+
+export const convertTimestamp = (timestamp) => {
+  const date = new Date(timestamp * 1000);
+  return date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
+};
+
 export const TokenProvider = ({ children }) => {
   const [tokenSymbol, setTokenSymbol] = useState({});
   const [error, setError] = useState(null);

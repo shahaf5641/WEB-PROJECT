@@ -13,7 +13,7 @@ const PaginatedButton = ({ link, buttonText, onClick }) => {
       <Link to={link} className="relative group p-2">
         <button
           type="button"
-          className={`pl-6 text-center w-72 rounded-full h-12 relative text-black text-lg font-semibold ${darkMode ? 'bg-gray-700 text-gray-200' : 'bg-gray-200 text-black'}`}
+          className={`pl-6 text-center w-72 rounded-full h-12 relative text-lg font-semibold ${darkMode ? 'bg-gray-700 text-gray-100' : 'bg-gray-200 text-gray-800'}`}
           onClick={onClick}
         >
           <div
