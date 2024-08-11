@@ -1,35 +1,44 @@
-// src/components/transactions/TransactionDetails.jsx
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { tokenAddressToName } from '../contexts/tokenContext';
-import { getAmount, convertTimestamp } from '../contexts/tokenContext';
+import { tokenAddressToName, getAmount, convertTimestamp } from '../contexts/tokenContext';
 import LoadingAnimation from '../animations/LoadingAnimation';
 import { fetchTransactionDetails } from '../contexts/Fetches'; // Import the function
-
+ 
+/**
+ * TransactionDetails component
+ * 
+ * Displays detailed information about a specific transaction.
+ * Fetches transaction details based on the transaction hash from the URL parameters.
+ */
 const TransactionDetails = () => {
-  const { hash } = useParams();
-  const [transaction, setTransaction] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
+  const { hash } = useParams(); // Get the transaction hash from the URL parameters
+  const [transaction, setTransaction] = useState(null); // State to store transaction details
+  const [loading, setLoading] = useState(true); // State to manage loading animation
+  const [error, setError] = useState(null); // State to handle potential errors
+ 
+  // Fetch transaction details when the component is mounted or when the hash changes
   useEffect(() => {
     const getTransactionDetails = async () => {
       try {
-        const data = await fetchTransactionDetails(hash);
-        setTransaction(data);
+        const data = await fetchTransactionDetails(hash); // Fetch the transaction details
+        setTransaction(data); // Store the transaction details in state
       } catch (err) {
-        setError(err.message);
+        setError(err.message); // Handle errors
       } finally {
-        setLoading(false);
+        setLoading(false); // End the loading state
       }
     };
-
+ 
     getTransactionDetails();
   }, [hash]);
-
+ 
+  // Display a loading animation while data is being fetched
   if (loading) return <LoadingAnimation />;
+ 
+  // Display an error message if there was an issue fetching the data
   if (error) return <p>Error: {error}</p>;
-
+ 
+  // Render the transaction details if data is available
   return (
     <div className="container mx-auto backdrop-blur-md p-4">
       <h1 className="text-4xl font-bold mb-4 underline">Transaction Details</h1>
@@ -54,5 +63,6 @@ const TransactionDetails = () => {
     </div>
   );
 };
-
+ 
 export default TransactionDetails;
+ 

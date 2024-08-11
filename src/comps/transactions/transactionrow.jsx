@@ -1,11 +1,17 @@
 import React from 'react';
 import { convertTimestamp, getAmount } from '../contexts/tokenContext';
 import StyledTableLink from '../contexts/StyledTableLink';
-
+ 
+/**
+ * TransactionRow Component
+ * 
+ * This component displays a single row of transaction details within a grid layout.
+ * It includes the transaction timestamp, amount, sender, recipient, and transaction hash.
+ */
 const TransactionRow = ({ tx }) => {
-  const amount = getAmount(tx);
-  const isWETH = amount.includes('wETH');
-
+  const amount = getAmount(tx); // Calculate the transaction amount
+  const isWETH = amount.includes('wETH'); // Check if the amount is in wETH
+ 
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 p-4 border-2 rounded-xl text-lg font-semibold transform transition-transform duration-300 hover:scale-105">
       <div className="truncate">{convertTimestamp(tx.timestamp)}</div>
@@ -40,5 +46,5 @@ const TransactionRow = ({ tx }) => {
     </div>
   );
 };
-
+ 
 export default TransactionRow;

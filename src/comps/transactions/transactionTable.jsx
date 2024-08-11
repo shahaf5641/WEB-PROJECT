@@ -1,9 +1,21 @@
 import React from 'react';
 import TransactionRow from './transactionrow';
 import { useDarkMode } from '../../comps/contexts/DarkModeContext';
-
+ 
+/**
+ * TransactionTable Component
+ * 
+ * This component renders a table displaying a list of transactions.
+ * Each transaction is represented as a row, using the `TransactionRow` component.
+ * The table's appearance adapts to dark mode using the `useDarkMode` context.
+ * 
+ * Props:
+ * - `transactions`: An array of transaction objects to be displayed in the table.
+ * - `tokenAddressToName`: An object mapping token addresses to their respective names.
+ */
 const TransactionTable = ({ transactions, tokenAddressToName }) => {
   const { darkMode } = useDarkMode();
+ 
   return (
     <div className="w-full rounded-xl shadow-lg border-4 p-2">
       <div className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 ${darkMode ? 'bg-gray-600' : 'bg-gray-200 border'}  p-4 rounded-md text-xl font-semibold`}>
@@ -21,5 +33,6 @@ const TransactionTable = ({ transactions, tokenAddressToName }) => {
     </div>
   );
 };
-
+ 
 export default TransactionTable;
+ 
