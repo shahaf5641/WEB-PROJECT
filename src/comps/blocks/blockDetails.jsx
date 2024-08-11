@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { convertTimestamp } from '../contexts/tokenContext';
 import LoadingAnimation from '../animations/LoadingAnimation';
 import { useDarkMode } from '../contexts/DarkModeContext';
+import { fetchBlockDetails } from '../contexts/Fetches';
 
 const BlockDetails = () => {
   const { blockNumber } = useParams();
@@ -13,13 +14,9 @@ const BlockDetails = () => {
   const { darkMode } = useDarkMode();
 
   useEffect(() => {
-    const fetchBlockDetails = async () => {
+    const getBlockDetails = async () => {
       try {
-        const response = await fetch(`https://explorer.mtw-testnet.com/blockByHash/?hash=${blockNumber}`);
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
+        const data = await fetchBlockDetails(blockNumber);
         setBlockDetails(data);
       } catch (err) {
         setError(err.message);
@@ -28,7 +25,7 @@ const BlockDetails = () => {
       }
     };
 
-    fetchBlockDetails();
+    getBlockDetails();
   }, [blockNumber]);
 
   if (loading) return <LoadingAnimation />;

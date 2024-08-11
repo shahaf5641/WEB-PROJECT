@@ -1,33 +1,28 @@
+// src/components/home/LatestItems.jsx
 import React, { useEffect, useState } from 'react';
 import LoadingAnimation from '../animations/LoadingAnimation';
-import { useDarkMode } from '../contexts/DarkModeContext';
 import PaginatedButton from './PaginatedButton';
+import { fetchItems } from '../contexts/Fetches'; // Import the function
 
 const LatestItems = ({ fetchUrl, TableComponent, title, link, buttonText }) => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const { darkMode } = useDarkMode();
-
-  const fetchItems = async (page) => {
-    try {
-      const response = await fetch(`${fetchUrl}?page=${page}&limit=5`);
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const data = await response.json();
-      setItems(data.data);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
-    fetchItems(currentPage);
-  }, [currentPage]);
+    const getItems = async () => {
+      try {
+        const data = await fetchItems(fetchUrl, currentPage);
+        setItems(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    getItems();
+  }, [fetchUrl, currentPage]);
 
   if (loading) return <LoadingAnimation />;
   if (error) return <p>Error: {error}</p>;

@@ -1,25 +1,21 @@
+// src/components/transactions/TransactionDetails.jsx
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { tokenAddressToName } from '../contexts/tokenContext';
 import { getAmount, convertTimestamp } from '../contexts/tokenContext';
 import LoadingAnimation from '../animations/LoadingAnimation';
-import { useDarkMode } from '../contexts/DarkModeContext';
+import { fetchTransactionDetails } from '../contexts/Fetches'; // Import the function
 
 const TransactionDetails = () => {
   const { hash } = useParams();
   const [transaction, setTransaction] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const { darkMode } = useDarkMode();
 
   useEffect(() => {
-    const fetchTransactionDetails = async () => {
+    const getTransactionDetails = async () => {
       try {
-        const response = await fetch(`https://explorer.mtw-testnet.com/tx/${hash}`);
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
+        const data = await fetchTransactionDetails(hash);
         setTransaction(data);
       } catch (err) {
         setError(err.message);
@@ -28,14 +24,14 @@ const TransactionDetails = () => {
       }
     };
 
-    fetchTransactionDetails();
+    getTransactionDetails();
   }, [hash]);
 
   if (loading) return <LoadingAnimation />;
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className={`container mx-auto backdrop-blur-md p-4 ${darkMode ? 'text-gray-100' : 'text-gray-950'}`}>
+    <div className="container mx-auto backdrop-blur-md p-4">
       <h1 className="text-4xl font-bold mb-4 underline">Transaction Details</h1>
       <div className="shadow-xl rounded-2xl p-6 mb-4 border-2 backdrop-blur-md text-2xl font-base text-left">
         {transaction && (

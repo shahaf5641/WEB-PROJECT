@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
 import { useDarkMode } from '../contexts/DarkModeContext';
 
-
-
 const PaginatedButton = ({ link, buttonText, onClick }) => {
   const { darkMode } = useDarkMode();
 
@@ -13,7 +11,7 @@ const PaginatedButton = ({ link, buttonText, onClick }) => {
       <Link to={link} className="relative group p-2">
         <button
           type="button"
-          className={`pl-6 text-center w-72 rounded-full h-12 relative text-lg font-semibold ${darkMode ? 'bg-gray-700 text-gray-100' : 'bg-gray-200 text-gray-800'}`}
+          className={`pl-6 text-center w-72 rounded-full h-12 relative text-lg font-semibold ${darkMode ? 'bg-gray-700' : 'bg-gray-200'}`}
           onClick={onClick}
         >
           <div
