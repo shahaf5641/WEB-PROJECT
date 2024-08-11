@@ -5,7 +5,6 @@ import Pagination from './pagination';
 import { useToken, tokenAddressToName } from './contexts/tokenContext';
 import LoadingAnimation from './animations/LoadingAnimation';
 import { useDarkMode } from '../comps/contexts/DarkModeContext';
-import { FaExternalLinkAlt } from 'react-icons/fa';
 
 const TokenDetails = () => {
   const { address } = useParams();
@@ -66,7 +65,7 @@ const TokenDetails = () => {
   const tokenInfo = tokenSymbol[tokenSymbolString] || {};
 
   return (
-    <div className={`container mx-auto backdrop-blur-md p-4 ${darkMode ? 'text-gray-100' : 'text-gray-950'}`}>
+    <div className="container mx-auto backdrop-blur-md p-4">
       <h1 className="text-4xl font-bold mb-4 underline">Token Details</h1>
       <div className="shadow-xl rounded-2xl p-6 mb-4 border-2 backdrop-blur-md text-2xl font-base text-left">
         <p className="mb-4 sm:text-wrap break-words"><strong>Address:</strong> {address}</p>

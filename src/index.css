@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Add these styles to handle the background gradients and text colors */
+.bg-dark-mode {
+  background: radial-gradient(circle, rgba(26,31,107,1) 0%, rgba(0,0,0,1) 100%);
+  color: #F3F4F6; /* equivalent to text-gray-100 */
+}
+
+.bg-light-mode {
+  background: radial-gradient(circle, rgba(172,190,225,1) 0%, rgba(24,87,227,1) 100%);
+  color: #1F2937; /* equivalent to text-gray-800 */
+}

@@ -33,7 +33,7 @@ const HamburgerMenu = () => {
       <div onClick={toggleMenu} className="cursor-pointer w-9 h-9 transform transition-transform duration-200 hover:scale-105">
         <Lottie
           lottieRef={animationRef}
-          animationData={darkMode ? animationDataWhite : animationDataBlack}
+          animationData={animationDataWhite}
           loop={false}
           autoplay={false}
           initialSegment={[0, 60]}

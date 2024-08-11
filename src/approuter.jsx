@@ -15,8 +15,8 @@ import AccountDetails from './comps/accountDetails';
 import BlockDetails from './comps/blocks/blockDetails';
 import { tokenAddressToName } from './comps/contexts/tokenContext';
 import ThankYouMessage from './comps/contact/thankYouMessage';
-import NotFound from './Layout/header/NotFound';
-import ScrollToTop from './ScrollToTop';
+import NotFound from './comps/contexts/NotFound';
+import ScrollToTop from './comps/contexts/ScrollToTop';
 
 export default function AppRouter() {
   return (

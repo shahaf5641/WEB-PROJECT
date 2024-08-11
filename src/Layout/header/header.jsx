@@ -59,9 +59,10 @@ export default function Header() {
               placeholder="Account/Transaction/Block Hash"
               className={`block w-full p-3 text-lg border-2 rounded-full focus:outline-none transition ease-in-out duration-500 ${darkMode ? 'bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-indigo-500 focus:border-indigo-500' : 'border-gray-300 text-black focus:ring-blue-500 focus:border-blue-500'}`}
               id="default-search"
-              type="search"
+              type="text"  // Changed from "search" to "text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
+              autoComplete="off"  // Optional: to prevent autofill options
             />
             <button
               type="submit"
