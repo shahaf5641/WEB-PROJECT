@@ -48,7 +48,6 @@ const LatestItems = ({ fetchUrl, TableComponent, title, link, buttonText }) => {
       <PaginatedButton
         link={link}  //URL for the "View all" button.
         buttonText={buttonText}  //Text for the "View all" button.
-        onClick={() => setCurrentPage((prevPage) => prevPage + 1)}  //Increment the page number when clicked.
       />
     </div>
   );

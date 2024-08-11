@@ -18,7 +18,6 @@ const BlockRow = ({ block }) => {
       <div className="truncate">
         <StyledTableLink
           to={`/block/${block.hash}`}
-          className="text-blue-700 hover:underline"
         >
           {block.hash}
         </StyledTableLink>

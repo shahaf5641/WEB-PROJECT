@@ -12,6 +12,7 @@ const TransactionRow = ({ tx }) => {
   const amount = getAmount(tx); // Calculate the transaction amount
   const isWETH = amount.includes('wETH'); // Check if the amount is in wETH
  
+  
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 p-4 border-2 rounded-xl text-lg font-semibold transform transition-transform duration-300 hover:scale-105">
       <div className="truncate">{convertTimestamp(tx.timestamp)}</div>

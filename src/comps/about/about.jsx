@@ -1,5 +1,5 @@
 import React from 'react';
-import teamImage from '../../assets/team.png';
+import teamImage from '../../assets/team.jpg';
 import Section from './Section';
 import SectionHeader from './SectionHeader';
 import SectionText from './SectionText';
