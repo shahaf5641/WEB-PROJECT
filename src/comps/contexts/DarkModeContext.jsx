@@ -11,7 +11,7 @@ export const DarkModeProvider = ({ children }) => {
 
   return (
     <DarkModeContext.Provider value={{ darkMode, toggleDarkMode }}>
-      <div style={{ maxHeight: '20000px'}}>
+      <div style={{ maxHeight: '2000px'}}>
         {children}
       </div>
     </DarkModeContext.Provider>
