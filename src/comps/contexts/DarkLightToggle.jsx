@@ -1,9 +1,13 @@
 import React from 'react';
 import { useDarkMode } from './DarkModeContext';
-
+ 
+/**
+ * DarkLightToggle component provides a toggle switch to enable or disable dark mode.
+ * The switch visually transitions between a sun and moon icon, with an animated slider.
+ */
 export default function DarkLightToggle() {
   const { toggleDarkMode } = useDarkMode();
-
+ 
   return (
     <div className="flex justify-end p-2 m-3">
       <label className="inline-flex items-center relative hover:cursor-pointer">

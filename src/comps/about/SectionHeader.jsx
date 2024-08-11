@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDarkMode } from '../../comps/contexts/DarkModeContext';
 
+// The SectionHeader component displays a header with styling that changes depending on whether dark mode is enabled or not.
 const SectionHeader = ({ children }) => {
   const { darkMode } = useDarkMode();
 

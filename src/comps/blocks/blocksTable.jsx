@@ -2,6 +2,12 @@ import React from 'react';
 import BlockRow from './blockRow';
 import { useDarkMode } from '../../comps/contexts/DarkModeContext';
 
+/**
+ * BlocksTable component renders a table of blockchain blocks.
+ * The table adapts its layout based on the screen size and applies dark mode styling if enabled.
+ * 
+ * @param {Array} blocks - An array of block data to be displayed in the table.
+ */
 const BlocksTable = ({ blocks }) => {
   const { darkMode } = useDarkMode();
 

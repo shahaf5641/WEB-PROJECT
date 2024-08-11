@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Pagination from './contexts/pagination/pagination';
-import TransactionTable from './transactions/transactionTable';
-import { tokenAddressToName } from './contexts/tokenContext';
-import { fetchAccountTransactions } from './contexts/Fetches';
+import Pagination from '../contexts/pagination/pagination';
+import TransactionTable from '../transactions/transactionTable';
+import { tokenAddressToName } from '../contexts/tokenContext';
+import { fetchAccountTransactions } from '../contexts/Fetches';
 
 const AccountDetails = () => {
   const { address } = useParams();

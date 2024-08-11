@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import PaginationHandler from './contexts/pagination/PaginationHandler';
-import TransactionTable from './transactions/transactionTable';
-import { useToken, tokenAddressToName } from './contexts/tokenContext';
-import { useDarkMode } from '../comps/contexts/DarkModeContext';
-import { fetchTransactions } from './contexts/Fetches'; // Import the fetch function
+import PaginationHandler from '../contexts/pagination/PaginationHandler';
+import TransactionTable from '../transactions/transactionTable';
+import { useToken, tokenAddressToName } from '../contexts/tokenContext';
+import { useDarkMode } from '../contexts/DarkModeContext';
+import { fetchTransactions } from '../contexts/Fetches'; // Import the fetch function
 
 const TokenDetails = () => {
   const { address } = useParams();

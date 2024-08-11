@@ -1,5 +1,11 @@
 import React from 'react';
-
+ 
+/**
+ * JoinSection component
+ * 
+ * Displays a call-to-action section inviting users to join the cryptocurrency revolution.
+ * It features a heading and a description, centered on the page.
+ */
 export default function JoinSection() {
   return (
     <div className="text-center">

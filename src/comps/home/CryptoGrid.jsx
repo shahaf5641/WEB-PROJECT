@@ -1,6 +1,7 @@
 import React from 'react';
 import CryptoCard from './CryptoCard';
-
+ 
+// Array of cryptocurrency data to be displayed in the grid
 const cryptoData = [
   {
     imgSrc: 'https://cryptologos.cc/logos/bitcoin-btc-logo.png',
@@ -33,11 +34,19 @@ const cryptoData = [
     address: '0x6F7389872A6C15C4B7234Fa23C4D6df8fA378587'
   }
 ];
-
+ 
+/**
+ * CryptoGrid component
+ * 
+ * Displays a grid of CryptoCard components, each representing a different cryptocurrency.
+ * The grid layout adapts based on screen size, with 1, 2, or 3 columns.
+ */
 export default function CryptoGrid() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8 mb-12">
       {cryptoData.map((crypto, index) => (
+ 
+        // Each cryptocurrency card is wrapped in a div to control layout and spacing
         <div
           key={index}
           className="col-span-1"
