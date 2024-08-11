@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import PaginationHandler from './contexts/pagination/PaginationHandler';
 import TransactionTable from './transactions/transactionTable';
@@ -11,22 +11,22 @@ const TokenDetails = () => {
   const tokenSymbol = useToken();
   const { darkMode } = useDarkMode();
   const [tokenDetails, setTokenDetails] = useState({});
-  const [detailsLoaded, setDetailsLoaded] = useState(false);
 
   useEffect(() => {
     const fetchTokenDetails = () => {
       const tokenDetail = tokenSymbol[address] || { symbol: tokenAddressToName[address] };
       setTokenDetails(tokenDetail);
-      setDetailsLoaded(true); // Set detailsLoaded to true once tokenDetails is set
     };
 
     fetchTokenDetails();
   }, [address, tokenSymbol]);
 
-  const fetchFunction = async (page) => {
-    if (!detailsLoaded) return { data: [], amount: 0 }; // Prevent fetch if details are not loaded yet
-    return await fetchTransactions(address, tokenDetails, page); // Use the imported fetch function
-  };
+  const fetchFunction = useMemo(
+    () => async (page) => {
+      return await fetchTransactions(address, tokenDetails, page);
+    },
+    [address, tokenDetails]
+  );
 
   const removeLeadingW = (symbol) => {
     return symbol.startsWith('w') ? symbol.substring(1) : symbol;
@@ -65,19 +65,17 @@ const TokenDetails = () => {
           )}
         </div>
       </div>
-      {detailsLoaded && ( // Only show PaginationHandler if details are loaded
-        <PaginationHandler
-          fetchFunction={fetchFunction}
-          title="Token Details"
-          TableComponent={(props) => (
-            <>
-              <h1 className="text-2xl text-left font-semibold mb-3 mt-10">Transactions</h1>
-              <TransactionTable transactions={props.items} tokenAddressToName={tokenAddressToName} />
-            </>
-          )}
-          showSmallLoading={false}
-        />
-      )}
+      <PaginationHandler
+        fetchFunction={fetchFunction}
+        title="Token Details"
+        TableComponent={(props) => (
+          <>
+            <h1 className="text-2xl text-left font-semibold mb-3 mt-10">Transactions</h1>
+            <TransactionTable transactions={props.items} tokenAddressToName={tokenAddressToName} />
+          </>
+        )}
+        showSmallLoading={false}
+      />
     </>
   );
 };
