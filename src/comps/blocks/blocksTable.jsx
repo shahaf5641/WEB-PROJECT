@@ -1,6 +1,9 @@
+// src/components/blocks/BlocksTable.jsx
+
 import React from 'react';
 import BlockRow from './blockRow';
 import { useDarkMode } from '../../comps/contexts/DarkModeContext';
+import { blocksTableHeaderStyle } from '../../comps/contexts/style';
 
 /**
  * BlocksTable component renders a table of blockchain blocks.
@@ -13,7 +16,7 @@ const BlocksTable = ({ blocks }) => {
 
   return (
     <div className="w-full rounded-xl shadow-lg border-4 p-2">
-      <div className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 ${darkMode ? 'bg-gray-600' : 'bg-gray-200 border'} p-4 rounded-md text-xl font-semibold`}>
+      <div className={blocksTableHeaderStyle(darkMode)}>
         <div>Time</div>
         <div className="hidden md:block">Transactions</div>
         <div className="hidden lg:block">Block Number</div>

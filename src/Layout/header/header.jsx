@@ -1,10 +1,19 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import NavLink from './navlink';
-import HamburgerMenu from './HamburgerMenu';
+import HamburgerMenu from './HamburgerMenu/HamburgerMenu';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { useDarkMode } from '../../comps/contexts/DarkModeContext';
+import {
+  headerStyle,
+  headerContainerStyle,
+  homeIconStyle,
+  searchFormStyle,
+  searchInputStyle,
+  searchButtonStyle,
+  searchIconSVG
+} from '../../comps/contexts/style';
 
 export default function Header() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -38,11 +47,11 @@ export default function Header() {
   };
 
   return (
-    <header className="p-4 text-lg nav bg-opacity-90 border-b border-gray-100 shadow-2xl backdrop-blur-[10px] mb-32 sm:mb-0 xs:mb-12">
-      <div className="mx-auto sm:flex justify-between items-center w-full">
+    <header className={headerStyle}>
+      <div className={headerContainerStyle}>
         <div className="flex items-center space-x-4">
           <Link to="/" onClick={closeMenu}>
-            <FontAwesomeIcon icon={faHome} className="h-8 w-8 text-white transform transition-transform duration-200 hover:scale-110" />
+            <FontAwesomeIcon icon={faHome} className={homeIconStyle} />
           </Link>
           <div className="hamburger-menu-button">
             <HamburgerMenu />
@@ -52,24 +61,24 @@ export default function Header() {
         <NavLink to="/transactions">Transactions</NavLink>
         <NavLink to="/blocks">Blocks</NavLink>
         <NavLink to="/explore">Explore</NavLink>
-        <form onSubmit={handleSearch} className="relative flex items-center sm:ml-4 sm:mt-0 mt-4 px-2 w-full sm:w-96">
+        <form onSubmit={handleSearch} className={searchFormStyle}>
           <div className="relative w-full">
             <input
               required
               placeholder="Account/Transaction/Block Hash"
-              className={`block w-full p-3 text-lg border-2 rounded-full focus:outline-none transition ease-in-out duration-500 ${darkMode ? 'bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-indigo-500 focus:border-indigo-500' : 'border-gray-300 text-black focus:ring-blue-500 focus:border-blue-500'}`}
+              className={searchInputStyle(darkMode)}
               id="default-search"
-              type="text"  // Changed from "search" to "text"
+              type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              autoComplete="off"  // Optional: to prevent autofill options
+              autoComplete="off"
             />
             <button
               type="submit"
-              className={`items-center justify-center flex border-2 shadow-lg ${darkMode ? 'border-indigo-500 hover:bg-indigo-500 hover:text-black text-white shadow-indigo-800' : 'border-blue-500 hover:bg-blue-500 hover:text-white shadow-blue-300'} duration-300 cursor-pointer active:scale-95 absolute end-2.5 bottom-1/2 translate-y-1/2 p-2 text-sm font-medium rounded-full focus:ring-4 focus:outline-none`}
-              >
-              <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className="w-4 h-4">
-                <path d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" strokeWidth="2" strokeLinejoin="round" strokeLinecap="round" stroke="currentColor"></path>
+              className={searchButtonStyle(darkMode)}
+            >
+              <svg {...searchIconSVG}>
+                <path d={searchIconSVG.pathData} style={searchIconSVG.pathStyle}></path>
               </svg>
               <span className="sr-only">Search</span>
             </button>

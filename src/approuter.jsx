@@ -10,7 +10,7 @@ import Transactions from './comps/transactions/transactions';
 import TransactionDetails from './comps/transactions/transactionDetails';
 import Layout from './Layout/layout';
 import { TokenProvider } from './comps/contexts/tokenContext';
-import TokenDetails from './comps/details/tokenDetails';
+import TokenDetails from './comps/details/tokenDetails/tokenDetails';
 import AccountDetails from './comps/details/accountDetails';
 import BlockDetails from './comps/blocks/blockDetails';
 import { tokenAddressToName } from './comps/contexts/tokenContext';

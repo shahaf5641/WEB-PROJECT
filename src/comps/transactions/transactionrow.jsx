@@ -1,6 +1,7 @@
 import React from 'react';
 import { convertTimestamp, getAmount } from '../contexts/tokenContext';
 import StyledTableLink from '../contexts/StyledTableLink';
+import { transactionRowContainer } from '../contexts/style';
  
 /**
  * TransactionRow Component
@@ -14,7 +15,7 @@ const TransactionRow = ({ tx }) => {
  
   
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 p-4 border-2 rounded-xl text-lg font-semibold transform transition-transform duration-300 hover:scale-105">
+    <div className={transactionRowContainer}>
       <div className="truncate">{convertTimestamp(tx.timestamp)}</div>
       <div className="hidden md:block truncate">
         {isWETH ? (

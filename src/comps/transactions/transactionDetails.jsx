@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { tokenAddressToName, getAmount, convertTimestamp } from '../contexts/tokenContext';
 import LoadingAnimation from '../animations/LoadingAnimation';
 import { fetchTransactionDetails } from '../contexts/Fetches'; // Import the function
+import { transactionDetailsContainer } from '../contexts/style';
  
 /**
  * TransactionDetails component
@@ -42,7 +43,7 @@ const TransactionDetails = () => {
   return (
     <div className="container mx-auto backdrop-blur-md p-4">
       <h1 className="text-4xl font-bold mb-4 underline">Transaction Details</h1>
-      <div className="shadow-xl rounded-2xl p-6 mb-4 border-2 backdrop-blur-md text-2xl font-base text-left">
+      <div className={transactionDetailsContainer}>
         {transaction && (
           <>
             <p className="mb-4 sm:text-wrap break-words"><strong>Hash:</strong> {transaction.hash}</p>

@@ -14,8 +14,6 @@ const LatestTransactions = () => {
       fetchUrl="https://explorer.mtw-testnet.com/transactions"
       
       // Passing the TransactionTable component to render the transactions data in a table.
-      // The `transactions` prop of TransactionTable receives the items fetched by LatestItems.
-      // The `tokenAddressToName` prop provides a function to map token addresses to names.
       TableComponent={(props) => (
         <TransactionTable
           transactions={props.items}

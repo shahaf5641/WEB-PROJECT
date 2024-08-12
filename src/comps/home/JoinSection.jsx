@@ -1,5 +1,6 @@
 import React from 'react';
- 
+import { joinSectionHeading, joinSectionDescription } from '../contexts/style'; // Import styles
+
 /**
  * JoinSection component
  * 
@@ -8,9 +9,11 @@ import React from 'react';
  */
 export default function JoinSection() {
   return (
-    <div className="text-center">
-      <h2 className="text-4xl font-bold mb-4 text-white">Join the Crypto Revolution</h2>
-      <p className="text-xl text-gray-200 mb-8">Stay updated with the latest news and trends in the cryptocurrency world</p>
+    <div className='text-center'>
+      <h2 className={joinSectionHeading}>Join the Crypto Revolution</h2>
+      <p className={joinSectionDescription}>
+        Stay updated with the latest news and trends in the cryptocurrency world
+      </p>
     </div>
   );
 }

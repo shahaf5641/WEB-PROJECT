@@ -2,6 +2,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const TokenContext = createContext();
 
+// Mapping of token addresses to their names
 export const tokenAddressToName = {
   '0x6319276ac7962A04696064261e082f8c48dF9376': 'wUSD',
   '0xA014A5E978B9A542b2065Ba4a29D68De9b3431D1': 'wBTC',
@@ -11,10 +12,12 @@ export const tokenAddressToName = {
   '0xBB69C32dc4827ec722f46891fA1F661400143DAe': 'wDOGE'
 };
 
+// Hook to use the TokenContext
 export const useToken = () => {
   return useContext(TokenContext);
 };
 
+// Function to get the amount and token type
 export const getAmount = (tx) => {
   if (tx.type === 'eth') {
     return `${tx.value} wETH`;
@@ -26,11 +29,13 @@ export const getAmount = (tx) => {
   }
 };
 
+// Function to convert a Unix timestamp to a human-readable date and time
 export const convertTimestamp = (timestamp) => {
   const date = new Date(timestamp * 1000);
   return date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
 };
 
+// TokenProvider component to provide token information to the component tree
 export const TokenProvider = ({ children }) => {
   const [tokenSymbol, setTokenSymbol] = useState({});
   const [error, setError] = useState(null);
@@ -38,9 +43,12 @@ export const TokenProvider = ({ children }) => {
   useEffect(() => {
     const fetchTokenDetails = async () => {
       try {
+        // Fetch token details from the API
         const response = await fetch('https://api.mtw-testnet.com/assets/all');
         const data = await response.json();
         const tokenMap = {};
+
+        // Map the token data to the tokenSymbol state
         for (const symbol in data) {
           const token = data[symbol];
           tokenMap[symbol] = {
@@ -54,6 +62,7 @@ export const TokenProvider = ({ children }) => {
         }
         setTokenSymbol(tokenMap);
       } catch (err) {
+        // Set error state if the fetch fails
         setError(err.message);
       }
     };

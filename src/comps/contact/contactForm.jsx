@@ -1,8 +1,11 @@
+// src/components/ContactForm.jsx
+
 import React from 'react';
 import InputField from './inputField';
 import TextArea from './textArea';
 import { useNavigate } from 'react-router-dom';
- 
+import { contactButtonStyle } from '../contexts/style'; // Import the style
+
 /**
  * ContactForm component handles user input and form submission for the contact page.
  * 
@@ -19,7 +22,7 @@ import { useNavigate } from 'react-router-dom';
  */
 const ContactForm = ({ handleSubmit, firstName, setFirstName, lastName, setLastName, email, setEmail, message, setMessage, darkMode }) => {
   const navigate = useNavigate();
- 
+
   /**
    * Handles the form submission event.
    * Prevents default form submission behavior, checks if all fields are filled,
@@ -34,7 +37,7 @@ const ContactForm = ({ handleSubmit, firstName, setFirstName, lastName, setLastN
       navigate('/message');
     }
   };
- 
+
   return (
     <form onSubmit={onSubmit}>
       <div className="mb-6 flex space-x-8">
@@ -78,13 +81,12 @@ const ContactForm = ({ handleSubmit, firstName, setFirstName, lastName, setLastN
       />
       <button
         type="submit"
-        className={`mt-4 cursor-pointer transition-all font-semibold px-14 text-lg py-4 rounded-full border-b-[4px] ${darkMode ? 'bg-gray-700 text-gray-200 border-indigo-600 hover:shadow-indigo-400 shadow-indigo-400' : 'bg-white text-gray-700 border-gray-600 hover:shadow-gray-300 shadow-gray-300'
-          } hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px] active:border-b-[2px] active:brightness-90 active:translate-y-[2px] hover:shadow-xl active:shadow-none`}
+        className={contactButtonStyle(darkMode)}
       >
         Submit
       </button>
     </form>
   );
 };
- 
+
 export default ContactForm;

@@ -1,11 +1,12 @@
 // src/components/blocks/BlockDetails.jsx
+
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { convertTimestamp } from '../contexts/tokenContext';
 import LoadingAnimation from '../animations/LoadingAnimation';
-import { useDarkMode } from '../contexts/DarkModeContext';
 import { fetchBlockDetails } from '../contexts/Fetches';
- 
+import { blockDetailsContainerStyle } from '../contexts/style'; // Import the style
+
 /**
  * BlockDetails component fetches and displays details of a specific blockchain block.
  * It handles loading and error states and adjusts styling based on dark mode.
@@ -15,8 +16,7 @@ const BlockDetails = () => {
   const [blockDetails, setBlockDetails] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const { darkMode } = useDarkMode();
- 
+
   useEffect(() => {
     const getBlockDetails = async () => {
       try {
@@ -28,17 +28,17 @@ const BlockDetails = () => {
         setLoading(false);
       }
     };
- 
+
     getBlockDetails();
   }, [blockNumber]);
- 
+
   if (loading) return <LoadingAnimation />;
   if (error) return <p>Error: {error}</p>;
- 
+
   return (
-    <div className={`container mx-auto backdrop-blur-md p-4 ${darkMode ? 'text-gray-100' : 'text-gray-950'}`}>
+    <div className="container mx-auto backdrop-blur-md p-4">
       <h1 className="text-4xl font-bold mb-4 underline">Block Details</h1>
-      <div className="shadow-xl rounded-2xl p-6 mb-4 border-2 backdrop-blur-md text-2xl font-base text-left">
+      <div className={blockDetailsContainerStyle}>
         <p className="mb-4 sm:text-wrap break-words"><strong>Number:</strong> {blockDetails.number}</p>
         <p className="mb-4"><strong>Hash:</strong> {blockDetails.hash}</p>
         <p className="mb-4"><strong>Parent Hash:</strong> {blockDetails.parentHash}</p>
@@ -50,5 +50,5 @@ const BlockDetails = () => {
     </div>
   );
 };
- 
+
 export default BlockDetails;

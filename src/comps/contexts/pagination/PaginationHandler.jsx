@@ -3,7 +3,18 @@ import LoadingAnimation from '../../animations/LoadingAnimation';
 import SmallLoadingAnimation from '../../animations/SmallLoadingAnimation';
 import Pagination from './pagination';
 
+/**
+ * PaginationHandler Component
+ * 
+ * This component handles the pagination logic for displaying data in a paginated format.
+ * It manages the current page, loading states, and errors, and fetches data accordingly.
+ * 
+ * @param {function} fetchFunction - Function to fetch data for the given page.
+ * @param {string} title - The title to be displayed at the top of the table.
+ * @param {JSX.Element} TableComponent - The component used to render the table of items.
+ */
 const PaginationHandler = ({ fetchFunction, title, TableComponent }) => {
+  // State to manage the fetched items, loading states, error state, current page, and total pages
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [paginationLoading, setPaginationLoading] = useState(false);
@@ -15,11 +26,11 @@ const PaginationHandler = ({ fetchFunction, title, TableComponent }) => {
   useEffect(() => {
     const loadData = async () => {
       try {
-        if (!paginationLoading) setLoading(true); // Only set the main loading if not paginating
-        const { data, amount } = await fetchFunction(currentPage);
+        if (!paginationLoading) setLoading(true); // Only show main loading animation if not paginating
+        const { data, amount } = await fetchFunction(currentPage); // Fetch data for the current page
         console.log('Fetched items:', data);
         setItems(data || []);
-        setTotalPages(Math.ceil(amount / 10));
+        setTotalPages(Math.ceil(amount / 10)); // Calculate total pages based on amount of items
         setTotalItems(amount);
       } catch (err) {
         setError(err.message);
@@ -34,15 +45,18 @@ const PaginationHandler = ({ fetchFunction, title, TableComponent }) => {
 
   const handlePreviousPage = () => {
     setPaginationLoading(true);
-    setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
+    setCurrentPage((prevPage) => Math.max(prevPage - 1, 1)); // Decrease page number, but don't go below 1
   };
 
   const handleNextPage = () => {
     setPaginationLoading(true);
-    setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages));
+    setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages)); // Increase page number, but don't exceed totalPages
   };
 
+  // Display main loading animation if data is being fetched
   if (loading) return <LoadingAnimation />;
+
+  // Display error message if an error occurred during data fetching
   if (error) return <p>Error: {error}</p>;
 
   return (
