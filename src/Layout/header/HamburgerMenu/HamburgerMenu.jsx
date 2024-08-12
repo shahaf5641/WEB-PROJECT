@@ -4,7 +4,12 @@ import animationDataBlack from '../../../assets/hamburgerAnimationBlack';
 import animationDataWhite from '../../../assets/hamburgerAnimationWhite';
 import { useDarkMode } from '../../../comps/contexts/DarkModeContext'; // Adjusted import for DarkModeContext
 import HamburgerMenuLink from './HamburgerMenuLink';  // Correct relative path for HamburgerMenuLink
-import { hamburgerIconStyle, hamburgerMenuContainerStyle, hamburgerMenuLinksContainerStyle } from '../../../comps/contexts/style';
+import {
+  hamburgerIconStyle,
+  hamburgerMenuContainerStyle,
+  hamburgerMenuLinksContainerStyle,
+  hamburgerMenuIconContainerStyle,
+} from '../../../comps/contexts/style';
 
 /**
  * HamburgerMenu Component
@@ -49,7 +54,7 @@ const HamburgerMenu = () => {
   }, [isOpen]); // Effect runs when the isOpen state changes
 
   return (
-    <div className="relative md:hidden flex items-center z-50">
+    <div className={hamburgerMenuIconContainerStyle}>
       <div onClick={toggleMenu} className={hamburgerIconStyle}>
         <Lottie
           lottieRef={animationRef}

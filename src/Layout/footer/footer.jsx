@@ -1,7 +1,11 @@
 import React from 'react';
 import FooterLink from './FooterLink';
 import { useDarkMode } from '../../comps/contexts/DarkModeContext';
-import { footerContainer, footerText } from '../../comps/contexts/style';
+import {
+  footerContainer,
+  footerText,
+  footerLinksContainerStyle,
+} from '../../comps/contexts/style';
 
 /**
  * The Footer component is responsible for displaying the footer section of the website.
@@ -14,7 +18,7 @@ export default function Footer() {
   return (
     <footer className={footerContainer(darkMode)}>
       {/* A flex container that centers the footer links horizontally with a gap between them */}
-      <div className="flex justify-center gap-8">
+      <div className={footerLinksContainerStyle}>
         <FooterLink to="/about">About</FooterLink>
         <FooterLink to="/contact">Contact us</FooterLink>
       </div>

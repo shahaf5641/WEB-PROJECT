@@ -4,7 +4,13 @@ import Pagination from '../contexts/pagination/pagination';
 import TransactionTable from '../transactions/transactionTable';
 import { tokenAddressToName } from '../contexts/tokenContext';
 import { fetchAccountTransactions } from '../contexts/Fetches';
-import { accountDetailsSectionStyle } from '../contexts/style';
+import { 
+  accountDetailsContainerStyle, 
+  accountDetailsSectionStyle, 
+  accountDetailsTitleStyle, 
+  accountDetailsAddressStyle, 
+  accountDetailsTransactionsTitleStyle 
+} from '../contexts/style';
 
 /**
  * AccountDetails is a component that displays detailed information about a specific account, including
@@ -61,11 +67,11 @@ const AccountDetails = () => {
   if (error) return <p>Error: {error}</p>;  // Display an error message if fetching fails.
 
   return (
-    <div className="container mx-auto backdrop-blur-md p-4">
-      <h1 className="text-4xl font-bold mb-4 underline">Account Details</h1>
+    <div className={accountDetailsContainerStyle}>
+      <h1 className={accountDetailsTitleStyle}>Account Details</h1>
       <div className={accountDetailsSectionStyle}>
-        <p className="mb-4 sm:text-wrap break-words"><strong>Account Address:</strong> {address}</p>
-        <h2 className="text-2xl text-left font-semibold mb-3 mt-10">Transactions</h2>
+        <p className={accountDetailsAddressStyle}><strong>Account Address:</strong> {address}</p>
+        <h2 className={accountDetailsTransactionsTitleStyle}>Transactions</h2>
         <TransactionTable transactions={transactions} tokenAddressToName={tokenAddressToName} />
         <Pagination
           currentPage={currentPage}

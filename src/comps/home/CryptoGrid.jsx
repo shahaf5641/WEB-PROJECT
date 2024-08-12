@@ -1,6 +1,10 @@
 import React from 'react';
 import CryptoCard from './CryptoCard';
-import { cryptoGridContainer } from '../contexts/style';
+import { 
+  cryptoGridContainer, 
+  cryptoCardWrapperStyle, 
+  cryptoCardColumnStyle 
+} from '../contexts/style';
  
 // Array of cryptocurrency data to be displayed in the grid
 const cryptoData = [
@@ -50,9 +54,9 @@ export default function CryptoGrid() {
         // Each cryptocurrency card is wrapped in a div to control layout and spacing
         <div
           key={index}
-          className="col-span-1"
+          className={cryptoCardColumnStyle}
         >
-          <div className="flex justify-center">
+          <div className={cryptoCardWrapperStyle}>
             <CryptoCard
               imgSrc={crypto.imgSrc}
               title={crypto.title}

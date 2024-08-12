@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { tokenButtonStyle } from '../../contexts/style'; 
+import { tokenButtonStyle, tokenLinkStyle, tokenButtonInnerStyle } from '../../contexts/style'; 
 
 /**
  * TokenLink component renders a button linking to the given URL.
@@ -12,9 +12,9 @@ import { tokenButtonStyle } from '../../contexts/style';
  */
 const TokenLink = ({ url, label, darkMode }) => {
   return (
-    <Link to={url} target="_blank" rel="noopener noreferrer" className="inline-block mt-2">
+    <Link to={url} target="_blank" rel="noopener noreferrer" className={tokenLinkStyle}>
       <div className={tokenButtonStyle(darkMode)}>
-        <button className="px-4 py-2">
+        <button className={tokenButtonInnerStyle}>
           <span>{label}</span>
         </button>
       </div>

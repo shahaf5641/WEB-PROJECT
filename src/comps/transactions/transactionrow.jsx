@@ -1,8 +1,8 @@
 import React from 'react';
 import { convertTimestamp, getAmount } from '../contexts/tokenContext';
 import StyledTableLink from '../contexts/StyledTableLink';
-import { transactionRowContainer } from '../contexts/style';
- 
+import { transactionRowContainer, hiddenMdBlockStyle, hiddenLgBlockStyle } from '../contexts/style';
+
 /**
  * TransactionRow Component
  * 
@@ -12,12 +12,11 @@ import { transactionRowContainer } from '../contexts/style';
 const TransactionRow = ({ tx }) => {
   const amount = getAmount(tx); // Calculate the transaction amount
   const isWETH = amount.includes('wETH'); // Check if the amount is in wETH
- 
-  
+
   return (
     <div className={transactionRowContainer}>
       <div className="truncate">{convertTimestamp(tx.timestamp)}</div>
-      <div className="hidden md:block truncate">
+      <div className={hiddenMdBlockStyle}>
         {isWETH ? (
           <StyledTableLink to={`/token/0x57f1887a8BF19b14fC0dF6Fd9B2acc9Af147eA85`}>
             {amount}
@@ -30,12 +29,12 @@ const TransactionRow = ({ tx }) => {
           amount
         )}
       </div>
-      <div className="hidden lg:block truncate">
+      <div className={hiddenLgBlockStyle}>
         <StyledTableLink to={`/address/${tx.from}`}>
           {tx.from}
         </StyledTableLink>
       </div>
-      <div className="hidden lg:block truncate">
+      <div className={hiddenLgBlockStyle}>
         <StyledTableLink to={`/address/${tx.to}`}>
           {tx.to}
         </StyledTableLink>
@@ -48,5 +47,5 @@ const TransactionRow = ({ tx }) => {
     </div>
   );
 };
- 
+
 export default TransactionRow;

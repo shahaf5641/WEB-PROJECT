@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import LoadingAnimation from '../animations/LoadingAnimation';
 import PaginatedButton from './PaginatedButton';
 import { fetchItems } from '../contexts/Fetches'; // Import the fetchItems function
+import { latestItemsContainerStyle, latestItemsTitleStyle } from '../contexts/style'; // Import styles
 
 /**
  * LatestItems is a reusable component that fetches and displays the latest items in a table format with pagination.
@@ -34,8 +35,8 @@ const LatestItems = ({ fetchUrl, TableComponent, title, link, buttonText }) => {
   if (error) return <p>Error: {error}</p>;  // Display an error message if fetching fails.
 
   return (
-    <div className="container mx-auto p-2 rounded-xl backdrop-blur-md">
-      <h2 className="text-2xl font-semibold mb-4 text-left underline px-4">{title}</h2>  {/* Display the title. */}
+    <div className={latestItemsContainerStyle}>
+      <h2 className={latestItemsTitleStyle}>{title}</h2>  {/* Display the title. */}
       <TableComponent items={items} />  {/* Render the table with the fetched items. */}
       <PaginatedButton
         link={link}  // URL for the "View all" button.

@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
+// Create a context for managing token information
 const TokenContext = createContext();
 
 // Mapping of token addresses to their names
@@ -12,16 +13,18 @@ export const tokenAddressToName = {
   '0xBB69C32dc4827ec722f46891fA1F661400143DAe': 'wDOGE'
 };
 
-// Hook to use the TokenContext
+// Custom hook to access the TokenContext
 export const useToken = () => {
   return useContext(TokenContext);
 };
 
 // Function to get the amount and token type
 export const getAmount = (tx) => {
+  // Determine the type of transaction and format accordingly
   if (tx.type === 'eth') {
     return `${tx.value} wETH`;
   } else if (tx.type === 'token') {
+    // Use tokenAddressToName to get the token symbol
     const symbol = tokenAddressToName[tx.tokenAddress] || 'Unknown Token';
     return `${tx.tokenAmount} ${symbol}`;
   } else {
@@ -37,13 +40,14 @@ export const convertTimestamp = (timestamp) => {
 
 // TokenProvider component to provide token information to the component tree
 export const TokenProvider = ({ children }) => {
+  // State to store token details and any error that occurs
   const [tokenSymbol, setTokenSymbol] = useState({});
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    // Fetch token details from the API
     const fetchTokenDetails = async () => {
       try {
-        // Fetch token details from the API
         const response = await fetch('https://api.mtw-testnet.com/assets/all');
         const data = await response.json();
         const tokenMap = {};
@@ -70,6 +74,7 @@ export const TokenProvider = ({ children }) => {
     fetchTokenDetails();
   }, []);
 
+  // Provide token details and handle errors
   return (
     <TokenContext.Provider value={tokenSymbol}>
       {error && <div>Error: {error}</div>}

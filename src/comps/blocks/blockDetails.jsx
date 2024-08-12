@@ -1,11 +1,14 @@
-// src/components/blocks/BlockDetails.jsx
-
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { convertTimestamp } from '../contexts/tokenContext';
 import LoadingAnimation from '../animations/LoadingAnimation';
 import { fetchBlockDetails } from '../contexts/Fetches';
-import { blockDetailsContainerStyle } from '../contexts/style'; // Import the style
+import {
+  detailsPageContainerStyle,
+  detailsHeaderStyle,
+  detailsContentContainerStyle,
+  detailsParagraphStyle,
+} from '../contexts/style'; // Import the styles
 
 /**
  * BlockDetails component fetches and displays details of a specific blockchain block.
@@ -36,16 +39,16 @@ const BlockDetails = () => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className="container mx-auto backdrop-blur-md p-4">
-      <h1 className="text-4xl font-bold mb-4 underline">Block Details</h1>
-      <div className={blockDetailsContainerStyle}>
-        <p className="mb-4 sm:text-wrap break-words"><strong>Number:</strong> {blockDetails.number}</p>
-        <p className="mb-4"><strong>Hash:</strong> {blockDetails.hash}</p>
-        <p className="mb-4"><strong>Parent Hash:</strong> {blockDetails.parentHash}</p>
-        <p className="mb-4"><strong>Time:</strong> {convertTimestamp(blockDetails.timestamp)}</p>
-        <p className="mb-4"><strong>Gas Limit:</strong> {blockDetails.gasLimit}</p>
-        <p className="mb-4"><strong>Gas Used:</strong> {blockDetails.gasUsed}</p>
-        <p className="mb-4"><strong>Transactions:</strong> {blockDetails.transactions}</p>
+    <div className={detailsPageContainerStyle}>
+      <h1 className={detailsHeaderStyle}>Block Details</h1>
+      <div className={detailsContentContainerStyle}>
+        <p className={detailsParagraphStyle}><strong>Number:</strong> {blockDetails.number}</p>
+        <p className={detailsParagraphStyle}><strong>Hash:</strong> {blockDetails.hash}</p>
+        <p className={detailsParagraphStyle}><strong>Parent Hash:</strong> {blockDetails.parentHash}</p>
+        <p className={detailsParagraphStyle}><strong>Time:</strong> {convertTimestamp(blockDetails.timestamp)}</p>
+        <p className={detailsParagraphStyle}><strong>Gas Limit:</strong> {blockDetails.gasLimit}</p>
+        <p className={detailsParagraphStyle}><strong>Gas Used:</strong> {blockDetails.gasUsed}</p>
+        <p className={detailsParagraphStyle}><strong>Transactions:</strong> {blockDetails.transactions}</p>
       </div>
     </div>
   );

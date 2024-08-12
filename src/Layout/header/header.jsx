@@ -12,7 +12,9 @@ import {
   searchFormStyle,
   searchInputStyle,
   searchButtonStyle,
-  searchIconSVG
+  searchIconSVG,
+  headerFlexContainerStyle,
+  searchInputContainerStyle,
 } from '../../comps/contexts/style';
 
 export default function Header() {
@@ -49,7 +51,7 @@ export default function Header() {
   return (
     <header className={headerStyle}>
       <div className={headerContainerStyle}>
-        <div className="flex items-center space-x-4">
+        <div className={headerFlexContainerStyle}>
           <Link to="/" onClick={closeMenu}>
             <FontAwesomeIcon icon={faHome} className={homeIconStyle} />
           </Link>
@@ -62,7 +64,7 @@ export default function Header() {
         <NavLink to="/blocks">Blocks</NavLink>
         <NavLink to="/explore">Explore</NavLink>
         <form onSubmit={handleSearch} className={searchFormStyle}>
-          <div className="relative w-full">
+          <div className={searchInputContainerStyle}>
             <input
               required
               placeholder="Account/Transaction/Block Hash"

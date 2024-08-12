@@ -1,9 +1,7 @@
-// src/components/blocks/BlockRow.jsx
-
 import React from 'react';
 import StyledTableLink from '../contexts/StyledTableLink';
 import { convertTimestamp } from '../contexts/tokenContext';
-import { blockRowStyle } from '../contexts/style'; // Import the style
+import { blockRowStyle, hiddenMdBlock, hiddenLgBlock } from '../contexts/style'; // Import the styles
 
 /**
  * BlockRow component displays a single row of block data in a grid format.
@@ -16,8 +14,8 @@ const BlockRow = ({ block }) => {
   return (
     <div className={blockRowStyle}>
       <div className="truncate">{convertTimestamp(block.timestamp)}</div>
-      <div className="hidden md:block truncate">{block.transactions}</div>
-      <div className="hidden lg:block truncate">{block.number}</div>
+      <div className={hiddenMdBlock}>{block.transactions}</div>
+      <div className={hiddenLgBlock}>{block.number}</div>
       <div className="truncate">
         <StyledTableLink
           to={`/block/${block.hash}`}

@@ -1,14 +1,95 @@
 // src/contexts/style.js
 
+//------------ABOUT------------
+
+export const aboutContainerStyle = `
+  container mx-auto py-6
+`;
+
+export const aboutInnerContainerStyle = `
+  border backdrop-blur-sm p-4 rounded-xl shadow-xl
+`;
+
+export const aboutImageContainerStyle = `
+  mb-6 overflow-hidden
+`;
+
+export const aboutImageStyle = `
+  w-full max-w-4xl mx-auto rounded-2xl
+`;
+
+//----SECTION----
+
+export const sectionStyle = `
+  max-w-6xl mx-auto mb-6
+`;
+
+//----SECTIONHEADER----
+
+export const sectionHeaderStyle = (darkMode) => `
+  text-3xl font-bold mb-3 p-2 rounded 
+  ${darkMode ? 'bg-slate-600' : 'bg-slate-200'}
+`;
+
+
+
+//----SECTIONHEADER----
+
+export const sectionTextStyle = `
+  mb-6 text-xl font-semibold
+`;
+
+
+//------------ANIMATIONS------------
+
+//----LOADINGANIMATIONS----
+
+export const loadingContainerStyle = `
+  flex justify-center h-screen mt-20 pt-20
+`;
+
+export const lottieContainerStyle = `
+  w-32 h-32
+`;
+
+//----SMALLLOADINGANIMATION----
+
+export const smallLoadingContainerStyle = `
+  fixed inset-0 flex pt-[200px] justify-center rounded-xl bg-black bg-opacity-30 z-50
+`;
+
+export const lottieSmallContainerStyle = `
+  w-12 h-12
+`;
+
+
+
+
+
+
+
 
 //------------BLOCKS------------
-export const blockDetailsContainerStyle = `
-  shadow-xl rounded-2xl p-6 mb-4 border-2 backdrop-blur-md text-2xl font-semibold text-left
-`;
+
+
+
+//----BLOCKROW----
+
 
 export const blockRowStyle = `
   grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 border-2 rounded-xl 
   text-lg font-semibold transform transition-transform duration-300 hover:scale-105
+`;
+
+export const hiddenMdBlock = 'hidden md:block';
+
+export const hiddenLgBlock = 'hidden lg:block';
+
+//----BLOCKTABLE----
+
+
+export const blocksTableContainerStyle = `
+  w-full rounded-xl shadow-lg border-4 p-2
 `;
 
 export const blocksTableHeaderStyle = (darkMode) => `
@@ -18,7 +99,27 @@ export const blocksTableHeaderStyle = (darkMode) => `
 `;
 
 
+
 //------------CONTACT------------
+
+//----CONTACT----
+
+
+export const contactContainerStyle = `
+  flex justify-center items-center
+`;
+
+export const contactWrapperStyle = (darkMode) => `
+  rounded-lg shadow-2xl w-1/2 border p-12 backdrop-blur-sm
+  ${darkMode ? 'border-gray-600' : 'border-gray-200'}
+`;
+
+export const contactHeaderStyle = `
+  text-4xl font-bold mb-4 py-2
+`;
+
+//----CONTACTFORM----
+
 
 export const contactButtonStyle = (darkMode) => `
   mt-4 cursor-pointer transition-all font-semibold px-14 text-lg py-4 rounded-full border-b-[4px] 
@@ -31,11 +132,30 @@ export const contactButtonStyle = (darkMode) => `
   hover:shadow-xl active:shadow-none
 `;
 
+// Style for the form group containing input fields
+export const formGroupStyle = `
+  mb-6 flex space-x-8
+`;
+
+//----INPUTFIELD----
+
+export const requiredIndicatorStyle = `
+  text-red-500
+`;
+
+// Define styles for the label
+export const labelStyle = `
+  block text-lg mb-1
+`;
+
 export const inputFieldStyle = (darkMode) => `
   mt-1 rounded-2xl transition ease-in-out duration-300 cursor-pointer w-full block px-4 py-3 
   ${darkMode ? 'bg-gray-500 text-white focus:border-indigo-700' : 'bg-white text-black focus:border-gray-500'} 
   border border-gray-300 rounded-md shadow-sm focus:outline-none text-lg
 `;
+
+
+//----TEXTAREA----
 
 export const textAreaStyle = (darkMode) => `
   mt-1 rounded-2xl transition ease-in-out duration-300 cursor-pointer w-full block px-4 py-3 
@@ -43,19 +163,66 @@ export const textAreaStyle = (darkMode) => `
   border border-gray-300 rounded-md shadow-sm focus:outline-none text-lg
 `;
 
+
+//----THANKYOUMESSAGE----
+
 export const thankYouMessageContainerStyle = `
   backdrop-blur-md border text-center text-3xl font-semibold p-6 rounded-xl max-w-4xl
 `;
 
+// Define styles for the ThankYouMessage component
+export const thankYouMessageWrapperStyle = `
+  flex justify-center items-start h-screen
+`;
+
+
+
+
 
 //------------CONTEXTS------------
+
+//----PAGINATION----
 
 
 export const paginationButtonStyle = `
   px-8 py-4 border-2 rounded-2xl font-bold shadow-xl transform transition-transform duration-100 active:scale-95
 `;
 
-//----DARKMODE----
+export const paginationContainerStyle = `
+  m-4 p-4 flex justify-center items-center text-xl
+`;
+
+//----PAGINATIONHANDLER----
+export const paginationHandlerContainerStyle = `
+  container mx-auto rounded-xl backdrop-blur-md mb-4 p-4
+`;
+
+export const paginationHandlerHeaderStyle = `
+  flex flex-wrap justify-between items-center mb-2
+`;
+
+export const paginationHandlerTitleStyle = `
+  text-4xl font-semibold underline
+`;
+
+export const paginationHandlerTotalStyle = `
+  text-3xl font-semibold
+`;
+
+
+
+
+//----DARKLIGHTTOGGLE----
+
+// Style for the container
+export const containerStyle = `
+  flex justify-end p-2 m-3
+`;
+
+// Style for the label
+export const darkLightlabelStyle = `
+  inline-flex items-center relative hover:cursor-pointer
+`;
 
 // Style for the toggle switch
 export const toggleSwitchStyle = `
@@ -83,13 +250,38 @@ export const moonIconPath = `
   M12.009,24A12.067,12.067,0,0,1,.075,10.725,12.121,12.121,0,0,1,10.1.152a13,13,0,0,1,5.03.206,2.5,2.5,0,0,1,1.8,1.8,2.47,2.47,0,0,1-.7,2.425c-4.559,4.168-4.165,10.645.807,14.412h0a2.5,2.5,0,0,1-.7,4.319A13.875,13.875,0,0,1,12.009,24Zm.074-22a10.776,10.776,0,0,0-1.675.127,10.1,10.1,0,0,0-8.344,8.8A9.928,9.928,0,0,0,4.581,18.7a10.473,10.473,0,0,0,11.093,2.734.5.5,0,0,0,.138-.856h0C9.883,16.1,9.417,8.087,14.865,3.124a.459.459,0,0,0,.127-.465.491.491,0,0,0-.356-.362A10.68,10.68,0,0,0,12.083,2ZM20.5,12a1,1,0,0,1-.97-.757l-.358-1.43L17.74,9.428a1,1,0,0,1,.035-1.94l1.4-.325.351-1.406a1,1,0,0,1,1.94,0l.355,1.418,1.418.355a1,1,0,0,1,0,1.94l-1.418.355-.355,1.418A1,1,0,0,1,20.5,12ZM16,14a1,1,0,0,0,2,0A1,1,0,0,0,16,14Zm6,4a1,1,0,0,0,2,0A1,1,0,0,0,22,18Z
 `;
 
-
 //----NOTFOUND----
 
 export const NotFoundButton = (darkMode) =>
     `text-xl marker:mt-6 px-6 py-3 ${darkMode ? 'bg-indigo-600 hover:bg-indigo-700' : 'bg-blue-500 hover:bg-blue-600'
     } rounded-full transition duration-500`;
 
+// Style for the NotFound container
+export const notFoundContainerStyle = `
+  flex flex-col items-center p-10 mt-6 gap-5
+`;
+
+// Style for the NotFound heading
+export const notFoundHeadingStyle = `
+  text-5xl font-bold text-red-500
+`;
+
+// Style for the NotFound message
+export const notFoundMessageStyle = `
+  text-2xl m-4
+`;
+
+// Style for the highlighted search query in the NotFound message
+export const notFoundSearchQueryStyle = `
+  font-bold underline
+`;
+
+
+//----STYLED TABLE LINK----
+export const styledTableLinkStyle = (darkMode) => `
+  hover:underline transform transition-transform duration-300
+  ${darkMode ? 'text-indigo-500' : 'text-blue-700'}
+`;
 
 
 
@@ -104,6 +296,36 @@ export const paginatedDivStyle = (darkMode) => `
 rounded-full h-10 w-1/6 flex items-center justify-center absolute left-1 top-[4px] group-hover:w-[280px] z-10 duration-700 ${darkMode ? 'bg-indigo-600' : 'bg-gray-400'}
 `;
 
+// Class names for the Dashboard component
+export const dashboardContainerStyle = "container mx-auto rounded-xl";
+
+export const dashboardTitleStyle = "text-4xl font-bold mb-4 underline";
+
+export const dashboardContentStyle = "flex flex-col";
+
+
+
+
+//----LATESTITEMS----
+
+
+// Class names for LatestItems component
+export const latestItemsContainerStyle = "container mx-auto p-2 rounded-xl backdrop-blur-md";
+
+export const latestItemsTitleStyle = "text-2xl font-semibold mb-4 text-left underline px-4";
+
+
+
+//----PAGINATEDBUTTON----
+
+
+// Class names for PaginatedButton component
+export const paginatedContainerStyle = "flex justify-end py-4";
+
+export const paginatedLinkStyle = "relative group p-2";
+
+export const paginatedButtonTextStyle = "translate-x-2";
+
 
 //------------DETAILS------------
 
@@ -114,6 +336,18 @@ export const accountDetailsSectionStyle = `
   shadow-xl rounded-2xl p-6 mb-4 border-2 backdrop-blur-md text-2xl font-base text-left
 `;
 
+
+// Class names for AccountDetails component
+export const accountDetailsContainerStyle = "container mx-auto backdrop-blur-md p-4";
+
+// Class names for text elements
+export const accountDetailsTitleStyle = "text-4xl font-bold mb-4 underline";
+
+export const accountDetailsAddressStyle = "mb-4 sm:text-wrap break-words";
+
+export const accountDetailsTransactionsTitleStyle = "text-2xl text-left font-semibold mb-3 mt-10";
+
+
 //----TOKENDETAILS----
 
 export const tokenContainerStyle = (darkMode) =>
@@ -121,14 +355,50 @@ export const tokenContainerStyle = (darkMode) =>
 
 export const tokenImgStyle = 'top-32 w-20 h-20 sm:top-24 sm:w-22 sm:h-22 md:top-16 absolute left-3/4';
 
+
+// Class names for TokenDetails component
+  
+  // Class names for text elements
+  export const tokenDetailsAddressStyle = "mb-4 sm:text-wrap break-words";
+  
+  export const tokenDetailsStyle = "mb-4";
+  
+  // Class names for layout and headers
+  export const tokenDetailsLinkContainerStyle = "mb-6 flex space-x-4";
+  
+  export const transactionsTitleStyle = "text-2xl text-left font-semibold mb-3 mt-10";
+  
+
+
+//----TOKENLINK----
+
 export const tokenButtonStyle = (darkMode) =>
     `w-auto items-center justify-center flex rounded-full border-2 duration-500 cursor-pointer active:scale-95 ${darkMode ? 'border-indigo-600 shadow-lg hover:bg-indigo-600 text-gray-100 hover:text-black' : 'border-blue-900 shadow-lg hover:bg-blue-900 text-gray-900 hover:text-gray-100'}`;
+
+
+// Style for the Link component in TokenLink
+export const tokenLinkStyle = "inline-block mt-2";
+
+// Style for the button inside TokenLink
+export const tokenButtonInnerStyle = "px-4 py-2";
+
+
 
 
 
 //------------HOME------------
 
 //----CRYPTOCARD----
+
+// Style for the front and back content container of the CryptoCard
+export const cryptoCardContentStyle = `
+  flex flex-col items-center justify-center h-full p-4
+`;
+
+// Style for the back content container of the CryptoCard (with text color white)
+export const cryptoCardContentBackStyle = `
+  flex flex-col items-center justify-center h-full p-4 text-white
+`;
 
 
 export const cryptoCardInner = `
@@ -177,13 +447,31 @@ xmlns="http://www.w3.org/2000/svg"
 
 //----CRYPTOGRID----
 
+// style.js
 
+// Style for the grid container in CryptoGrid
 export const cryptoGridContainer = `
-  grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8 mb-12
+  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4
 `;
+
+// Style for wrapping each CryptoCard to control layout and spacing
+export const cryptoCardWrapperStyle = "flex justify-center";
+
+// Style for each column in the grid
+export const cryptoCardColumnStyle = "col-span-1";
+
+
 
 
 //----HEROSECTION----
+
+
+// Style for the main HeroSection container
+export const heroSectionContainer = "text-center mb-12";
+
+// Style for the button text span
+export const heroButtonTextStyle = "relative z-10";
+
 
 
 export const heroLogoContainer = (darkMode) => `
@@ -232,6 +520,20 @@ export const joinSectionDescription = `
 `;
 
 
+
+//----HOME----
+
+
+// Style for the main Home component container with flex and column layout
+export const homeContainerStyle = "flex flex-col";
+
+// Style for the inner container that holds the sections with responsive layout and spacing
+export const homeInnerContainerStyle = "container mx-auto px-4 py-8 flex-grow";
+
+
+
+
+
 //------------TRANSCATIONS------------
 
 //----TRANSACTIONDETAILS----
@@ -242,12 +544,25 @@ export const transactionDetailsContainer = `
 
 //----TRANSACTIONROW----
 
+
+// Style for elements hidden on smaller screens but visible on medium and large screens
+export const hiddenMdBlockStyle = "hidden md:block truncate";
+
+// Style for elements hidden on smaller screens but visible on large screens
+export const hiddenLgBlockStyle = "hidden lg:block truncate";
+
+
 export const transactionRowContainer = `
   grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 p-4 border-2 rounded-xl 
   text-lg font-semibold transform transition-transform duration-300 hover:scale-105
 `;
 
 //----TRANSACTIONTABLE----
+
+
+// Style for the TransactionTable container
+export const transactionTableContainerStyle = "w-full rounded-xl shadow-lg border-4 p-2";
+
 
 export const transactionTableHeader = (darkMode) => `
   grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 
@@ -258,6 +573,11 @@ export const transactionTableHeader = (darkMode) => `
 
 //------------FOOTER------------
 
+
+// Style for the flex container that centers the footer links with a gap
+export const footerLinksContainerStyle = "flex justify-center gap-8";
+
+
 export const footerContainer = (darkMode) => `
   py-2 border-t border-white ${darkMode ? 'bg-gray-700' : 'bg-gray-300'}
 `;
@@ -265,6 +585,9 @@ export const footerContainer = (darkMode) => `
 export const footerText = (darkMode) => `
   text-center mt-2 text-xl ${darkMode ? 'text-gray-200' : 'text-gray-700'}
 `;
+
+
+//----FOOTERLINK----
 
 export const footerLinkStyle = (darkMode) => `
   font-semibold text-2xl transform transition-transform duration-300 
@@ -274,7 +597,12 @@ export const footerLinkStyle = (darkMode) => `
 
 //------------HEADER------------
 
-//----HAMBURGER----
+//----HAMBURGERMENU----
+
+
+// Style for the container of the hamburger menu icon, which is hidden on medium and larger screens
+export const hamburgerMenuIconContainerStyle = "relative md:hidden flex items-center z-50";
+
 
 
 export const hamburgerIconStyle = `
@@ -294,6 +622,14 @@ export const hamburgerMenuLinkStyle = `
 `;
 
 //----HEADER----
+
+
+// Style for the container that holds the logo and hamburger menu button
+export const headerFlexContainerStyle = "flex items-center space-x-4";
+
+// Style for the container wrapping the search input field and button
+export const searchInputContainerStyle = "relative w-full";
+
 
 // Header main container style
 export const headerStyle = `
@@ -385,6 +721,52 @@ export const mainContentStyle = `
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//------------BLOCKS AND TRANSCATIONS------------
+
+
+// General style for elements hidden on smaller screens but visible on medium and large screens
+export const hiddenOnSmallVisibleOnMedium = "hidden md:block truncate";
+
+// General style for elements hidden on smaller and medium screens but visible on large screens
+export const hiddenOnSmallAndMediumVisibleOnLarge = "hidden lg:block truncate";
+
+
+// Style for the main container of detail pages (both TransactionDetails and BlockDetails)
+export const detailsPageContainerStyle = "container mx-auto backdrop-blur-md p-4";
+
+// Style for the header of detail pages (both TransactionDetails and BlockDetails)
+export const detailsHeaderStyle = "text-4xl font-bold mb-4 underline";
+
+// Style for the inner content container of detail pages
+export const detailsContentContainerStyle = "border-2 rounded-lg shadow-md p-6 text-2xl text-left";
+
+// Style for paragraphs inside the detail pages
+export const detailsParagraphStyle = "mb-4 sm:text-wrap break-words";
 
 
 

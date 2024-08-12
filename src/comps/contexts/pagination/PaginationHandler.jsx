@@ -1,7 +1,15 @@
+// src/components/PaginationHandler.jsx
+
 import React, { useEffect, useState } from 'react';
 import LoadingAnimation from '../../animations/LoadingAnimation';
 import SmallLoadingAnimation from '../../animations/SmallLoadingAnimation';
 import Pagination from './pagination';
+import { 
+  paginationHandlerContainerStyle, 
+  paginationHandlerHeaderStyle, 
+  paginationHandlerTitleStyle, 
+  paginationHandlerTotalStyle 
+} from '../style';
 
 /**
  * PaginationHandler Component
@@ -60,11 +68,11 @@ const PaginationHandler = ({ fetchFunction, title, TableComponent }) => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className="container mx-auto rounded-xl backdrop-blur-md mb-4 p-4">
+    <div className={paginationHandlerContainerStyle}>
       {paginationLoading && <SmallLoadingAnimation />}
-      <div className="flex flex-wrap justify-between items-center mb-2">
-        <h1 className="text-4xl font-semibold underline">{title}</h1>
-        <h1 className="text-3xl font-semibold">Total: {totalItems.toLocaleString()}</h1>
+      <div className={paginationHandlerHeaderStyle}>
+        <h1 className={paginationHandlerTitleStyle}>{title}</h1>
+        <h1 className={paginationHandlerTotalStyle}>Total: {totalItems.toLocaleString()}</h1>
       </div>
       <TableComponent items={items} />
       <Pagination

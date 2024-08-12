@@ -2,7 +2,8 @@ import React from 'react';
 import HeroSection from './HeroSection';
 import CryptoGrid from './CryptoGrid';
 import JoinSection from './JoinSection';
- 
+import { homeContainerStyle, homeInnerContainerStyle } from '../contexts/style';
+
 /**
  * Home component
  * 
@@ -12,8 +13,8 @@ import JoinSection from './JoinSection';
  */
 export default function Home() {
   return (
-    <div className="flex flex-col">
-      <div className="container mx-auto px-4 py-8 flex-grow">
+    <div className={homeContainerStyle}>
+      <div className={homeInnerContainerStyle}>
         <HeroSection />
         <CryptoGrid />
         <JoinSection />

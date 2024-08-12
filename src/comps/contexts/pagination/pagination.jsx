@@ -1,7 +1,7 @@
 // src/components/Pagination.jsx
 
 import React from 'react';
-import { paginationButtonStyle } from '../style'; // Import the style
+import { paginationButtonStyle, paginationContainerStyle } from '../style'; // Import the style
 
 /**
  * Pagination Component
@@ -18,7 +18,7 @@ import { paginationButtonStyle } from '../style'; // Import the style
  */
 const Pagination = ({ currentPage, totalPages, handlePreviousPage, handleNextPage }) => {
   return (
-    <div className="m-4 p-4 flex justify-center items-center text-xl">
+    <div className={paginationContainerStyle}>
       {/* Button to navigate to the previous page */}
       <button 
         onClick={handlePreviousPage} 

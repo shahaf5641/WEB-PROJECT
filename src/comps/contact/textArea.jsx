@@ -1,7 +1,5 @@
-// src/components/TextArea.jsx
-
 import React from 'react';
-import { textAreaStyle } from '../contexts/style'; // Import the style
+import { textAreaStyle, requiredIndicatorStyle, labelStyle } from '../contexts/style'; // Import the style
 
 /**
  * TextArea component renders a labeled textarea input.
@@ -16,9 +14,9 @@ import { textAreaStyle } from '../contexts/style'; // Import the style
 const TextArea = ({ id, label, value, onChange, required, darkMode }) => {
   return (
     <div className="w-full mb-6">
-      <label htmlFor={id} className="block text-lg">
+      <label htmlFor={id} className={labelStyle}>
         {label}
-        {required && <span className="text-red-500">*</span>}
+        {required && <span className={requiredIndicatorStyle}>*</span>}
       </label>
       <textarea
         id={id}

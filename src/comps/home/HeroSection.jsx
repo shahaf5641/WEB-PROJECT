@@ -11,6 +11,8 @@ import {
   heroButton,
   heroButtonHoverEffect,
   heroButtonHoverEffectInner,
+  heroSectionContainer,
+  heroButtonTextStyle,
 } from '../contexts/style';
 
 /**
@@ -23,7 +25,7 @@ export default function HeroSection() {
   const { darkMode } = useDarkMode();
 
   return (
-    <div className="text-center mb-12">
+    <div className={heroSectionContainer}>
 
       {/* Main site logo element */}
       <div className={heroLogoContainer(darkMode)}>
@@ -43,7 +45,7 @@ export default function HeroSection() {
       {/* Navigation button to dashboard */}
       <Link to="/dashboard">
         <button className={heroButton(darkMode)}>
-          <span className="relative z-10">Get Started</span>
+          <span className={heroButtonTextStyle}>Get Started</span>
 
           {/* Button hover effect */}
           <div className={heroButtonHoverEffect}>

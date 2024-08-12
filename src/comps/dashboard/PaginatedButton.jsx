@@ -2,7 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
 import { useDarkMode } from '../contexts/DarkModeContext';
-import { paginatedButtonStyle, paginatedDivStyle } from '../contexts/style';
+import { 
+  paginatedButtonStyle, 
+  paginatedDivStyle, 
+  paginatedContainerStyle, 
+  paginatedLinkStyle, 
+  paginatedButtonTextStyle 
+} from '../contexts/style';
 
 /**
  * The PaginatedButton component creates a button that navigates to a specified link and displays an arrow icon.
@@ -17,8 +23,8 @@ const PaginatedButton = ({ link, buttonText }) => {
   const { darkMode } = useDarkMode();  // Access the current dark mode state.
 
   return (
-    <div className="flex justify-end py-4">
-      <Link to={link} className="relative group p-2">
+    <div className={paginatedContainerStyle}>
+      <Link to={link} className={paginatedLinkStyle}>
         <button
           type="button"
           className={paginatedButtonStyle(darkMode)}
@@ -28,7 +34,7 @@ const PaginatedButton = ({ link, buttonText }) => {
           >
             <FaArrowRight className="text-black" size={24} />
           </div>
-          <span className="translate-x-2">{buttonText}</span>
+          <span className={paginatedButtonTextStyle}>{buttonText}</span>
         </button>
       </Link>
     </div>

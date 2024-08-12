@@ -1,7 +1,8 @@
 import React from 'react';
 import LatestBlocks from './latestBlocks';
 import LatestTransactions from './latestTransactions';
- 
+import { dashboardContainerStyle, dashboardTitleStyle, dashboardContentStyle } from '../contexts/style';
+
 /**
  * The Dashboard component shows the latest transactions and blocks.
  * 
@@ -12,9 +13,9 @@ import LatestTransactions from './latestTransactions';
  
 const Dashboard = () => {
   return (
-    <div className="container mx-auto rounded-xl">
-      <h1 className="text-4xl font-bold mb-4 underline ">Dashboard</h1>
-      <div className="flex flex-col">
+    <div className={dashboardContainerStyle}>
+      <h1 className={dashboardTitleStyle}>Dashboard</h1>
+      <div className={dashboardContentStyle}>
         <LatestTransactions />
         <LatestBlocks />
       </div>

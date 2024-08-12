@@ -3,36 +3,36 @@ import teamImage from '../../assets/team.jpg';
 import Section from './Section';
 import SectionHeader from './SectionHeader';
 import SectionText from './SectionText';
+import {
+  aboutContainerStyle,
+  aboutInnerContainerStyle,
+  aboutImageContainerStyle,
+  aboutImageStyle
+} from '../contexts/style'; // Import styles
 
-// About component for displaying information about the team, mission, and project
 export default function About() {
   return (
-    <div className="container mx-auto py-6">
-      {/* Wrapper div with border, blur effect, padding, rounded corners, and shadow */}
-      <div className="border backdrop-blur-sm p-4 rounded-xl shadow-xl">
-        {/* Image section displaying the team image */}
-        <div className="mb-6 overflow-hidden">
+    <div className={aboutContainerStyle}>
+      <div className={aboutInnerContainerStyle}>
+        <div className={aboutImageContainerStyle}>
           <img 
             src={teamImage} 
             alt="Team" 
-            className="w-full max-w-4xl mx-auto rounded-2xl" 
+            className={aboutImageStyle} 
           />
         </div>
-        {/* Section describing who the team is */}
         <Section>
           <SectionHeader>Who We Are</SectionHeader>
           <SectionText>
             We are a group of dedicated students from Ort Braude College, collaborating on an exciting project as part of our bachelor's degree course. Our team is passionate about harnessing the power of technology to make financial information more accessible and transparent.
           </SectionText>
         </Section>
-        {/* Section describing the team's mission */}
         <Section>
           <SectionHeader>Our Mission</SectionHeader>
           <SectionText>
             Our mission is to provide a comprehensive and user-friendly platform for retrieving detailed information about money transfers, blockchain transactions, and other related financial data. We believe that transparency in financial transactions is crucial for fostering trust and innovation in the digital economy.
           </SectionText>
         </Section>
-        {/* Section describing the team's composition and skills */}
         <Section>
           <SectionHeader>Our Team</SectionHeader>
           <SectionText>

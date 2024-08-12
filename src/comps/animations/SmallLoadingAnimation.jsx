@@ -1,7 +1,8 @@
 import React from 'react';
 import Lottie from 'lottie-react';
 import animationData from '../../assets/SmallLoadingAnimation.json';
- 
+import { smallLoadingContainerStyle, lottieSmallContainerStyle } from '../contexts/style'; // Import the styles
+
 /**
  * SmallLoadingAnimation component displays a small loading animation
  * centered on the screen with a semi-transparent background overlay.
@@ -9,12 +10,12 @@ import animationData from '../../assets/SmallLoadingAnimation.json';
  */
 const SmallLoadingAnimation = () => {
   return (
-    <div className="fixed inset-0 flex pt-[200px] justify-center rounded-xl bg-black bg-opacity-30 z-50">
-      <div className="w-12 h-12">
+    <div className={smallLoadingContainerStyle}>
+      <div className={lottieSmallContainerStyle}>
         <Lottie animationData={animationData} loop={true} />
       </div>
     </div>
   );
 };
- 
+
 export default SmallLoadingAnimation;

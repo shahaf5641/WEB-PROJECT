@@ -12,6 +12,8 @@ import {
   svgIconStyle,
   svgPathStyle,
   svgContainerStyle,
+  cryptoCardContentStyle,
+  cryptoCardContentBackStyle
 } from '../contexts/style';
 
 /**
@@ -40,7 +42,7 @@ export default function CryptoCard({ imgSrc, title, description, address }) {
       {/* Front of the card */}
       <div className={cryptoCardInner}>
         <div className={cryptoCardFront(darkMode)}>
-          <div className="flex flex-col items-center justify-center h-full p-4">
+          <div className={cryptoCardContentStyle}>
             <img src={imgSrc} alt={`${title} Logo`} className={cryptoCardImage} />
             <h3 className={cryptoCardTitle(darkMode)}>{title}</h3>
           </div>
@@ -48,7 +50,7 @@ export default function CryptoCard({ imgSrc, title, description, address }) {
 
         {/* Back of the card */}
         <div className={cryptoCardBack}>
-          <div className="flex flex-col items-center justify-center h-full p-4 text-white">
+          <div className={cryptoCardContentBackStyle}>
             <h3 className={cryptoCardTitle(darkMode)}>{title}</h3>
             <p className={cryptoCardDescription}>{description}</p>
             <button 

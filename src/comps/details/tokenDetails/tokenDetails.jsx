@@ -6,7 +6,14 @@ import { useToken, tokenAddressToName } from '../../contexts/tokenContext';
 import { useDarkMode } from '../../contexts/DarkModeContext';
 import { fetchTransactions } from '../../contexts/Fetches'; // Import the fetch function
 import TokenLink from './TokenLink'; // Import the TokenLink component
-import { tokenContainerStyle, tokenImgStyle } from '../../contexts/style'; 
+import { 
+  tokenContainerStyle, 
+  tokenImgStyle, 
+  tokenDetailsAddressStyle, 
+  tokenDetailsStyle, 
+  tokenDetailsLinkContainerStyle, 
+  transactionsTitleStyle 
+} from '../../contexts/style'; 
 
 /**
  * Displays detailed information about a specific token and manages its transactions.
@@ -43,12 +50,12 @@ const TokenDetails = () => {
   return (
     <>
       <div className={tokenContainerStyle(darkMode)}>
-        <p className="mb-4 sm:text-wrap break-words"><strong>Address:</strong> {address}</p>
-        <p className='mb-4'><strong>Symbol:</strong> {tokenDetails.symbol || 'N/A'}</p>
-        <p className='mb-4'><strong>Name:</strong> {tokenInfo.name || 'N/A'}</p>
+        <p className={tokenDetailsAddressStyle}><strong>Address:</strong> {address}</p>
+        <p className={tokenDetailsStyle}><strong>Symbol:</strong> {tokenDetails.symbol || 'N/A'}</p>
+        <p className={tokenDetailsStyle}><strong>Name:</strong> {tokenInfo.name || 'N/A'}</p>
         {tokenInfo.image && <img src={tokenInfo.image} alt={`${tokenInfo.name} logo`} className={tokenImgStyle} />}
         {tokenInfo.summary && <p className='mb-6'><strong>Description:</strong> {tokenInfo.summary}</p>}
-        <div className='mb-6 flex space-x-4'>
+        <div className={tokenDetailsLinkContainerStyle}>
           {tokenInfo.website && (
             <TokenLink
               url={tokenInfo.website}
@@ -71,7 +78,7 @@ const TokenDetails = () => {
           title="Token Details"
           TableComponent={(props) => (
             <>
-              <h1 className="text-2xl text-left font-semibold mb-3 mt-10">Transactions</h1>
+              <h1 className={transactionsTitleStyle}>Transactions</h1>
               <TransactionTable transactions={props.items} tokenAddressToName={tokenAddressToName} />
             </>
           )}

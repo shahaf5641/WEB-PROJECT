@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useDarkMode } from './DarkModeContext';
-import { NotFoundButton } from './style';
+import { NotFoundButton, notFoundContainerStyle, notFoundHeadingStyle, notFoundMessageStyle, notFoundSearchQueryStyle } from './style';
 
 const NotFound = () => {
   // Retrieve search query from URL parameters
@@ -11,13 +11,13 @@ const NotFound = () => {
   const { darkMode } = useDarkMode();
 
   return (
-    <div className="flex flex-col items-center p-10 mt-6 gap-5">
+    <div className={notFoundContainerStyle}>
       {/* Display main title */}
-      <h1 className="text-5xl font-bold text-red-500">Not Found</h1>
+      <h1 className={notFoundHeadingStyle}>Not Found</h1>
       
       {/* Show a message with the search query */}
-      <p className="text-2xl m-4">
-        No results found for <span className="font-bold underline">{searchQuery}</span>
+      <p className={notFoundMessageStyle}>
+        No results found for <span className={notFoundSearchQueryStyle}>{searchQuery}</span>
       </p>
       
       {/* Link to go back to the home page, styled based on dark mode */}

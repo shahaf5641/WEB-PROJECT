@@ -1,7 +1,5 @@
-// src/components/InputField.jsx
-
 import React from 'react';
-import { inputFieldStyle } from '../contexts/style'; // Import the style
+import { inputFieldStyle, requiredIndicatorStyle, labelStyle } from '../contexts/style'; // Import the style
 
 /**
  * InputField component renders a labeled input field.
@@ -17,9 +15,9 @@ import { inputFieldStyle } from '../contexts/style'; // Import the style
 const InputField = ({ id, label, type, value, onChange, required, darkMode }) => {
   return (
     <div className="w-full">
-      <label htmlFor={id} className="block text-lg">
+      <label htmlFor={id} className={labelStyle}>
         {label}
-        {required && <span className="text-red-500">*</span>}
+        {required && <span className={requiredIndicatorStyle}>*</span>}
       </label>
       <input
         type={type}

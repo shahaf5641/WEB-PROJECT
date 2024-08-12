@@ -1,26 +1,34 @@
-// src/components/blocks/BlocksTable.jsx
-
 import React from 'react';
 import BlockRow from './blockRow';
 import { useDarkMode } from '../../comps/contexts/DarkModeContext';
-import { blocksTableHeaderStyle } from '../../comps/contexts/style';
+import {
+  blockTableContainerStyle,
+  blockTableHeaderStyle,
+  hiddenOnSmallVisibleOnMedium,
+  hiddenOnSmallAndMediumVisibleOnLarge,
+} from '../../comps/contexts/style';
 
 /**
- * BlocksTable component renders a table of blockchain blocks.
- * The table adapts its layout based on the screen size and applies dark mode styling if enabled.
+ * BlockTable Component
  * 
- * @param {Array} blocks - An array of block data to be displayed in the table.
+ * This component renders a table displaying a list of blockchain blocks.
+ * Each block is represented as a row, using the `BlockRow` component.
+ * The table's appearance adapts to dark mode using the `useDarkMode` context.
+ * 
+ * Props:
+ * - `blocks`: An array of block objects to be displayed in the table.
  */
-const BlocksTable = ({ blocks }) => {
+const BlockTable = ({ blocks }) => {
   const { darkMode } = useDarkMode();
 
   return (
-    <div className="w-full rounded-xl shadow-lg border-4 p-2">
-      <div className={blocksTableHeaderStyle(darkMode)}>
-        <div>Time</div>
-        <div className="hidden md:block">Transactions</div>
-        <div className="hidden lg:block">Block Number</div>
-        <div>Block Details</div>
+    <div className={blockTableContainerStyle}>
+      <div className={blockTableHeaderStyle(darkMode)}>
+        <div>Number</div>
+        <div className={hiddenOnSmallVisibleOnMedium}>Hash</div>
+        <div className={hiddenOnSmallAndMediumVisibleOnLarge}>Parent Hash</div>
+        <div className={hiddenOnSmallAndMediumVisibleOnLarge}>Time</div>
+        <div>Transactions</div>
       </div>
       <div>
         {blocks.map((block, index) => (
@@ -31,4 +39,4 @@ const BlocksTable = ({ blocks }) => {
   );
 };
 
-export default BlocksTable;
+export default BlockTable;

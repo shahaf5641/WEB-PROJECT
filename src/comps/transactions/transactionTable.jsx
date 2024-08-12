@@ -1,7 +1,12 @@
 import React from 'react';
 import TransactionRow from './transactionrow';
 import { useDarkMode } from '../../comps/contexts/DarkModeContext';
-import { transactionTableHeader } from '../../comps/contexts/style';
+import {
+  transactionTableContainerStyle,
+  transactionTableHeaderStyle,
+  hiddenOnSmallVisibleOnMedium,
+  hiddenOnSmallAndMediumVisibleOnLarge,
+} from '../../comps/contexts/style';
 
 /**
  * TransactionTable Component
@@ -18,12 +23,12 @@ const TransactionTable = ({ transactions, tokenAddressToName }) => {
   const { darkMode } = useDarkMode();
 
   return (
-    <div className="w-full rounded-xl shadow-lg border-4 p-2">
-      <div className={transactionTableHeader(darkMode)}>
+    <div className={transactionTableContainerStyle}>
+      <div className={transactionTableHeaderStyle(darkMode)}>
         <div>Time</div>
-        <div className="hidden md:block">Amount</div>
-        <div className="hidden lg:block">Sender Profile</div>
-        <div className="hidden lg:block">Recipient Profile</div>
+        <div className={hiddenOnSmallVisibleOnMedium}>Amount</div>
+        <div className={hiddenOnSmallAndMediumVisibleOnLarge}>Sender Profile</div>
+        <div className={hiddenOnSmallAndMediumVisibleOnLarge}>Recipient Profile</div>
         <div>Transaction Details</div>
       </div>
       <div>
