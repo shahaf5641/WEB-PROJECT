@@ -306,6 +306,88 @@ export const dashboardContentStyle = "flex flex-col";
 
 
 
+//------------EXPLORE------------
+
+
+export const labelStyleExplore = `text-2xl font-semibold`;
+
+export const exploreContainerStyle = `
+  flex flex-col items-center gap-3 backdrop-blur-md py-4
+`;
+
+export const exploreTitleStyle = `
+  text-5xl font-bold mb-2 underline
+`;
+
+export const coinSelectionContainerStyle = `
+  mb-5 flex items-center space-x-3
+`;
+
+export const coinSelectStyle = (darkMode) => `
+  border-2 rounded-lg p-2 text-lg shadow-md focus:outline-none transition-colors duration-300 ease-in-out 
+  ${darkMode ? 'bg-gray-700 border-indigo-500 focus:border-indigo-500' : 'bg-white border-gray-300 focus:border-blue-500'}
+`;
+
+export const widgetContainerStyle = `
+  container flex flex-col md:flex-row items-start gap-12
+`;
+
+export const tickerWidgetContainerStyle = (darkMode) => `
+  flex-1 md:w-1/2 rounded-2xl shadow-lg p-5 h-full border-2 
+  ${darkMode ? 'bg-gray-800 border-white' : 'bg-gray-200 border-black'}
+`;
+
+export const chartWidgetContainerStyle = (darkMode) => `
+  flex-1 md:w-1/2 rounded-2xl shadow-lg p-5 h-full border-2 
+  ${darkMode ? 'bg-gray-800 border-white' : 'bg-gray-200 border-black'}
+`;
+
+export const chartWidgetTitleStyle = `
+  text-2xl font-semibold mb-4
+`;
+
+// Style for the main container of the ticker widget
+export const tickerContainerStyle = `
+  p-6 rounded-lg text-center flex flex-col justify-between
+  h-[400px]  // Adjust the height value as needed
+`;
+
+
+// Style for the title of the ticker widget
+export const tickerTitleStyle = `
+  text-2xl font-semibold mb-4
+`;
+
+// Style for the price display in the ticker widget
+export const tickerPriceStyle = `
+  text-5xl font-bold
+`;
+
+// Dynamic style for the change display in the ticker widget based on the change value
+export const tickerChangeStyle = (change) => `
+  text-2xl ${change >= 0 ? 'text-green-500' : 'text-red-500'}
+`;
+
+// Style for the timestamp display in the ticker widget
+export const tickerTimestampStyle = `
+  text-gray-500
+`;
+
+// Style for the logo image in the ticker widget
+export const tickerLogoStyle = `
+  w-16 h-16 mt-3 self-center
+`;
+
+// Style for the content container of the ticker widget
+export const tickerContentStyle = `
+  flex flex-col items-center
+`;
+
+
+
+
+
+
 //----LATESTITEMS----
 
 
