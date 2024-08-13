@@ -2,8 +2,8 @@ import React from 'react';
 import BlockRow from './blockRow';
 import { useDarkMode } from '../../comps/contexts/DarkModeContext';
 import {
-  blockTableContainerStyle,
-  blockTableHeaderStyle,
+  blocksTableContainerStyle,
+  blocksTableHeaderStyle,
   hiddenOnSmallVisibleOnMedium,
   hiddenOnSmallAndMediumVisibleOnLarge,
 } from '../../comps/contexts/style';
@@ -22,13 +22,12 @@ const BlockTable = ({ blocks }) => {
   const { darkMode } = useDarkMode();
 
   return (
-    <div className={blockTableContainerStyle}>
-      <div className={blockTableHeaderStyle(darkMode)}>
-        <div>Number</div>
-        <div className={hiddenOnSmallVisibleOnMedium}>Hash</div>
-        <div className={hiddenOnSmallAndMediumVisibleOnLarge}>Parent Hash</div>
-        <div className={hiddenOnSmallAndMediumVisibleOnLarge}>Time</div>
-        <div>Transactions</div>
+    <div className={blocksTableContainerStyle}>
+      <div className={blocksTableHeaderStyle(darkMode)}>
+        <div >Time</div>
+        <div className={hiddenOnSmallVisibleOnMedium}>Transcations</div>
+        <div className={hiddenOnSmallAndMediumVisibleOnLarge}>Block Number</div>
+        <div>Hash</div>
       </div>
       <div>
         {blocks.map((block, index) => (

@@ -3,7 +3,7 @@ import TransactionRow from './transactionrow';
 import { useDarkMode } from '../../comps/contexts/DarkModeContext';
 import {
   transactionTableContainerStyle,
-  transactionTableHeaderStyle,
+  transactionTableHeader,
   hiddenOnSmallVisibleOnMedium,
   hiddenOnSmallAndMediumVisibleOnLarge,
 } from '../../comps/contexts/style';
@@ -24,7 +24,7 @@ const TransactionTable = ({ transactions, tokenAddressToName }) => {
 
   return (
     <div className={transactionTableContainerStyle}>
-      <div className={transactionTableHeaderStyle(darkMode)}>
+      <div className={transactionTableHeader(darkMode)}>
         <div>Time</div>
         <div className={hiddenOnSmallVisibleOnMedium}>Amount</div>
         <div className={hiddenOnSmallAndMediumVisibleOnLarge}>Sender Profile</div>
